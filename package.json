@@ -1,52 +1,55 @@
 {
   "name": "drag-import-relative-path",
+  "displayName": "Drag Import Relative Path",
+  "description": "",
   "publisher": "ElecTreeFrying",
+  "version": "0.0.1",
   "author": {
     "name": "John James Ermitaño",
     "email": "jjgermitano@gmail.com"
   },
-  "displayName": "Drag Import Relative Path",
-  "description": "",
-  "version": "0.0.1",
   "icon": "assets/github.png",
   "engines": {
     "vscode": "^1.70.0"
   },
-  "categories": [
-    "Other"
-  ],
-  "homepage": "https://github.com/ElecTreeFrying/auto-import-relative-path/blob/master/README.md",
+  "homepage": "https://github.com/ElecTreeFrying/drag-import-relative-path/blob/master/README.md",
   "repository": {
     "type": "git",
-    "url": "https://github.com/ElecTreeFrying/auto-import-relative-path.git"
+    "url": "https://github.com/ElecTreeFrying/drag-import-relative-path.git"
   },
   "bugs": {
     "email": "electreefrying.git@gmail.com",
-    "url": "https://github.com/ElecTreeFrying/auto-import-relative-path/issues"
+    "url": "https://github.com/ElecTreeFrying/drag-import-relative-path/issues"
   },
-  "license": "MIT",
   "galleryBanner": {
     "color": "#494949",
     "theme": "dark"
   },
+  "license": "MIT",
+  "categories": ["Other"],
   "keywords": [
-    "drag",
     "drag import",
-    "relative",
-    "auto",
+    "drag and drop import",
+    "relative import",
+    "auto import",
+    "relative path",
+    "drag",
     "import",
     "path",
+    "relative",
+    "angular",
+    "react",
+    "vue",
     "javascript",
+    "typescript",
     "css",
+    "scss",
     "html",
     "markdown"
   ],
-  "activationEvents": [
-    "*"
-  ],
+  "activationEvents": ["*"],
   "main": "./out/extension.js",
   "contributes": {
-    "commands": [],
     "configuration": [
       {
         "title": "Auto Import Relative Path",
