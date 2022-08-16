@@ -1,55 +1,99 @@
 {
   "name": "drag-import-relative-path",
-	"publisher": "ElecTreeFrying",
-	"author": {
-		"name": "John James Ermitaño",
-		"email": "jjgermitano@gmail.com"
-	},
+  "publisher": "ElecTreeFrying",
+  "author": {
+    "name": "John James Ermitaño",
+    "email": "jjgermitano@gmail.com"
+  },
   "displayName": "Drag Import Relative Path",
   "description": "",
   "version": "0.0.1",
-	"icon": "images/github.png",
+  "icon": "assets/github.png",
   "engines": {
     "vscode": "^1.70.0"
   },
   "categories": [
     "Other"
   ],
-	"homepage": "https://github.com/ElecTreeFrying/auto-import-relative-path/blob/master/README.md",
-	"repository": {
-		"type": "git",
-		"url": "https://github.com/ElecTreeFrying/auto-import-relative-path.git"
-	},
-	"bugs": {
-		"email": "electreefrying.git@gmail.com",
-		"url": "https://github.com/ElecTreeFrying/auto-import-relative-path/issues"
-	},
-	"license": "MIT",
-	"galleryBanner": {
-		"color": "#494949",
-		"theme": "dark"
-	},
-	"keywords": [
+  "homepage": "https://github.com/ElecTreeFrying/auto-import-relative-path/blob/master/README.md",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ElecTreeFrying/auto-import-relative-path.git"
+  },
+  "bugs": {
+    "email": "electreefrying.git@gmail.com",
+    "url": "https://github.com/ElecTreeFrying/auto-import-relative-path/issues"
+  },
+  "license": "MIT",
+  "galleryBanner": {
+    "color": "#494949",
+    "theme": "dark"
+  },
+  "keywords": [
     "drag",
-		"drag import",
-		"relative",
-		"auto",
-		"import",
-		"path",
-		"javascript",
-		"css",
-		"html",
-		"markdown"
-	],
+    "drag import",
+    "relative",
+    "auto",
+    "import",
+    "path",
+    "javascript",
+    "css",
+    "html",
+    "markdown"
+  ],
   "activationEvents": [
-    "onCommand:drag-import-relative-path.helloWorld"
+    "*"
   ],
   "main": "./out/extension.js",
   "contributes": {
-    "commands": [
+    "commands": [],
+    "configuration": [
       {
-        "command": "drag-import-relative-path.helloWorld",
-        "title": "Drag Import: Activate"
+        "title": "Auto Import Relative Path",
+        "properties": {
+          "general.disableNotifications": {
+            "title": "Disable all notifications",
+            "description": "Disable all notifications on file drop to active pane.",
+            "type": "boolean",
+            "default": true
+          },
+          "general.preserveFileExtension": {
+            "title": "Preserve file extension",
+            "description": "Preserve file extension in relative path.",
+            "type": "boolean",
+            "default": false
+          },
+          "importStatements.javascript.javascriptImportStyle": {
+            "title": "Javascript (.ts)/React Javascript(.tsx) import style",
+            "description": "",
+            "type": "string",
+            "default": "import name from '_relativePath_';",
+            "enum": [
+              "import name from '_relativePath_';",
+              "import { name } from '_relativePath_';",
+              "import { default as name } from '_relativePath_';",
+              "import * as name from '_relativePath_';",
+              "import '_relativePath_';",
+              "var name = require('_relativePath_');",
+              "const name = require('_relativePath_');",
+              "var name = import('_relativePath_');",
+              "const name = import('_relativePath_');"
+            ]
+          },
+          "importStatements.javascript.typescriptImportStyle": {
+            "title": "Typescript (.ts)/React Typescript(.tsx) import style",
+            "description": "",
+            "type": "string",
+            "default": "import { name } from '_relativePath_';",
+            "enum": [
+              "import name from '_relativePath_';",
+              "import { name } from '_relativePath_';",
+              "import { default as name } from '_relativePath_';",
+              "import * as name from '_relativePath_';",
+              "import '_relativePath_';"
+            ]
+          }
+        }
       }
     ]
   },
@@ -62,16 +106,21 @@
     "test": "node ./out/test/runTest.js"
   },
   "devDependencies": {
-    "@types/vscode": "^1.70.0",
     "@types/glob": "^7.2.0",
+    "@types/lodash": "^4.14.182",
     "@types/mocha": "^9.1.1",
     "@types/node": "16.x",
+    "@types/vscode": "^1.70.0",
     "@typescript-eslint/eslint-plugin": "^5.31.0",
     "@typescript-eslint/parser": "^5.31.0",
+    "@vscode/test-electron": "^2.1.5",
     "eslint": "^8.20.0",
     "glob": "^8.0.3",
     "mocha": "^10.0.0",
-    "typescript": "^4.7.4",
-    "@vscode/test-electron": "^2.1.5"
+    "typescript": "^4.7.4"
+  },
+  "dependencies": {
+    "lodash": "^4.17.21",
+    "relative": "^3.0.2"
   }
 }
