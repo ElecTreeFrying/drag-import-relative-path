@@ -1,71 +1,178 @@
-# drag-import-relative-path README
+# Drag Import Relative Path (vscode extension)
 
-This is the README for your extension "drag-import-relative-path". After writing up a brief description, we recommend including the following sections.
+[![lorem_ipsum_dolor_sit_amet][version-badge]][package]
+[![lorem_ipsum_dolor_sit_amet][downloads-badge]][package]
+[![lorem_ipsum_dolor_sit_amet][installs-badge]][package]
+[![lorem_ipsum_dolor_sit_amet][rating-badge]][package]
+[![lorem_ipsum_dolor_sit_amet][stars-badge]][package]
+
+[version-badge]: https://vsmarketplacebadges.dev/version/ElecTreeFrying.auto-import.svg
+[downloads-badge]: https://vsmarketplacebadges.dev/downloads-short/ElecTreeFrying.auto-import.svg
+[installs-badge]: https://vsmarketplacebadges.dev/installs-short/ElecTreeFrying.auto-import.svg
+[rating-badge]: https://vsmarketplacebadges.dev/rating-short/ElecTreeFrying.auto-import.svg
+[stars-badge]: https://vsmarketplacebadges.dev/rating-star/ElecTreeFrying.auto-import.svg
+[package]: https://marketplace.visualstudio.com/items?itemName=ElecTreeFrying.auto-import
+
+Auto import relative path [extension] for [VS Code]. Auto import relative path without typing long and tedious import statements and file paths.
+
+[VS Code]: https://code.visualstudio.com/
+[extension]: https://marketplace.visualstudio.com/VSCode
+
+*This extension is an alternative solution of drag and drop import that is currently not available in VS Code.*
+
+> Drag and drop to import files in JS! [#61667][0] </br> 
+> Allow to add file reference with drag and drop. [#5240][1]
+
+[0]: https://github.com/microsoft/vscode/issues/61667
+[1]: https://github.com/microsoft/vscode/issues/5240
 
 ## Features
 
-Describe specific features of your extension including screenshots of your extension in action. Image paths are relative to this README file.
+* [Configure import styles](#import-statements--javascript)
+* [Usage](#usage)
+* [Import to cursor](#Import-to-cursor)
+* [Import to bottom](#Import-to-bottom)
+* [Import to top](#Import-to-top)
+* _[Keybindings]_
+* _[HTML Support]_
+* _[Markdown Support]_
 
-For example if there is an image subfolder under your extension project workspace:
+[Keybindings]: https://github.com/ElecTreeFrying/auto-import-relative-path/blob/master/DEMO.md#keybindings
+[HTML Support]: https://github.com/ElecTreeFrying/auto-import-relative-path/blob/master/DEMO.md#html-support
+[Markdown Support]: https://github.com/ElecTreeFrying/auto-import-relative-path/blob/master/DEMO.md#markdown-support
 
-\!\[feature X\]\(images/feature-x.png\)
+## Supported file types
 
-> Tip: Many popular extensions utilize animations. This is an excellent way to show off your extension! We recommend short, focused animations that are easy to follow.
+| Markup Language | Programming Language |  Stylesheet  |
+| :-------------: | :------------------: | :----------: |
+|      .html      | .js, .jsx, .ts, .tsx |     .css     |
+|       .md       |                      | .scss, .sass |
+|                 |                      |    .less     |
 
-## Requirements
+## Usage
 
-If you have any requirements or dependencies, add a section describing those and how to install and configure them.
+1. `Ctrl+Shift+A` a file in explorer → `Ctrl+I` in your editor tab. [demo][usage-example-1]
+2. or `Alt+D` a file in explorer to automatically import in editor tab. [demo][usage-example-2]
 
-## Extension Settings
+## Valid Imports
 
-Include if your extension adds any VS Code settings through the `contributes.configuration` extension point.
 
-For example:
+|      Import destination      | Valid filetypes                           | References    |
+| :--------------------------: | :---------------------------------------- | :------------ |
+|           `.html`            | `.js`, `.css`, supported image file types | [(demo)][demo1] |
+|            `.md`             | supported image file types                | [(demo)][demo2] |
+| `.js`, `.jsx`, `.ts`, `.tsx` | filetype itself                           | [(demo)][demo3] |
+|            `.css`            | filetype itself                           | [(demo)][demo3] |
+|  `.scss`, `.sass`, `.less`   | `.CSS`, filetype itself                   | [(demo)][demo3] |
 
-This extension contributes the following settings:
 
-* `myExtension.enable`: Enable/disable this extension.
-* `myExtension.thing`: Set to `blah` to do something.
+[demo1]: https://github.com/ElecTreeFrying/auto-import-relative-path/blob/master/DEMO.md#html-support
+[demo2]: https://github.com/ElecTreeFrying/auto-import-relative-path/blob/master/DEMO.md#markdown-support
+[demo3]: https://github.com/ElecTreeFrying/auto-import-relative-path/blob/master/DEMO.md
 
-## Known Issues
+## Configuration Settings
 
-Calling out known issues can help limit users opening duplicate issues against your extension.
+### General settings
 
-## Release Notes
+* `quoteStyle`: Select quote style for relative import path. *(double/single quote)*
+* `importType`: Paste import on selected line, at the top or bottom of the import list.
+* `addSemicolon`: Toggle include semicolon at the end of import statement.
+* `disableNotifications`: Disable all notifications.
 
-Users appreciate release notes as you update your extension.
+### Import statements > Javascript
 
-### 1.0.0
+* `importStatements.javascript.jsSupport`: Select **.js** import style.
+* `importStatements.javascript.jsxSupport`: Select **.jsx** import style.
+* `importStatements.javascript.withExtnameJS`: Include file type at the end of relative import path.
 
-Initial release of ...
+### Import statements > Typescript
 
-### 1.0.1
+* `importStatements.typescript.tsSupport`: Select **.ts** import style.
+* `importStatements.typescript.tsxSupport`: Select **.tsx** import style.
+* `importStatements.typescript.withExtnameTS`: Include file type at the end of relative import path.
+* `importStatements.typescript.addExportName`: Toggle component name in import statement. **(Angular feature)**
 
-Fixed issue #.
+### Import statements > Stylesheet
 
-### 1.1.0
+* `importStatements.stylesheet.cssSupport`: Select **.css** import style.
+* `importStatements.stylesheet.scssSupport`: Select **.scss** import style.
+* `importStatements.stylesheet.lessSupport`: Select **.less** import style.
+* `importStatements.stylesheet.withExtnameCSS`: Include file type at the end of relative import path.
 
-Added features X, Y, and Z.
+### Import statements > HTML
 
----
+* `importStatements.html.htmlScriptSupport`: Select script import style for HTML.
+* `importStatements.html.htmlStylesheetSupport`: Select stylesheet import style for HTML.
 
-## Following extension guidelines
+### Import statements > Markdown
 
-Ensure that you've read through the extensions guidelines and follow the best practices for creating your extension.
+* `importStatements.markdown.markdownSupport`: Select **.md** import style.
+* `importStatements.markdown.markdownImageSupport`: Select import style for image import in markdown.
 
-* [Extension Guidelines](https://code.visualstudio.com/api/references/extension-guidelines)
+### Settings Preview
 
-## Working with Markdown
+![extension-settings-preview](images/settings.gif "auto import relative path extension settings preview")
 
-You can author your README using Visual Studio Code. Here are some useful editor keyboard shortcuts:
+## Demo
 
-* Split the editor (`Cmd+\` on macOS or `Ctrl+\` on Windows and Linux).
-* Toggle preview (`Shift+Cmd+V` on macOS or `Shift+Ctrl+V` on Windows and Linux).
-* Press `Ctrl+Space` (Windows, Linux, macOS) to see a list of Markdown snippets.
+### Import to cursor
 
-## For more information
+1. `Ctrl+Shift+A` a file in explorer → `Ctrl+I` in your editor tab.
 
-* [Visual Studio Code's Markdown Support](http://code.visualstudio.com/docs/languages/markdown)
-* [Markdown Syntax Reference](https://help.github.com/articles/markdown-basics/)
+### Import to bottom
 
-**Enjoy!**
+1. `Ctrl+Shift+A` a file in explorer → `Ctrl+I` in your editor tab.
+
+### Import to top
+
+1. `Ctrl+Shift+A` a file in explorer → `Ctrl+I` in your editor tab.
+
+## Installation
+
+  1. Install VS Code v1.57.0 or higher
+  2. Launch Visual Studio Code
+  3. Enter command `Ctrl+Shift+P` (Windows, Linux) or `Cmd+Shift+P` (OSX)
+  4. Select → `Extensions: Install Extensions`.
+  5. Choose **Auto Import Relative Path** by _ElecTreeFrying_
+  6. Reload Visual Studio Code
+
+## Changelog
+
+See [CHANGELOG] for more information.
+
+[CHANGELOG]: https://github.com/ElecTreeFrying/auto-import-relative-path/blob/master/CHANGELOG.md
+
+## Contributing
+
+* File bugs, or any feature requests in [GitHub Issues].
+* Leave a review on [Visual Studio Marketplace].
+
+[Github Issues]: https://github.com/ElecTreeFrying/auto-import-relative-path/issues
+[Visual Studio Marketplace]: https://marketplace.visualstudio.com/items?itemName=ElecTreeFrying.auto-import&ssr=false#review-details
+
+## Support
+
+### Donate by Cryptocurrencies
+
+| Coin | Address                                    |                       |
+| :--- | :----------------------------------------- | :-------------------- |
+| BTC  | bc1qtp9ch0uaxavdxv7jujtzfhtyxep06wccla3m8k | Native BTC Blockchain |
+| ETH  | 0x9605e41544789E31Aa3a17Ff1eCfC5FA93f11337 | ERC20                 |
+| USDT | 0x9605e41544789E31Aa3a17Ff1eCfC5FA93f11337 | ERC20                 |
+| USDC | 0x9605e41544789E31Aa3a17Ff1eCfC5FA93f11337 | ERC20                 |
+
+## Related
+
+### More extensions of mine.
+
+* [Visual Studio Code]
+* [Atom]
+
+[Visual Studio Code]: https://marketplace.visualstudio.com/publishers/ElecTreeFrying
+[Atom]: https://atom.io/users/ElecTreeFrying
+
+## License
+
+[MIT]
+
+[MIT]: https://marketpl

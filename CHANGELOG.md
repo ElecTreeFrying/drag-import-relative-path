@@ -1,9 +1,18 @@
-# Change Log
+# Changelog
 
-All notable changes to the "drag-import-relative-path" extension will be documented in this file.
+## v0.1.0 (2022-8-17)
 
-Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how to structure this file.
+- Published extension in marketplace
 
-## [Unreleased]
+### Added
 
-- Initial release
+- Javascript support
+- React Javascript support
+- Typescript support
+- React Typescript support
+- HTML/Markdown support
+- CSS/SCSS/SASS/LESS support
+
+### To do
+
+- Add support to more languages.
