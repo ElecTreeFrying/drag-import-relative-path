@@ -1,8 +1,13 @@
 import * as vscode from 'vscode';
 
 import * as configList from '../providers/config-list';
-import { ConfigItem } from '../interfaces';
+import { ConfigItem } from '../model';
 
+/**
+ * Returns CSS SnippetString import style.
+ * @param {string} relativePath Calculated relative path from dragged file and text editor.
+ * @returns CSS SnippetString SnippetString import style.
+ */
 export function getCSSImport(relativePath: string): vscode.SnippetString {
 
   let configValue = vscode.workspace.getConfiguration('importStatements.styleSheet').get('cssImportStyle');
@@ -16,6 +21,11 @@ export function getCSSImport(relativePath: string): vscode.SnippetString {
 
 }
 
+/**
+ * Returns SASS/SCSS SnippetString import style.
+ * @param {string} relativePath Calculated relative path from dragged file and text editor.
+ * @returns SASS/SCSS SnippetString SnippetString import style.
+ */
 export function getSCSSSASSSImport(relativePath: string): vscode.SnippetString {
 
   let configValue = vscode.workspace.getConfiguration('importStatements.styleSheet').get('scssSassImportStyle');
@@ -31,6 +41,11 @@ export function getSCSSSASSSImport(relativePath: string): vscode.SnippetString {
 
 }
 
+/**
+ * Returns LESS SnippetString import style.
+ * @param {string} relativePath Calculated relative path from dragged file and text editor.
+ * @returns LESS SnippetString SnippetString import style.
+ */
 export function getLESSImport(relativePath: string): vscode.SnippetString {
 
   let configValue = vscode.workspace.getConfiguration('importStatements.styleSheet').get('lessImportStyle');

@@ -1,5 +1,8 @@
-import { ConfigItem } from "../interfaces";
+import { ConfigItem } from "../model";
 
+/* 
+  Javascript/Javascript React/Typescript/Typescript React Import styles
+  */
 export const javascript: ConfigItem<number>[] = [
   { value: 0, description: "import name from '_relativePath_';" },
   { value: 1, description: "import { name } from '_relativePath_';" },
@@ -12,6 +15,9 @@ export const javascript: ConfigItem<number>[] = [
   { value: 8, description: "const name = import('_relativePath_');" }
 ];
 
+/* 
+  Javascript/Javascript React/Typescript/Typescript React Import styles
+  */
 export const typescript: ConfigItem<number>[] = [
   { value: 0, description: "import name from '_relativePath_';" },
   { value: 1, description: "import { name } from '_relativePath_';" },
@@ -20,11 +26,17 @@ export const typescript: ConfigItem<number>[] = [
   { value: 4, description: "import '_relativePath_';" },
 ];
 
+/* 
+  CSS Import styles
+  */
 export const css: ConfigItem<number>[] = [
   { value: 0, description: "@import '_relativePath_';" },
   { value: 1, description: "@import url('_relativePath_');" }
 ];
 
+/* 
+  CSS preprocessor, SASS/SCSS Import styles
+  */
 export const scssSass: ConfigItem<number>[] = [
   { value: 0, description: "@import '_relativePath_';" },
   { value: 1, description: "@import url('_relativePath_');" },
@@ -32,23 +44,38 @@ export const scssSass: ConfigItem<number>[] = [
   { value: 3, description: "@use '_relativePath_' as *;" }
 ];
 
+/* 
+  CSS preprocessor, LESS Import styles
+  */
 export const less: ConfigItem<number>[] = [
   { value: 0, description: "@import '_relativePath_';" },
   { value: 1, description: "@import (name) '_relativePath_';" }
 ];
 
+/* 
+  HTML scripts Import styles
+  */
 export const HTMLScript: ConfigItem<number>[] = [
   { value: 0, description: "<script type=\"text/javascript\" src=\"_relativePath_\"></script>" }
 ];
 
+/* 
+  HTML stylesheets Import styles
+  */
 export const HTMLStylesheet: ConfigItem<number>[] = [
   { value: 0, description: "<link href=\"_relativePath_\" rel=\"stylesheet\">" }
 ];
 
+/* 
+  Markdown Import styles
+  */
 export const markdown: ConfigItem<number>[] = [
   { value: 0, description: "![text](_relativePath_)" }
 ];
 
+/* 
+  Markdown (image) Import styles
+  */
 export const markdownImage: ConfigItem<number>[] = [
   { value: 0, description: "![alt-text](_relativePath_ \"Hover text\")" },
   { value: 1, description: "![alt-text][image] / [image]: _relativePath_ \"Hover text\"" }

@@ -1,8 +1,13 @@
 import * as vscode from 'vscode';
 
 import * as configList from '../providers/config-list';
-import { ConfigItem } from '../interfaces';
+import { ConfigItem } from '../model';
 
+/**
+ * Returns HTML script SnippetString import style.
+ * @param {string} relativePath Calculated relative path from dragged file and text editor.
+ * @returns HTML script SnippetString import style.
+ */
 export function getHTMLScriptImport(relativePath: string): string {
 
   let configValue = vscode.workspace.getConfiguration('importStatements.markup').get('htmlScriptImportStyle');
@@ -15,6 +20,11 @@ export function getHTMLScriptImport(relativePath: string): string {
 
 }
 
+/**
+ * Returns HTML stylesheet SnippetString import style.
+ * @param {string} relativePath Calculated relative path from dragged file and text editor.
+ * @returns HTML stylesheet SnippetString import style.
+ */
 export function getHTMLStylesheetImport(relativePath: string): string {
 
   let configValue = vscode.workspace.getConfiguration('importStatements.markup').get('htmlStyleSheetImportStyle');
@@ -27,6 +37,11 @@ export function getHTMLStylesheetImport(relativePath: string): string {
 
 }
 
+/**
+ * Returns Markdown SnippetString import style.
+ * @param {string} relativePath Calculated relative path from dragged file and text editor.
+ * @returns Markdown SnippetString import style.
+ */
 export function getMarkdownImport(relativePath: string): string {
 
   let configValue = vscode.workspace.getConfiguration('importStatements.markup').get('markdownImportStyle');
@@ -39,6 +54,11 @@ export function getMarkdownImport(relativePath: string): string {
 
 }
 
+/**
+ * Returns Markdown image SnippetString import style.
+ * @param {string} relativePath Calculated relative path from dragged file and text editor.
+ * @returns Markdown image SnippetString import style.
+ */
 export function getMarkdownImageImport(relativePath: string): string {
 
   let configValue = vscode.workspace.getConfiguration('importStatements.markup').get('markdownImageImportStyle');

@@ -1,5 +1,7 @@
+/* 
+  Utils barrel files
+  */
+export * from './file-extension';
+export * from './notify';
 export * from './relative-path';
 export * from './import-text';
-export * from './retrieve-config';
-export * from './common';
-export * from './notify';
