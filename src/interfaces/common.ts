@@ -4,6 +4,12 @@ export type FileExtensions = '.ts' | '.tsx' | '.js' | '.jsx'
 
 export type ImportTextOptions = 'script' | 'stylesheet' | 'markdown' | 'image';
 
+export enum NotifyType {
+  SameFilePath,
+  DifferentFileExtension,
+  NotSupported
+}
+
 export interface ConfigItem<T> {
   value: T;
   description: string;
