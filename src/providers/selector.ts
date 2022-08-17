@@ -2,15 +2,7 @@ import * as vscode from 'vscode';
 
 export const selectors: vscode.DocumentSelector = [
   {
-    language: 'plaintext',
-    scheme: 'file'
-  },
-  {
     language: 'javascript',
-    scheme: 'file'
-  },
-  {
-    language: 'typescript',
     scheme: 'file'
   },
   {
@@ -18,7 +10,35 @@ export const selectors: vscode.DocumentSelector = [
     scheme: 'file'
   },
   {
+    language: 'typescript',
+    scheme: 'file'
+  },
+  {
     language: 'typescriptreact',
     scheme: 'file'
   },
+  {
+    language: 'css',
+    scheme: 'file'
+  },
+  {
+    language: 'scss',
+    scheme: 'file'
+  },
+  {
+    language: 'sass',
+    scheme: 'file'
+  },
+  {
+    language: 'less',
+    scheme: 'file'
+  },
+  {
+    language: 'html',
+    scheme: 'file'
+  },
+  {
+    language: 'markdown',
+    scheme: 'file'
+  }
 ];

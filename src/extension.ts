@@ -1,41 +1,65 @@
 import * as vscode from 'vscode';
-import * as path from 'path';
 
-import { selectors } from './providers';
 import {
-  getImportText, getRelativePath,
-  disableNotifications, preserveFileExtension
+  getImportText, getRelativePath, getFileExt,
+  disableNotifications
 } from './utils';
+import { ImportTextOptions } from './interfaces';
+import { htmlSupported, markdownSupported, selectors } from './providers';
 
-class ReverseTextOnDropProvider implements vscode.DocumentDropEditProvider {
+class AutoImportOnDropProvider implements vscode.DocumentDropEditProvider {
 	async provideDocumentDropEdits(_document: vscode.TextDocument): Promise<vscode.DocumentDropEdit | undefined> {
 
-		const editor = vscode.window.activeTextEditor;
+    let importTextOption: ImportTextOptions = null;
+    const editor = vscode.window.activeTextEditor;
 
     if (!editor) return { insertText: undefined };
 
 		await vscode.commands.executeCommand('copyFilePath');
-		const dragFile = await vscode.env.clipboard.readText();
-		const dropFile = editor.document.uri.fsPath;
+		const dragFilePath = await vscode.env.clipboard.readText();
+		const dropFilePath = editor.document.uri.fsPath;
 
-    if (dropFile.toLowerCase() === dragFile.toLowerCase()) {
+    if (dragFilePath.toLowerCase() === dropFilePath.toLowerCase()) {
       disableNotifications || vscode.window.showWarningMessage(`Same file path.`);
   		return { insertText: undefined };
     }
 
-    if (path.parse(dropFile).ext !== path.parse(dragFile).ext) {
+    if (
+      (getFileExt(dragFilePath) !== getFileExt(dropFilePath)) 
+      && (getFileExt(dropFilePath) !== '.html' || getFileExt(dropFilePath) === '.md')
+    ) {
       disableNotifications || vscode.window.showErrorMessage(`Different file extension.`);
   		return { insertText: undefined };
     }
 
-    const importText = getImportText(
-      getRelativePath(dropFile, dragFile, {
-        preserveFileExt: preserveFileExtension
-      })
-    );
+    if (getFileExt(dragFilePath) === '.html' && getFileExt(dropFilePath) === '.html') {
+      disableNotifications || vscode.window.showWarningMessage(`Not supported.`);
+  		return { insertText: undefined };
+    }
 
-		const snippet = new vscode.SnippetString();
-		snippet.appendText([ importText ].join(''));
+    if (htmlSupported.includes(getFileExt(dragFilePath)) && getFileExt(dropFilePath) === '.html') {
+      importTextOption = getFileExt(dragFilePath) === '.js' ? 'script' : 'stylesheet';
+    }
+    if (!htmlSupported.includes(getFileExt(dragFilePath)) && getFileExt(dropFilePath) === '.html') {
+      disableNotifications || vscode.window.showWarningMessage(`Not supported.`);
+  		return { insertText: undefined };
+    }
+
+    if (markdownSupported.includes(getFileExt(dragFilePath)) && getFileExt(dropFilePath) === '.md') {
+      importTextOption = getFileExt(dragFilePath) === '.md' ? 'markdown' : 'image';
+    }
+    if (!markdownSupported.includes(getFileExt(dragFilePath)) && getFileExt(dropFilePath) === '.md') {
+      disableNotifications || vscode.window.showWarningMessage(`Not supported.`);
+  		return { insertText: undefined };
+    }
+    
+    const importText = getImportText(
+      getRelativePath(dropFilePath, dragFilePath, {
+        preserveFileExt: false
+      }),
+      dragFilePath,
+      importTextOption
+    );
 
 		return { insertText: importText };
 	}
@@ -43,6 +67,6 @@ class ReverseTextOnDropProvider implements vscode.DocumentDropEditProvider {
 
 export function activate(context: vscode.ExtensionContext) {
 	context.subscriptions.push(
-    vscode.languages.registerDocumentDropEditProvider(selectors, new ReverseTextOnDropProvider())
+    vscode.languages.registerDocumentDropEditProvider(selectors, new AutoImportOnDropProvider())
   );
 }

@@ -58,15 +58,15 @@
             "title": "Disable all notifications",
             "description": "Disable all notifications on file drop to active pane.",
             "type": "boolean",
-            "default": true
+            "default": false
           },
-          "general.preserveFileExtension": {
+          "importStatements.script.preserveFileExtension": {
             "title": "Preserve file extension",
             "description": "Preserve file extension in relative path.",
             "type": "boolean",
-            "default": false
+            "default": true
           },
-          "importStatements.javascript.javascriptImportStyle": {
+          "importStatements.script.javascriptImportStyle": {
             "title": "Javascript (.ts)/React Javascript(.tsx) import style",
             "description": "",
             "type": "string",
@@ -83,7 +83,7 @@
               "const name = import('_relativePath_');"
             ]
           },
-          "importStatements.javascript.typescriptImportStyle": {
+          "importStatements.script.typescriptImportStyle": {
             "title": "Typescript (.ts)/React Typescript(.tsx) import style",
             "description": "",
             "type": "string",
@@ -94,6 +94,81 @@
               "import { default as name } from '_relativePath_';",
               "import * as name from '_relativePath_';",
               "import '_relativePath_';"
+            ]
+          },
+          "importStatements.styleSheet.preserveFileExtension": {
+            "title": "Preserve file extension",
+            "description": "Preserve file extension in relative path.",
+            "type": "boolean",
+            "default": false
+          },
+          "importStatements.styleSheet.cssImportStyle": {
+            "title": "CSS import style",
+            "description": "",
+            "type": "string",
+            "default": "@import '_relativePath_';",
+            "enum": [
+              "@import '_relativePath_';",
+              "@import url('_relativePath_');"
+            ]
+          },
+          "importStatements.styleSheet.scssSassImportStyle": {
+            "title": "SCSS/SASS import style",
+            "description": "",
+            "type": "string",
+            "default": "@import '_relativePath_';",
+            "enum": [
+              "@import '_relativePath_';",
+              "@import url('_relativePath_');",
+              "@use '_relativePath_';",
+              "@use '_relativePath_' as *;"
+            ]
+          },
+          "importStatements.styleSheet.lessImportStyle": {
+            "title": "LESS import style",
+            "description": "",
+            "type": "string",
+            "default": "@import '_relativePath_';",
+            "enum": [
+              "@import '_relativePath_';",
+              "@import (name) '_relativePath_';"
+            ]
+          },
+          "importStatements.markup.htmlScriptImportStyle": {
+            "title": "HTML import style for script",
+            "description": "",
+            "type": "string",
+            "default": "<script type=\"text/javascript\" src=\"_relativePath_\"></script>",
+            "enum": [
+              "<script type=\"text/javascript\" src=\"_relativePath_\"></script>"
+            ]
+          },
+          "importStatements.markup.htmlStyleSheetImportStyle": {
+            "title": "HTML import style from stylesheet",
+            "description": "",
+            "type": "string",
+            "default": "<link href=\"_relativePath_\" rel=\"stylesheet\">",
+            "enum": [
+              "<link href=\"_relativePath_\" rel=\"stylesheet\">"
+            ]
+          },
+          "importStatements.markup.markdownImportStyle": {
+            "title": "Markdown import style",
+            "description": "",
+            "type": "string",
+            "default": "![text](_relativePath_)",
+            "enum": [
+              "![text](_relativePath_)"
+            ]
+          },
+          "importStatements.markup.markdownImageImportStyle": {
+            "title": "Markdown image import style",
+            "description": "",
+            "type": "string",
+            "default": "![alt-text](_relativePath_ \"Hover text\")",
+            "enum": [
+              "![alt-text](_relativePath_ \"Hover text\")",
+              "![alt-text][image] / [image]: _relativePath_ \"Hover text\""
             ]
           }
         }
