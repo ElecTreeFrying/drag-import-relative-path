@@ -3,7 +3,7 @@
   "displayName": "Drag Import Relative Path",
   "description": "Drag and drop import relative path extension",
   "publisher": "ElecTreeFrying",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "author": {
     "name": "John James Ermitaño",
     "email": "jjgermitano@gmail.com"
@@ -89,14 +89,20 @@
             "description": "Disable all notifications on file drop to active pane.",
             "type": "boolean",
             "default": false,
-            "enum": [ true, false ]
+            "enum": [
+              true,
+              false
+            ]
           },
           "importStatements.script.preserveScriptFileExtension": {
             "title": "Preserve file extension",
             "description": "Preserve file extension in relative path.",
             "type": "boolean",
             "default": false,
-            "enum": [ true, false ]
+            "enum": [
+              true,
+              false
+            ]
           },
           "importStatements.script.javascriptImportStyle": {
             "title": "Javascript (.ts)/React Javascript(.tsx) import style",
@@ -133,7 +139,10 @@
             "description": "Preserve file extension in relative path.",
             "type": "boolean",
             "default": false,
-            "enum": [ true, false ]
+            "enum": [
+              true,
+              false
+            ]
           },
           "importStatements.styleSheet.cssImportStyle": {
             "title": "CSS import style",
