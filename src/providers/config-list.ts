@@ -35,6 +35,13 @@ export const css: ConfigItem<number>[] = [
 ];
 
 /* 
+  CSS Import styles
+  */
+export const cssImage: ConfigItem<number>[] = [
+  { value: 0, description: "url('_relativePath_')" }
+];
+
+/* 
   CSS preprocessor, SCSS Import styles
   */
 export const scss: ConfigItem<number>[] = [
@@ -42,6 +49,13 @@ export const scss: ConfigItem<number>[] = [
   { value: 1, description: "@import url('_relativePath_');" },
   { value: 2, description: "@use '_relativePath_';" },
   { value: 3, description: "@use '_relativePath_' as *;" }
+];
+
+/* 
+  CSS preprocessor, SCSS Import styles
+  */
+export const scssImage: ConfigItem<number>[] = [
+  { value: 0, description: "url('_relativePath_')" }
 ];
 
 /* 

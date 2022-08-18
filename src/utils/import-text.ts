@@ -45,21 +45,19 @@ export function getImportText(
       /* 
         SnippetString CSS import styles
        */
-      return importText.getCSSImport(relativePath + getFileExt(dragFilePath));
+      switch (importTextOption) {
+        case 'image':  return importText.getCSSImageImport(relativePath + getFileExt(dragFilePath));
+        default:       return importText.getCSSImport(relativePath + getFileExt(dragFilePath));
+      }
     }
     case '.scss': {
-      let fileType = null;
-      if (getFileExt(dragFilePath) === '.css') {
-        // Auto preserve file extension if file extension is CSS
-        fileType = getFileExt(dragFilePath);
-      } else {
-        fileType = preserveStylesheetFileExtension ? getFileExt(dragFilePath) : '';
-      }
-      
       /* 
         SnippetString SCSS import styles
-       */
-      return importText.getSCSSImport(relativePath + fileType);
+       */      
+      switch (importTextOption) {
+        case 'image':  return importText.getSCSSImageImport(relativePath + getScssFileExt(dragFilePath));
+        default:       return importText.getSCSSImport(relativePath + getScssFileExt(dragFilePath));
+      }
     }
     case '.html': {
       /* 
@@ -80,5 +78,19 @@ export function getImportText(
         case 'image':    return importText.getMarkdownImageImport(relativePath + getFileExt(dragFilePath));
       }
     }
+  }
+}
+
+/**
+ * Get SCSS file extension.
+ * @param {string} dragFilePath Dragged file path. 
+ * @returns CSS file extension if dragFilePath ext is .css else none
+ */
+function getScssFileExt(dragFilePath: string): string {
+  if (getFileExt(dragFilePath) === '.css') {
+    // Auto preserve file extension if file extension is CSS
+    return getFileExt(dragFilePath);
+  } else {
+    return preserveStylesheetFileExtension ? getFileExt(dragFilePath) : '';
   }
 }

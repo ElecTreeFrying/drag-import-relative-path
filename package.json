@@ -142,6 +142,15 @@
               "@import url('_relativePath_');"
             ]
           },
+          "importStatements.styleSheet.cssImageImportStyle": {
+            "title": "CSS import style",
+            "description": "",
+            "type": "string",
+            "default": "url('_relativePath_')",
+            "enum": [
+              "url('_relativePath_')"
+            ]
+          },
           "importStatements.styleSheet.scssImportStyle": {
             "title": "SCSS import style",
             "description": "",
@@ -152,6 +161,15 @@
               "@import url('_relativePath_');",
               "@use '_relativePath_';",
               "@use '_relativePath_' as *;"
+            ]
+          },
+          "importStatements.styleSheet.scssImageImportStyle": {
+            "title": "SCSS import style",
+            "description": "",
+            "type": "string",
+            "default": "url('_relativePath_')",
+            "enum": [
+              "url('_relativePath_')"
             ]
           },
           "importStatements.markup.htmlScriptImportStyle": {

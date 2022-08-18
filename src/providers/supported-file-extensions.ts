@@ -1,4 +1,4 @@
-import { FileExtensions, ImageFileExtensions, SupportedFileExtensions } from "../model";
+import { ImageFileExtensions, SupportedFileExtensions } from "../model";
 
 /* 
   Supported image files extensions 
@@ -6,16 +6,21 @@ import { FileExtensions, ImageFileExtensions, SupportedFileExtensions } from "..
 const supportedImages: ImageFileExtensions[] = [ '.gif', '.jpeg', '.jpg', '.png', '.webp' ];
 
 /* 
-  Supported import file types to HTML 
+  Supported import file extensions to HTML 
   */
 export const htmlSupported: SupportedFileExtensions[] = [ '.js', '.css', ...supportedImages ];
 
 /* 
-  Supported import file types to Markdown 
+  Supported import file extensions to Markdown 
   */
 export const markdownSupported: SupportedFileExtensions[] = [ '.md', ...supportedImages ];
 
 /* 
-  Supported import file types to Markdown 
+  Supported import file extensions to CSS 
   */
-export const scssSupported: FileExtensions[] = [ '.scss', '.css' ];
+export const cssSupported: SupportedFileExtensions[] = [ '.css', ...supportedImages ]
+
+/* 
+  Supported import file extensions to SCSS 
+  */
+export const scssSupported: SupportedFileExtensions[] = [ '.scss', '.css', ...supportedImages ];

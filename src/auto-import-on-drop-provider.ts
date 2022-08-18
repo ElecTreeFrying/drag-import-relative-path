@@ -2,7 +2,7 @@ import * as vscode from 'vscode';
 
 import { getImportText, getRelativePath, getFileExt, notify } from './utils';
 import { ImportTextOptions, NotifyType } from './model';
-import { htmlSupported, markdownSupported, scssSupported } from './providers';
+import { htmlSupported, markdownSupported, cssSupported, scssSupported } from './providers';
 
 /* 
   Drag and drop (DnD) handler
@@ -71,7 +71,6 @@ export class AutoImportOnDropProvider implements vscode.DocumentDropEditProvider
       Adds importTextOption, with respect to the given dragged file extension
       */
     if (markdownSupported.includes(getFileExt(dragFilePath)) && getFileExt(dropFilePath) === '.md') {
-      importTextOption = getFileExt(dragFilePath) === '.md' ? 'markdown' : 'image';
       switch (getFileExt(dragFilePath)) {
         case '.md': { importTextOption = 'markdown'; }
         default:    { importTextOption = 'image'; }
@@ -85,9 +84,25 @@ export class AutoImportOnDropProvider implements vscode.DocumentDropEditProvider
     }
 
     /* 
-      Catches unsupported DnD file extension to scss
+      Adds importTextOption, with respect to the given dragged file extension
       */
-    if (!scssSupported.includes(getFileExt(dragFilePath)) && getFileExt(dropFilePath) === '.scss') {
+    if (
+      (cssSupported.includes(getFileExt(dragFilePath)) && getFileExt(dropFilePath) === '.css')
+      || (scssSupported.includes(getFileExt(dragFilePath)) && getFileExt(dropFilePath) === '.scss')
+    ) {
+      switch (getFileExt(dragFilePath)) {
+        case '.css':
+        case '.scss': { importTextOption = null; }
+        default:      { importTextOption = 'image'; }
+      }
+    }
+    /* 
+      Catches unsupported DnD file extension to css and scss
+      */
+    if (
+      (!cssSupported.includes(getFileExt(dragFilePath)) && getFileExt(dropFilePath) === '.css')
+      || (!scssSupported.includes(getFileExt(dragFilePath)) && getFileExt(dropFilePath) === '.scss')
+    ) {
       return notify(NotifyType.NotSupported);
     }
     
