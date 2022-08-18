@@ -45,8 +45,7 @@ export function getImportText(
       /* 
         SnippetString CSS import styles
        */
-      const fileType = preserveStylesheetFileExtension ? getFileExt(dragFilePath) : '';
-      return importText.getCSSImport(relativePath + fileType);
+      return importText.getCSSImport(relativePath + getFileExt(dragFilePath));
     }
     case '.scss':
     case '.sass': {
@@ -61,8 +60,9 @@ export function getImportText(
         HTML import styles
        */
       switch (importTextOption) {
-        case 'script':     return importText.getHTMLScriptImport(relativePath);
-        case 'stylesheet': return importText.getHTMLStylesheetImport(relativePath);
+        case 'script':     return importText.getHTMLScriptImport(relativePath + getFileExt(dragFilePath));
+        case 'image':      return importText.getHTMLImageImport(relativePath + getFileExt(dragFilePath));
+        case 'stylesheet': return importText.getHTMLStylesheetImport(relativePath + getFileExt(dragFilePath));
       }
     }
     case '.md': {
@@ -70,8 +70,8 @@ export function getImportText(
         Markdown import styles
        */
       switch (importTextOption) {
-        case 'markdown': return importText.getMarkdownImport(relativePath);
-        case 'image':    return importText.getMarkdownImageImport(relativePath);
+        case 'markdown': return importText.getMarkdownImport(relativePath + getFileExt(dragFilePath));
+        case 'image':    return importText.getMarkdownImageImport(relativePath + getFileExt(dragFilePath));
       }
     }
   }
