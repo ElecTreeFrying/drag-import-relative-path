@@ -36,6 +36,7 @@ Drag and drop import relative path extension
 |              `.css`               | self                                           |
 |         `.scss`, `.sass`          | self,  `.css`                                  |
 
+![extension-demo](images/settings.gif "Drag import relative path extension demo")
 
 ## Extension Settings
 
@@ -98,10 +99,6 @@ Drag and drop import relative path extension
 * `importStatements.markup.markdownImageImportStyle`
   * `![alt-text](_relativePath_ "Hover text")` **→ default**
   * `![alt-text][image] / [image]: _relativePath_ "Hover text"`
-
-### Settings Preview
-
-![extension-settings-preview](images/settings.gif "auto import relative path extension settings preview")
 
 ## Installation
 
