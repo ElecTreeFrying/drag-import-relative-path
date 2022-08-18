@@ -19,22 +19,22 @@
   },
   "badges": [
     {
-      "url": "https://vsmarketplacebadge.apphb.com/version-short/Electreefrying.drag-import-relative-path.svg",
+      "url": "https://vsmarketplacebadge.apphb.com/version-short/Electreefrying.drag-import-relative-path.png",
       "description": "Version badge",
       "href": "https://marketplace.visualstudio.com/items?itemName=ElecTreeFrying.auto-import"
     },
     {
-      "url": "https://vsmarketplacebadges.dev/downloads-short/ElecTreeFrying.drag-import-relative-path.svg",
+      "url": "https://vsmarketplacebadges.dev/downloads-short/ElecTreeFrying.drag-import-relative-path.png",
       "description": "Downloads badge",
       "href": "https://marketplace.visualstudio.com/items?itemName=ElecTreeFrying.auto-import"
     },
     {
-      "url": "https://vsmarketplacebadges.dev/installs-short/ElecTreeFrying.drag-import-relative-path.svg",
+      "url": "https://vsmarketplacebadges.dev/installs-short/ElecTreeFrying.drag-import-relative-path.png",
       "description": "Installs badge",
       "href": "https://marketplace.visualstudio.com/items?itemName=ElecTreeFrying.auto-import"
     },
     {
-      "url": "https://vsmarketplacebadges.dev/rating-short/ElecTreeFrying.drag-import-relative-path.svg",
+      "url": "https://vsmarketplacebadges.dev/rating-short/ElecTreeFrying.drag-import-relative-path.png",
       "description": "Rating badge",
       "href": "https://marketplace.visualstudio.com/items?itemName=ElecTreeFrying.auto-import"
     }
