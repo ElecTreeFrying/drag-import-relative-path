@@ -2,7 +2,7 @@ import * as vscode from 'vscode';
 
 import { getImportText, getRelativePath, getFileExt, notify } from './utils';
 import { ImportTextOptions, NotifyType } from './model';
-import { htmlSupported, markdownSupported, scssSupported, selectors } from './providers';
+import { htmlSupported, markdownSupported, scssSupported } from './providers';
 
 /* 
   Drag and drop (DnD) handler
@@ -92,7 +92,7 @@ export class AutoImportOnDropProvider implements vscode.DocumentDropEditProvider
     }
     
     const importText = getImportText(
-      getRelativePath(dropFilePath, dragFilePath, { preserveFileExt: true }),
+      getRelativePath(dropFilePath, dragFilePath),
       dragFilePath,
       importTextOption
     );

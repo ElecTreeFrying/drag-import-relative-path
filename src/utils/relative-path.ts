@@ -1,21 +1,16 @@
 import * as path from 'path';
 import * as relative from 'relative';
 
-import { RelativePathOptions } from '../model';
-
 /**
  * Get calculated import style to append in editor.
  * @param {string} from Dragged file path.
  * @param {string} to Active text editor file path.
- * @param {RelativePathOptions} options Configured relative path option.
  * @returns Calculated relative path.
  */
-export function getRelativePath(from: string, to: string, options: RelativePathOptions): string {
+export function getRelativePath(from: string, to: string): string {
   const startChars = isSameDir(from, to) ? './' : '';
   const relativePath = toWindowsPath(relative(from, to));
-  return options.preserveFileExt
-    ? startChars + relativePath
-    : startChars + removeFileExt(relativePath);
+  return startChars + removeFileExt(relativePath);
 }
 
 /**
