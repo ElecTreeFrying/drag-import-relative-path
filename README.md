@@ -5,10 +5,10 @@
 [![lorem_ipsum_dolor_sit_amet][installs-badge]][package]
 [![lorem_ipsum_dolor_sit_amet][rating-badge]][package]
 
-[version-badge]: https://vsmarketplacebadges.dev/version/ElecTreeFrying.drag-import-relative-path.svg
-[downloads-badge]: https://vsmarketplacebadges.dev/downloads-short/ElecTreeFrying.drag-import-relative-path.svg
-[installs-badge]: https://vsmarketplacebadges.dev/installs-short/ElecTreeFrying.drag-import-relative-path.svg
-[rating-badge]: https://vsmarketplacebadges.dev/rating-short/ElecTreeFrying.drag-import-relative-path.svg
+[version-badge]: https://vsmarketplacebadges.dev/version/ElecTreeFrying.drag-import-relative-path.png
+[downloads-badge]: https://vsmarketplacebadges.dev/downloads-short/ElecTreeFrying.drag-import-relative-path.png
+[installs-badge]: https://vsmarketplacebadges.dev/installs-short/ElecTreeFrying.drag-import-relative-path.png
+[rating-badge]: https://vsmarketplacebadges.dev/rating-short/ElecTreeFrying.drag-import-relative-path.png
 [package]: https://marketplace.visualstudio.com/items?itemName=ElecTreeFrying.auto-import
 
 Drag and drop import relative path extension
