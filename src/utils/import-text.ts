@@ -55,7 +55,7 @@ export function getImportText(
         SnippetString SCSS import styles
        */      
       switch (importTextOption) {
-        case 'image':  return importText.getSCSSImageImport(relativePath + getScssFileExt(dragFilePath));
+        case 'image':  return importText.getSCSSImageImport(relativePath + getFileExt(dragFilePath));
         default:       return importText.getSCSSImport(relativePath + getScssFileExt(dragFilePath));
       }
     }
