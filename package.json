@@ -90,11 +90,11 @@
             "type": "boolean",
             "default": false
           },
-          "importStatements.script.preserveFileExtension": {
+          "importStatements.script.preserveScriptFileExtension": {
             "title": "Preserve file extension",
             "description": "Preserve file extension in relative path.",
             "type": "boolean",
-            "default": true
+            "default": false
           },
           "importStatements.script.javascriptImportStyle": {
             "title": "Javascript (.ts)/React Javascript(.tsx) import style",
@@ -126,7 +126,7 @@
               "import '_relativePath_';"
             ]
           },
-          "importStatements.styleSheet.preserveFileExtension": {
+          "importStatements.styleSheet.preserveStylesheetFileExtension": {
             "title": "Preserve file extension",
             "description": "Preserve file extension in relative path.",
             "type": "boolean",

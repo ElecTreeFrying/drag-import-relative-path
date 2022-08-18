@@ -31,6 +31,10 @@ export function getImportText(
         SnippetString Javascript/Javascript React import styles
        */
       const fileType = preserveScriptFileExtension ? getFileExt(dragFilePath) : '';
+
+      console.log('@@@ ', preserveScriptFileExtension);
+      console.log('@@@ ', getFileExt(dragFilePath));
+
       return importText.getJavascriptImport(relativePath + fileType);
     }
     case '.ts':
