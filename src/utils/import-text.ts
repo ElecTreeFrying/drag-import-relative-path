@@ -48,10 +48,17 @@ export function getImportText(
       return importText.getCSSImport(relativePath + getFileExt(dragFilePath));
     }
     case '.scss': {
+      let fileType = null;
+      if (getFileExt(dragFilePath) === '.css') {
+        // Auto preserve file extension if file extension is CSS
+        fileType = getFileExt(dragFilePath);
+      } else {
+        fileType = preserveStylesheetFileExtension ? getFileExt(dragFilePath) : '';
+      }
+      
       /* 
         SnippetString SCSS import styles
        */
-      const fileType = preserveStylesheetFileExtension ? getFileExt(dragFilePath) : '';
       return importText.getSCSSImport(relativePath + fileType);
     }
     case '.html': {

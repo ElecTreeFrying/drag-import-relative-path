@@ -2,7 +2,7 @@ import * as vscode from 'vscode';
 
 import { getImportText, getRelativePath, getFileExt, notify } from './utils';
 import { ImportTextOptions, NotifyType } from './model';
-import { htmlSupported, markdownSupported, selectors } from './providers';
+import { htmlSupported, markdownSupported, scssSupported, selectors } from './providers';
 
 /* 
   Drag and drop (DnD) handler
@@ -38,7 +38,7 @@ class AutoImportOnDropProvider implements vscode.DocumentDropEditProvider {
      */
     if (
       (getFileExt(dragFilePath) !== getFileExt(dropFilePath)) 
-      && (getFileExt(dropFilePath) !== '.html' || getFileExt(dropFilePath) === '.md')
+      && ![ '.html', '.md', '.scss' ].includes(getFileExt(dropFilePath))
     ) {
   		return notify(NotifyType.DifferentFileExtension);
     }
@@ -83,11 +83,16 @@ class AutoImportOnDropProvider implements vscode.DocumentDropEditProvider {
     if (!markdownSupported.includes(getFileExt(dragFilePath)) && getFileExt(dropFilePath) === '.md') {
   		return notify(NotifyType.NotSupported);
     }
+
+    /* 
+      Catches unsupported DnD file extension to scss
+     */
+    if (!scssSupported.includes(getFileExt(dragFilePath)) && getFileExt(dropFilePath) === '.scss') {
+  		return notify(NotifyType.NotSupported);
+    }
     
     const importText = getImportText(
-      getRelativePath(dropFilePath, dragFilePath, {
-        preserveFileExt: false
-      }),
+      getRelativePath(dropFilePath, dragFilePath, { preserveFileExt: true }),
       dragFilePath,
       importTextOption
     );
