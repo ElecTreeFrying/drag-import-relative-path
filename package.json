@@ -88,21 +88,13 @@
             "title": "Disable all notifications",
             "description": "Disable all notifications on file drop to active pane.",
             "type": "boolean",
-            "default": false,
-            "enum": [
-              true,
-              false
-            ]
+            "default": false
           },
           "importStatements.script.preserveScriptFileExtension": {
             "title": "Preserve file extension",
             "description": "Preserve file extension in relative path.",
             "type": "boolean",
-            "default": false,
-            "enum": [
-              true,
-              false
-            ]
+            "default": false
           },
           "importStatements.script.javascriptImportStyle": {
             "title": "Javascript (.ts)/React Javascript(.tsx) import style",
@@ -138,11 +130,7 @@
             "title": "Preserve file extension",
             "description": "Preserve file extension in relative path.",
             "type": "boolean",
-            "default": false,
-            "enum": [
-              true,
-              false
-            ]
+            "default": false
           },
           "importStatements.styleSheet.cssImportStyle": {
             "title": "CSS import style",
