@@ -54,7 +54,11 @@ class AutoImportOnDropProvider implements vscode.DocumentDropEditProvider {
       Adds importTextOption, with respect to the given dragged file extension
      */
     if (htmlSupported.includes(getFileExt(dragFilePath)) && getFileExt(dropFilePath) === '.html') {
-      importTextOption = getFileExt(dragFilePath) === '.js' ? 'script' : 'stylesheet';
+      switch (getFileExt(dragFilePath)) {
+        case '.js':  { importTextOption = 'script'; }
+        case '.css': { importTextOption = 'stylesheet'; }
+        default:     { importTextOption = 'image'; }
+      }
     }
     /* 
       Catches unsupported DnD file extension to html
@@ -68,6 +72,10 @@ class AutoImportOnDropProvider implements vscode.DocumentDropEditProvider {
      */
     if (markdownSupported.includes(getFileExt(dragFilePath)) && getFileExt(dropFilePath) === '.md') {
       importTextOption = getFileExt(dragFilePath) === '.md' ? 'markdown' : 'image';
+      switch (getFileExt(dragFilePath)) {
+        case '.md': { importTextOption = 'markdown'; }
+        default:    { importTextOption = 'image'; }
+      }
     }
     /* 
       Catches unsupported DnD file extension to html

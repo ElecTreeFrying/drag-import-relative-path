@@ -21,6 +21,23 @@ export function getHTMLScriptImport(relativePath: string): string {
 }
 
 /**
+ * Returns HTML image SnippetString import style.
+ * @param {string} relativePath Calculated relative path from dragged file and text editor.
+ * @returns HTML image SnippetString import style.
+ */
+ export function getHTMLImageImport(relativePath: string): string {
+
+  let configValue = vscode.workspace.getConfiguration('importStatements.markup').get('htmlImageImportStyle');
+      configValue = configList.HTMLImage.find((config: ConfigItem<number>) => config.description === configValue).value;
+
+  switch (configValue as number) {
+    case 0:  return `<img src=\"${relativePath}\" alt=\"sample\">`;
+    default: return `<img src=\"${relativePath}\" alt=\"sample\">`;
+  }
+
+}
+
+/**
  * Returns HTML stylesheet SnippetString import style.
  * @param {string} relativePath Calculated relative path from dragged file and text editor.
  * @returns HTML stylesheet SnippetString import style.
@@ -66,7 +83,7 @@ export function getMarkdownImageImport(relativePath: string): string {
 
   switch (configValue as number) {
     case 0:  return `![alt-text](${relativePath} \"Hover text\")`;
-    case 1:  return `Reference style: ![alt-text][image] / [image]: ${relativePath} \"Hover text\"`;
+    case 1:  return `![alt-text][image] / [image]: ${relativePath} \"Hover text\"`;
     default: return `![alt-text](${relativePath} \"Hover text\")`;
   }
 
