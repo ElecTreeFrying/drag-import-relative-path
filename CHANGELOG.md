@@ -11,8 +11,15 @@
 - Typescript support
 - React Typescript support
 - HTML/Markdown support
-- CSS/SCSS/SASS/LESS support
+- CSS/SCSS/SASS support
+- Codebase Comments
+- Extension configurations
+- Extension pre-publish configurations
+- LICENSE.md
+- CHANGELOG.md
+- README.md
 
 ### To do
 
 - Add support to more languages.
+- Add tests files.
