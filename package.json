@@ -1,6 +1,6 @@
 {
   "name": "drag-import-relative-path",
-  "displayName": "Drag Import Relative Path",
+  "displayName": "Drag And Drop Import Relative Path",
   "description": "Drag and drop import relative path extension",
   "publisher": "ElecTreeFrying",
   "version": "0.1.8",
@@ -17,28 +17,6 @@
     "type": "git",
     "url": "https://github.com/ElecTreeFrying/drag-import-relative-path.git"
   },
-  "badges": [
-    {
-      "url": "https://vsmarketplacebadge.apphb.com/version-short/Electreefrying.drag-import-relative-path.png",
-      "description": "Version badge",
-      "href": "https://marketplace.visualstudio.com/items?itemName=ElecTreeFrying.auto-import"
-    },
-    {
-      "url": "https://vsmarketplacebadges.dev/downloads-short/ElecTreeFrying.drag-import-relative-path.png",
-      "description": "Downloads badge",
-      "href": "https://marketplace.visualstudio.com/items?itemName=ElecTreeFrying.auto-import"
-    },
-    {
-      "url": "https://vsmarketplacebadges.dev/installs-short/ElecTreeFrying.drag-import-relative-path.png",
-      "description": "Installs badge",
-      "href": "https://marketplace.visualstudio.com/items?itemName=ElecTreeFrying.auto-import"
-    },
-    {
-      "url": "https://vsmarketplacebadges.dev/rating-short/ElecTreeFrying.drag-import-relative-path.png",
-      "description": "Rating badge",
-      "href": "https://marketplace.visualstudio.com/items?itemName=ElecTreeFrying.auto-import"
-    }
-  ],
   "bugs": {
     "email": "jam@fisendo.com",
     "url": "https://github.com/ElecTreeFrying/drag-import-relative-path/issues"
@@ -97,8 +75,8 @@
             "default": false
           },
           "importStatements.script.javascriptImportStyle": {
-            "title": "Javascript (.ts)/React Javascript(.tsx) import style",
-            "description": "",
+            "title": "Javascript (.ts)/React Javascript(.tsx) import styles",
+            "description": "Supported Javascript (.ts)/React Javascript(.tsx) import styles",
             "type": "string",
             "default": "import name from '_relativePath_';",
             "enum": [
@@ -114,8 +92,8 @@
             ]
           },
           "importStatements.script.typescriptImportStyle": {
-            "title": "Typescript (.ts)/React Typescript(.tsx) import style",
-            "description": "",
+            "title": "Typescript (.ts)/React Typescript(.tsx) import styles",
+            "description": "Supported Typescript (.ts)/React Typescript(.tsx) import styles",
             "type": "string",
             "default": "import { name } from '_relativePath_';",
             "enum": [
@@ -133,8 +111,8 @@
             "default": false
           },
           "importStatements.styleSheet.cssImportStyle": {
-            "title": "CSS import style",
-            "description": "",
+            "title": "CSS import styles",
+            "description": "Supported CSS import styles",
             "type": "string",
             "default": "@import '_relativePath_';",
             "enum": [
@@ -143,8 +121,8 @@
             ]
           },
           "importStatements.styleSheet.cssImageImportStyle": {
-            "title": "CSS import style",
-            "description": "",
+            "title": "CSS import styles",
+            "description": "Supported CSS import styles",
             "type": "string",
             "default": "url('_relativePath_')",
             "enum": [
@@ -152,8 +130,8 @@
             ]
           },
           "importStatements.styleSheet.scssImportStyle": {
-            "title": "SCSS import style",
-            "description": "",
+            "title": "SCSS import styles",
+            "description": "Supported SCSS import styles",
             "type": "string",
             "default": "@import '_relativePath_';",
             "enum": [
@@ -164,8 +142,8 @@
             ]
           },
           "importStatements.styleSheet.scssImageImportStyle": {
-            "title": "SCSS import style",
-            "description": "",
+            "title": "SCSS import styles",
+            "description": "Supported SCSS import styles",
             "type": "string",
             "default": "url('_relativePath_')",
             "enum": [
@@ -173,7 +151,7 @@
             ]
           },
           "importStatements.markup.htmlScriptImportStyle": {
-            "title": "HTML import style for script",
+            "title": "HTML import styles for script",
             "description": "",
             "type": "string",
             "default": "<script type=\"text/javascript\" src=\"_relativePath_\"></script>",
@@ -182,7 +160,7 @@
             ]
           },
           "importStatements.markup.htmlImageImportStyle": {
-            "title": "HTML import style for script",
+            "title": "HTML import styles for script",
             "description": "",
             "type": "string",
             "default": "<img src=\"_relativePath_\" alt=\"sample\">",
@@ -191,8 +169,8 @@
             ]
           },
           "importStatements.markup.htmlStyleSheetImportStyle": {
-            "title": "HTML import style from stylesheet",
-            "description": "",
+            "title": "HTML import styles from stylesheet",
+            "description": "Supported HTML import styles from stylesheet",
             "type": "string",
             "default": "<link href=\"_relativePath_\" rel=\"stylesheet\">",
             "enum": [
@@ -200,8 +178,8 @@
             ]
           },
           "importStatements.markup.markdownImportStyle": {
-            "title": "Markdown import style",
-            "description": "",
+            "title": "Markdown import styles",
+            "description": "Supported markdown import styles",
             "type": "string",
             "default": "![text](_relativePath_)",
             "enum": [
@@ -209,8 +187,8 @@
             ]
           },
           "importStatements.markup.markdownImageImportStyle": {
-            "title": "Markdown image import style",
-            "description": "",
+            "title": "Markdown image import styles",
+            "description": "Supported markdown image import styles",
             "type": "string",
             "default": "![alt-text](_relativePath_ \"Hover text\")",
             "enum": [

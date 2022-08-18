@@ -1,17 +1,9 @@
-# Drag Import Relative Path (vscode extension)
-
-[![lorem_ipsum_dolor_sit_amet][version-badge]][package]
-[![lorem_ipsum_dolor_sit_amet][downloads-badge]][package]
-[![lorem_ipsum_dolor_sit_amet][installs-badge]][package]
-[![lorem_ipsum_dolor_sit_amet][rating-badge]][package]
-
-[version-badge]: https://vsmarketplacebadges.dev/version/ElecTreeFrying.drag-import-relative-path.png
-[downloads-badge]: https://vsmarketplacebadges.dev/downloads-short/ElecTreeFrying.drag-import-relative-path.png
-[installs-badge]: https://vsmarketplacebadges.dev/installs-short/ElecTreeFrying.drag-import-relative-path.png
-[rating-badge]: https://vsmarketplacebadges.dev/rating-short/ElecTreeFrying.drag-import-relative-path.png
-[package]: https://marketplace.visualstudio.com/items?itemName=ElecTreeFrying.auto-import
+# Drag And Drop Import Relative Path (vscode extension)
 
 Drag and drop import relative path extension
+
+![typescript-demo](https://res.cloudinary.com/october7/image/upload/github/drag-import-relative-path/typescript-demo.gif "Drag import relative path extension demo")
+![extension-demo](https://res.cloudinary.com/october7/image/upload/github/drag-import-relative-path/demo.gif "Drag import relative path extension demo")
 
 ## Supported file extensions
 
@@ -21,22 +13,19 @@ Drag and drop import relative path extension
 | Markup Language      | `.html`, `.md`               |
 | Stylesheet           | `.css`, `.scss`              |
 
-
 ## Usage
 
 1. Drag supported files from tree view.
 2. Hold `shift`.
 3. Drop to any of your active editors.
 
-| Active text editor <br> Drop (to) | Supported file extensions <br> Drag (from)     |
-| :-------------------------------: | :--------------------------------------------- |
-|              `.html`              | `.js`, `.css`, `.gif`, `.jpeg`, `.jpg`, `.png` |
-|               `.md`               | `.md`, `.gif`, `.jpeg`, `.jpg`, `.png`         |
-|   `.js`, `.jsx`, `.ts`, `.tsx`    | self                                           |
-|              `.css`               | self                                           |
-|              `.scss`              | self,  `.css`                                  |
-
-![extension-demo](images/settings.gif "Drag import relative path extension demo")
+| Active text editor <br> Drop (to) | Supported file extensions <br> Drag (from)              |
+| :-------------------------------: | :------------------------------------------------------ |
+|              `.html`              | `.js`, `.css`, `.gif`, `.jpeg`, `.jpg`, `.png`, .`webp` |
+|               `.md`               | `.md`, `.gif`, `.jpeg`, `.jpg`, `.png`, .`webp`         |
+|   `.js`, `.jsx`, `.ts`, `.tsx`    | self                                                    |
+|              `.css`               | self, `.gif`, `.jpeg`, `.jpg`, `.png`, .`webp`          |
+|              `.scss`              | self,  `.css`, `.gif`, `.jpeg`, `.jpg`, `.png`, .`webp` |
 
 ## Extension Settings
 
@@ -76,11 +65,17 @@ Drag and drop import relative path extension
   * `@import '_relativePath_';` **→ default**
   * `@import url('_relativePath_');`
 
+* `importStatements.styleSheet.cssImageImportStyle`
+  * `url('_relativePath_')` **→ default**
+
 * `importStatements.styleSheet.scssImportStyle`
   * `@import '_relativePath_';` **→ default**
   * `@import url('_relativePath_');`
   * `@use '_relativePath_';`
   * `@use '_relativePath_' as *;`
+
+* `importStatements.styleSheet.scssImageImportStyle`
+  * `url('_relativePath_')';` **→ default**
 
 **Markup:** HTML, Markdown
 
@@ -122,17 +117,6 @@ See [CHANGELOG] for more information.
 
 [Github Issues]: https://github.com/ElecTreeFrying/drag-import-relative-path/issues
 [Visual Studio Marketplace]: https://marketplace.visualstudio.com/items?itemName=ElecTreeFrying.drag-import-relative-path&ssr=false#review-details
-
-<!-- ## Support
-
-### Donate by Cryptocurrencies
-
-| Coin | Address                                    |                       |
-| :--- | :----------------------------------------- | :-------------------- |
-| BTC  | bc1qtp9ch0uaxavdxv7jujtzfhtyxep06wccla3m8k | Native BTC Blockchain |
-| ETH  | 0x9605e41544789E31Aa3a17Ff1eCfC5FA93f11337 | ERC20                 |
-| USDT | 0x9605e41544789E31Aa3a17Ff1eCfC5FA93f11337 | ERC20                 |
-| USDC | 0x9605e41544789E31Aa3a17Ff1eCfC5FA93f11337 | ERC20                 | -->
 
 ## Related
 
