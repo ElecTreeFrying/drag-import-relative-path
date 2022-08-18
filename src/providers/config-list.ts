@@ -45,18 +45,17 @@ export const scssSass: ConfigItem<number>[] = [
 ];
 
 /* 
-  CSS preprocessor, LESS Import styles
-  */
-export const less: ConfigItem<number>[] = [
-  { value: 0, description: "@import '_relativePath_';" },
-  { value: 1, description: "@import (name) '_relativePath_';" }
-];
-
-/* 
   HTML scripts Import styles
   */
 export const HTMLScript: ConfigItem<number>[] = [
   { value: 0, description: "<script type=\"text/javascript\" src=\"_relativePath_\"></script>" }
+];
+
+/* 
+  HTML image Import styles
+  */
+export const HTMLImage: ConfigItem<number>[] = [
+  { value: 0, description: "<img src=\"_relativePath_\" alt=\"sample\">" }
 ];
 
 /* 
