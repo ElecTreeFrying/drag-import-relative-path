@@ -152,7 +152,7 @@
           },
           "importStatements.markup.htmlScriptImportStyle": {
             "title": "HTML import styles for script",
-            "description": "",
+            "description": "Supported HTML import styles for script",
             "type": "string",
             "default": "<script type=\"text/javascript\" src=\"_relativePath_\"></script>",
             "enum": [
@@ -160,8 +160,8 @@
             ]
           },
           "importStatements.markup.htmlImageImportStyle": {
-            "title": "HTML import styles for script",
-            "description": "",
+            "title": "HTML image import styles for script",
+            "description": "Supported image HTML import styles for script",
             "type": "string",
             "default": "<img src=\"_relativePath_\" alt=\"sample\">",
             "enum": [

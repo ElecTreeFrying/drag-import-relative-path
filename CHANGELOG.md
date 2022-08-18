@@ -1,6 +1,6 @@
 # Changelog
 
-## v0.1.9 (2022-8-17)
+## v0.1.10 (2022-8-17)
 
 - Published extension in marketplace
 
