@@ -8,7 +8,7 @@
     "name": "John James Ermitaño",
     "email": "jjgermitano@gmail.com"
   },
-  "icon": "assets/github.png",
+  "icon": "assets/extension-icon.png",
   "engines": {
     "vscode": "^1.70.0"
   },
@@ -17,16 +17,39 @@
     "type": "git",
     "url": "https://github.com/ElecTreeFrying/drag-import-relative-path.git"
   },
+  "badges": [
+    {
+      "url": "https://vsmarketplacebadge.apphb.com/version-short/Electreefrying.drag-import-relative-path.svg",
+      "description": "Version badge",
+      "href": "https://marketplace.visualstudio.com/items?itemName=ElecTreeFrying.auto-import"
+    },
+    {
+      "url": "https://vsmarketplacebadges.dev/downloads-short/ElecTreeFrying.drag-import-relative-path.svg",
+      "description": "Downloads badge",
+      "href": "https://marketplace.visualstudio.com/items?itemName=ElecTreeFrying.auto-import"
+    },
+    {
+      "url": "https://vsmarketplacebadges.dev/installs-short/ElecTreeFrying.drag-import-relative-path.svg",
+      "description": "Installs badge",
+      "href": "https://marketplace.visualstudio.com/items?itemName=ElecTreeFrying.auto-import"
+    },
+    {
+      "url": "https://vsmarketplacebadges.dev/rating-short/ElecTreeFrying.drag-import-relative-path.svg",
+      "description": "Rating badge",
+      "href": "https://marketplace.visualstudio.com/items?itemName=ElecTreeFrying.auto-import"
+    }
+  ],
   "bugs": {
-    "email": "electreefrying.git@gmail.com",
+    "email": "jam@fisendo.com",
     "url": "https://github.com/ElecTreeFrying/drag-import-relative-path/issues"
   },
+  "extensionPack": ["ElecTreeFrying.auto-import"],
   "galleryBanner": {
     "color": "#494949",
     "theme": "dark"
   },
   "license": "MIT",
-  "categories": ["Other"],
+  "categories": ["Other", "Snippets"],
   "keywords": [
     "drag import",
     "drag and drop import",
@@ -124,16 +147,6 @@
               "@use '_relativePath_' as *;"
             ]
           },
-          "importStatements.styleSheet.lessImportStyle": {
-            "title": "LESS import style",
-            "description": "",
-            "type": "string",
-            "default": "@import '_relativePath_';",
-            "enum": [
-              "@import '_relativePath_';",
-              "@import (name) '_relativePath_';"
-            ]
-          },
           "importStatements.markup.htmlScriptImportStyle": {
             "title": "HTML import style for script",
             "description": "",
@@ -141,6 +154,15 @@
             "default": "<script type=\"text/javascript\" src=\"_relativePath_\"></script>",
             "enum": [
               "<script type=\"text/javascript\" src=\"_relativePath_\"></script>"
+            ]
+          },
+          "importStatements.markup.htmlImageImportStyle": {
+            "title": "HTML import style for script",
+            "description": "",
+            "type": "string",
+            "default": "<img src=\"_relativePath_\" alt=\"sample\">",
+            "enum": [
+              "<img src=\"_relativePath_\" alt=\"sample\">"
             ]
           },
           "importStatements.markup.htmlStyleSheetImportStyle": {
