@@ -55,9 +55,9 @@ export class AutoImportOnDropProvider implements vscode.DocumentDropEditProvider
       */
     if (htmlSupported.includes(getFileExt(dragFilePath)) && getFileExt(dropFilePath) === '.html') {
       switch (getFileExt(dragFilePath)) {
-        case '.js':  { importTextOption = 'script'; }
-        case '.css': { importTextOption = 'stylesheet'; }
-        default:     { importTextOption = 'image'; }
+        case '.js':  { importTextOption = 'script';     break; }
+        case '.css': { importTextOption = 'stylesheet'; break; }
+        default:     { importTextOption = 'image';      break; }
       }
     }
     /* 
@@ -72,8 +72,8 @@ export class AutoImportOnDropProvider implements vscode.DocumentDropEditProvider
       */
     if (markdownSupported.includes(getFileExt(dragFilePath)) && getFileExt(dropFilePath) === '.md') {
       switch (getFileExt(dragFilePath)) {
-        case '.md': { importTextOption = 'markdown'; }
-        default:    { importTextOption = 'image'; }
+        case '.md': { importTextOption = 'markdown'; break; }
+        default:    { importTextOption = 'image';    break; }
       }
     }
     /* 

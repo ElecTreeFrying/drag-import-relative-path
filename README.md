@@ -3,7 +3,7 @@
 Drag and drop import relative path extension
 
 ![typescript-demo](https://res.cloudinary.com/october7/image/upload/github/drag-import-relative-path/typescript-demo.gif "Drag import relative path extension demo")
-![extension-demo](https://res.cloudinary.com/october7/image/upload/github/drag-import-relative-path/demo.gif "Drag import relative path extension demo")
+![extension-demo](https://res.cloudinary.com/october7/image/upload/github/drag-import-relative-path/html-demo.gif "Drag import relative path extension demo")
 
 ## Supported file extensions
 

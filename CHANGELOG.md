@@ -1,5 +1,11 @@
 # Changelog
 
+## v0.1.12 (2022-8-18)
+
+## Bug fixes
+
+- Wrong import style inserted to HTML and MD on drop.
+
 ## v0.1.11 (2022-8-18)
 
 - Published extension in marketplace
