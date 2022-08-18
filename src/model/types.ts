@@ -2,7 +2,7 @@
   Supported file extension types
   */
 export type FileExtensions = '.ts' | '.tsx' | '.js' | '.jsx' 
-  | '.css' | '.sass' | '.scss' | '.less'
+  | '.css' | '.scss'
   | '.html' | '.md';
 
 /* 

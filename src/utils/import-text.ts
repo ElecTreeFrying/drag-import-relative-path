@@ -31,10 +31,6 @@ export function getImportText(
         SnippetString Javascript/Javascript React import styles
        */
       const fileType = preserveScriptFileExtension ? getFileExt(dragFilePath) : '';
-
-      console.log('@@@ ', preserveScriptFileExtension);
-      console.log('@@@ ', getFileExt(dragFilePath));
-
       return importText.getJavascriptImport(relativePath + fileType);
     }
     case '.ts':
@@ -51,13 +47,12 @@ export function getImportText(
        */
       return importText.getCSSImport(relativePath + getFileExt(dragFilePath));
     }
-    case '.scss':
-    case '.sass': {
+    case '.scss': {
       /* 
-        SnippetString SASS/SCSS import styles
+        SnippetString SCSS import styles
        */
       const fileType = preserveStylesheetFileExtension ? getFileExt(dragFilePath) : '';
-      return importText.getSCSSSASSSImport(relativePath + fileType);
+      return importText.getSCSSImport(relativePath + fileType);
     }
     case '.html': {
       /* 

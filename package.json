@@ -76,7 +76,7 @@
     "markdown"
   ],
   "activationEvents": [
-    "onStartupFinished"
+    "*"
   ],
   "main": "./out/extension.js",
   "contributes": {
@@ -154,8 +154,8 @@
               "@import url('_relativePath_');"
             ]
           },
-          "importStatements.styleSheet.scssSassImportStyle": {
-            "title": "SCSS/SASS import style",
+          "importStatements.styleSheet.scssImportStyle": {
+            "title": "SCSS import style",
             "description": "",
             "type": "string",
             "default": "@import '_relativePath_';",

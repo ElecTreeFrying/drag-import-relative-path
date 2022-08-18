@@ -22,14 +22,14 @@ export function getCSSImport(relativePath: string): vscode.SnippetString {
 }
 
 /**
- * Returns SASS/SCSS SnippetString import style.
+ * Returns SCSS SnippetString import style.
  * @param {string} relativePath Calculated relative path from dragged file and text editor.
- * @returns SASS/SCSS SnippetString SnippetString import style.
+ * @returns SCSS SnippetString SnippetString import style.
  */
-export function getSCSSSASSSImport(relativePath: string): vscode.SnippetString {
+export function getSCSSImport(relativePath: string): vscode.SnippetString {
 
-  let configValue = vscode.workspace.getConfiguration('importStatements.styleSheet').get('scssSassImportStyle');
-      configValue = configList.scssSass.find((config: ConfigItem<number>) => config.description === configValue).value;
+  let configValue = vscode.workspace.getConfiguration('importStatements.styleSheet').get('scssImportStyle');
+      configValue = configList.scss.find((config: ConfigItem<number>) => config.description === configValue).value;
 
   switch (configValue as number) {
     case 0:  return new vscode.SnippetString(`@import '${relativePath}';`);

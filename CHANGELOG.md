@@ -11,7 +11,7 @@
 - Typescript support
 - React Typescript support
 - HTML/Markdown support
-- CSS/SCSS/SASS support
+- CSS/SCSS support
 - Codebase Comments
 - Extension configurations
 - Extension pre-publish configurations

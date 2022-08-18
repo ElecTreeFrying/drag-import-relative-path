@@ -19,7 +19,7 @@ Drag and drop import relative path extension
 | -------------------- | ---------------------------- |
 | Programming Language | `.js`, `.jsx`, `.ts`, `.tsx` |
 | Markup Language      | `.html`, `.md`               |
-| Stylesheet           | `.css`, `.scss`, `.sass`     |
+| Stylesheet           | `.css`, `.scss`              |
 
 
 ## Usage
@@ -34,7 +34,7 @@ Drag and drop import relative path extension
 |               `.md`               | `.md`, `.gif`, `.jpeg`, `.jpg`, `.png`         |
 |   `.js`, `.jsx`, `.ts`, `.tsx`    | self                                           |
 |              `.css`               | self                                           |
-|         `.scss`, `.sass`          | self,  `.css`                                  |
+|              `.scss`              | self,  `.css`                                  |
 
 ![extension-demo](images/settings.gif "Drag import relative path extension demo")
 
@@ -68,7 +68,7 @@ Drag and drop import relative path extension
   * `import * as $1 from '_relativePath_';`
   * `import '_relativePath_';`
 
-**Stylesheets:** CSS, SASS/SCSS
+**Stylesheets:** CSS, SCSS
 
 * `importStatements.styleSheet.preserveFileExtension`: _(Boolean)_
 
@@ -76,7 +76,7 @@ Drag and drop import relative path extension
   * `@import '_relativePath_';` **→ default**
   * `@import url('_relativePath_');`
 
-* `importStatements.styleSheet.scssSassImportStyle`
+* `importStatements.styleSheet.scssImportStyle`
   * `@import '_relativePath_';` **→ default**
   * `@import url('_relativePath_');`
   * `@use '_relativePath_';`

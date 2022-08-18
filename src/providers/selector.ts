@@ -30,14 +30,6 @@ export const selectors: vscode.DocumentSelector = [
     scheme: 'file'
   },
   {
-    language: 'sass',
-    scheme: 'file'
-  },
-  {
-    language: 'less',
-    scheme: 'file'
-  },
-  {
     language: 'html',
     scheme: 'file'
   },

@@ -35,9 +35,9 @@ export const css: ConfigItem<number>[] = [
 ];
 
 /* 
-  CSS preprocessor, SASS/SCSS Import styles
+  CSS preprocessor, SCSS Import styles
   */
-export const scssSass: ConfigItem<number>[] = [
+export const scss: ConfigItem<number>[] = [
   { value: 0, description: "@import '_relativePath_';" },
   { value: 1, description: "@import url('_relativePath_');" },
   { value: 2, description: "@use '_relativePath_';" },
