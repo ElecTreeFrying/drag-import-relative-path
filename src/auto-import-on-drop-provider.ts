@@ -91,12 +91,18 @@ export class AutoImportOnDropProvider implements vscode.DocumentDropEditProvider
       return notify(NotifyType.NotSupported);
     }
     
+    /* 
+      Get calculated import style
+      */
     const importText = getImportText(
       getRelativePath(dropFilePath, dragFilePath),
       dragFilePath,
       importTextOption
     );
 
+    /* 
+      Insert text
+      */
     return { insertText: importText };
   }
 }
