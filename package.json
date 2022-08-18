@@ -3,7 +3,7 @@
   "displayName": "Drag Import Relative Path",
   "description": "Drag and drop import relative path extension",
   "publisher": "ElecTreeFrying",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "author": {
     "name": "John James Ermitaño",
     "email": "jjgermitano@gmail.com"
@@ -43,13 +43,18 @@
     "email": "jam@fisendo.com",
     "url": "https://github.com/ElecTreeFrying/drag-import-relative-path/issues"
   },
-  "extensionPack": ["ElecTreeFrying.auto-import"],
+  "extensionPack": [
+    "ElecTreeFrying.auto-import"
+  ],
   "galleryBanner": {
     "color": "#494949",
     "theme": "dark"
   },
   "license": "MIT",
-  "categories": ["Other", "Snippets"],
+  "categories": [
+    "Other",
+    "Snippets"
+  ],
   "keywords": [
     "drag import",
     "drag and drop import",
@@ -70,7 +75,9 @@
     "html",
     "markdown"
   ],
-  "activationEvents": ["*"],
+  "activationEvents": [
+    "*"
+  ],
   "main": "./out/extension.js",
   "contributes": {
     "configuration": [
