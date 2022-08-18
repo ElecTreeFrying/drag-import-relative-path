@@ -8,14 +8,14 @@ export const disableNotifications = vscode
   .get<boolean>('disableNotifications');
 
 /* 
-  Import Statements > Script > Preserve file extension
+  Import Statements > Script > Preserve script file extension
   */
 export const preserveScriptFileExtension = vscode
   .workspace.getConfiguration('importStatements.script')
   .get<boolean>('preserveScriptFileExtension');
 
 /* 
-  Import Statements > Stylesheet > Preserve file extension
+  Import Statements > Stylesheet > Preserve stylesheet file extension
   */
 export const preserveStylesheetFileExtension = vscode
   .workspace.getConfiguration('importStatements.styleSheet')

@@ -22,7 +22,7 @@ export function getCSSImport(relativePath: string): vscode.SnippetString {
 }
 
 /**
- * Returns CSS SnippetString import style.
+ * Returns CSS image SnippetString import style.
  * @param {string} relativePath Calculated relative path from dragged file and text editor.
  * @returns CSS SnippetString SnippetString import style.
  */
@@ -59,7 +59,7 @@ export function getSCSSImport(relativePath: string): vscode.SnippetString {
 }
 
 /**
- * Returns SCSS SnippetString import style.
+ * Returns SCSS image SnippetString import style.
  * @param {string} relativePath Calculated relative path from dragged file and text editor.
  * @returns SCSS SnippetString SnippetString import style.
  */
