@@ -1,10 +1,21 @@
 # Drag And Drop Import Relative Path (vscode extension)
 
-Drag and drop import relative path extension
+[![Version Badge][version-badge]][badge-redirect]
+[![Downloads Badge][downloads-badge]][badge-redirect]
 
-![typescript-demo](https://res.cloudinary.com/october7/image/upload/github/drag-import-relative-path/typescript-demo.gif "Drag import relative path extension demo")
-![extension-demo](https://res.cloudinary.com/october7/image/upload/github/drag-import-relative-path/html-demo.gif "Drag import relative path extension demo")
+[version-badge]: https://vsmarketplacebadges.dev/version/ElecTreeFrying.drag-import-relative-path.png
+[downloads-badge]: https://vsmarketplacebadges.dev/downloads-short/ElecTreeFrying.drag-import-relative-path.png
+[badge-redirect]: https://marketplace.visualstudio.com/items?itemName=ElecTreeFrying.drag-import-relative-path
 
+Drag and drop import relative path [extension] for [VS Code]. Drag and drop import relative path without typing long and tedious import statements and file paths.
+
+[VS Code]: https://code.visualstudio.com/
+[extension]: https://marketplace.visualstudio.com/VSCode
+
+![typescript-demo](https://res.cloudinary.com/october7/image/upload/github/drag-import-relative-path/typescript-demo.gif "Drag and drop import relative path typescript demo")
+![html-demo](https://res.cloudinary.com/october7/image/upload/github/drag-import-relative-path/html-demo.gif "Drag and drop import relative path html demo")
+![markdown-demo](https://res.cloudinary.com/october7/image/upload/github/drag-import-relative-path/markdown-demo.gif "Drag and drop import relative path markdown demo")
+### [Click here for more usage examples]
 ## Supported file extensions
 
 |                      | File extension               |
@@ -15,14 +26,16 @@ Drag and drop import relative path extension
 
 ## Usage
 
-1. Drag supported files from tree view.
+[Click here for more usage examples]: ./DEMO.md
+
+1. **Drag** supported files from tree view.
 2. Hold `shift`.
-3. Drop to any of your active editors.
+3. **Drop** to any of your active editors.
 
 | Active text editor <br> Drop (to) | Supported file extensions <br> Drag (from)              |
 | :-------------------------------: | :------------------------------------------------------ |
 |              `.html`              | `.js`, `.css`, `.gif`, `.jpeg`, `.jpg`, `.png`, .`webp` |
-|               `.md`               | `.md`, `.gif`, `.jpeg`, `.jpg`, `.png`, .`webp`         |
+|               `.md`               | self, `.gif`, `.jpeg`, `.jpg`, `.png`, .`webp`          |
 |   `.js`, `.jsx`, `.ts`, `.tsx`    | self                                                    |
 |              `.css`               | self, `.gif`, `.jpeg`, `.jpg`, `.png`, .`webp`          |
 |              `.scss`              | self,  `.css`, `.gif`, `.jpeg`, `.jpg`, `.png`, .`webp` |
@@ -101,7 +114,7 @@ Drag and drop import relative path extension
   2. Launch Visual Studio Code
   3. Enter command `Ctrl+Shift+P` (Windows, Linux) or `Cmd+Shift+P` (OSX)
   4. Select → `Extensions: Install Extensions`.
-  5. Choose **Drag Import Relative Path** by _ElecTreeFrying_
+  5. Choose **Drag And Drop Import Relative Path** by _ElecTreeFrying_
   6. Reload Visual Studio Code
 
 ## Changelog
@@ -132,4 +145,4 @@ See [CHANGELOG] for more information.
 
 [MIT]
 
-[MIT]: [https://marketpl](https://marketplace.visualstudio.com/items/ElecTreeFrying.drag-import-relative-path/license)
+[MIT]: https://marketplace.visualstudio.com/items/ElecTreeFrying.drag-import-relative-path/license

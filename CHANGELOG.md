@@ -1,8 +1,19 @@
 # Changelog
 
+## v0.1.13 (2022-8-19)
+
+### Added
+
+- Badges
+- DEMO.md
+
+### Changes
+
+- Updated README
+
 ## v0.1.12 (2022-8-18)
 
-## Bug fixes
+### Bug fixes
 
 - Wrong import style inserted to HTML and MD on drop.
 
