@@ -90,9 +90,11 @@ export class AutoImportOnDropProvider implements vscode.DocumentDropEditProvider
       (cssSupported.includes(getFileExt(dragFilePath)) && getFileExt(dropFilePath) === '.css')
       || (scssSupported.includes(getFileExt(dragFilePath)) && getFileExt(dropFilePath) === '.scss')
     ) {
-      importTextOption = getFileExt(dragFilePath) === '.css' || getFileExt(dragFilePath) === '.scss' 
-        ? null 
-        : 'image';
+      switch (getFileExt(dragFilePath)) {
+        case '.css':
+        case '.scss': { importTextOption = null;    break; }
+        default:      { importTextOption = 'image'; break; }
+      }
     }
     /* 
       Catches unsupported DnD file extension to css and scss
