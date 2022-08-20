@@ -1,7 +1,7 @@
 import * as vscode from 'vscode';
 
-import * as configList from '../providers/config-list';
-import { ConfigItem } from '../model';
+import * as importStyle from '../providers/import-configuration';
+import { ImportStyle } from '../model';
 
 /**
  * Returns CSS SnippetString import style.
@@ -11,7 +11,7 @@ import { ConfigItem } from '../model';
 export function getCSSImport(relativePath: string): vscode.SnippetString {
 
   let configValue = vscode.workspace.getConfiguration('importStatements.styleSheet').get('cssImportStyle');
-      configValue = configList.css.find((config: ConfigItem<number>) => config.description === configValue).value;
+      configValue = importStyle.css.find((config: ImportStyle<number>) => config.description === configValue).value;
 
   switch (configValue as number) {
     case 0:  return new vscode.SnippetString(`@import '${relativePath}';`);
@@ -29,7 +29,7 @@ export function getCSSImport(relativePath: string): vscode.SnippetString {
  export function getCSSImageImport(relativePath: string): vscode.SnippetString {
 
   let configValue = vscode.workspace.getConfiguration('importStatements.styleSheet').get('cssImageImportStyle');
-      configValue = configList.cssImage.find((config: ConfigItem<number>) => config.description === configValue).value;
+      configValue = importStyle.cssImage.find((config: ImportStyle<number>) => config.description === configValue).value;
 
   switch (configValue as number) {
     case 0:  return new vscode.SnippetString(`url('${relativePath}')`);
@@ -46,7 +46,7 @@ export function getCSSImport(relativePath: string): vscode.SnippetString {
 export function getSCSSImport(relativePath: string): vscode.SnippetString {
 
   let configValue = vscode.workspace.getConfiguration('importStatements.styleSheet').get('scssImportStyle');
-      configValue = configList.scss.find((config: ConfigItem<number>) => config.description === configValue).value;
+      configValue = importStyle.scss.find((config: ImportStyle<number>) => config.description === configValue).value;
 
   switch (configValue as number) {
     case 0:  return new vscode.SnippetString(`@import '${relativePath}';`);
@@ -66,7 +66,7 @@ export function getSCSSImport(relativePath: string): vscode.SnippetString {
 export function getSCSSImageImport(relativePath: string): vscode.SnippetString {
 
   let configValue = vscode.workspace.getConfiguration('importStatements.styleSheet').get('scssImageImportStyle');
-      configValue = configList.scssImage.find((config: ConfigItem<number>) => config.description === configValue).value;
+      configValue = importStyle.scssImage.find((config: ImportStyle<number>) => config.description === configValue).value;
 
   switch (configValue as number) {
     case 0:  return new vscode.SnippetString(`url('${relativePath}')`);

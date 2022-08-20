@@ -1,7 +1,7 @@
 import * as vscode from 'vscode';
 
-import * as configList from '../providers/config-list';
-import { ConfigItem } from '../model';
+import * as importStyle from '../providers/import-configuration';
+import { ImportStyle } from '../model';
 
 /**
  * Returns HTML script SnippetString import style.
@@ -11,7 +11,7 @@ import { ConfigItem } from '../model';
 export function getHTMLScriptImport(relativePath: string): string {
 
   let configValue = vscode.workspace.getConfiguration('importStatements.markup').get('htmlScriptImportStyle');
-      configValue = configList.HTMLScript.find((config: ConfigItem<number>) => config.description === configValue).value;
+      configValue = importStyle.HTMLScript.find((config: ImportStyle<number>) => config.description === configValue).value;
 
   switch (configValue as number) {
     case 0:  return `<script type=\"text/javascript\" src=\"${relativePath}\"></script>`;
@@ -28,7 +28,7 @@ export function getHTMLScriptImport(relativePath: string): string {
  export function getHTMLImageImport(relativePath: string): string {
 
   let configValue = vscode.workspace.getConfiguration('importStatements.markup').get('htmlImageImportStyle');
-      configValue = configList.HTMLImage.find((config: ConfigItem<number>) => config.description === configValue).value;
+      configValue = importStyle.HTMLImage.find((config: ImportStyle<number>) => config.description === configValue).value;
 
   switch (configValue as number) {
     case 0:  return `<img src=\"${relativePath}\" alt=\"sample\">`;
@@ -45,7 +45,7 @@ export function getHTMLScriptImport(relativePath: string): string {
 export function getHTMLStylesheetImport(relativePath: string): string {
 
   let configValue = vscode.workspace.getConfiguration('importStatements.markup').get('htmlStyleSheetImportStyle');
-      configValue = configList.HTMLStylesheet.find((config: ConfigItem<number>) => config.description === configValue).value;
+      configValue = importStyle.HTMLStylesheet.find((config: ImportStyle<number>) => config.description === configValue).value;
 
   switch (configValue as number) {
     case 0:  return `<link href=\"${relativePath}\" rel=\"stylesheet\">`;
@@ -62,7 +62,7 @@ export function getHTMLStylesheetImport(relativePath: string): string {
 export function getMarkdownImport(relativePath: string): string {
 
   let configValue = vscode.workspace.getConfiguration('importStatements.markup').get('markdownImportStyle');
-      configValue = configList.markdown.find((config: ConfigItem<number>) => config.description === configValue).value;
+      configValue = importStyle.markdown.find((config: ImportStyle<number>) => config.description === configValue).value;
 
   switch (configValue as number) {
     case 0:  return `![text](${relativePath})`;
@@ -79,7 +79,7 @@ export function getMarkdownImport(relativePath: string): string {
 export function getMarkdownImageImport(relativePath: string): string {
 
   let configValue = vscode.workspace.getConfiguration('importStatements.markup').get('markdownImageImportStyle');
-      configValue = configList.markdownImage.find((config: ConfigItem<number>) => config.description === configValue).value;
+      configValue = importStyle.markdownImage.find((config: ImportStyle<number>) => config.description === configValue).value;
 
   switch (configValue as number) {
     case 0:  return `![alt-text](${relativePath} \"Hover text\")`;

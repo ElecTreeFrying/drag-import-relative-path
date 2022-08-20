@@ -1,7 +1,7 @@
 import * as vscode from 'vscode';
 
-import * as configList from '../providers/config-list';
-import { ConfigItem } from '../model';
+import * as importStyle from '../providers/import-configuration';
+import { ImportStyle } from '../model';
 
 /**
  * Returns Javascript/Javascript React SnippetString import style.
@@ -11,7 +11,7 @@ import { ConfigItem } from '../model';
 export function getJavascriptImport(relativePath: string): vscode.SnippetString {
 
   let configValue = vscode.workspace.getConfiguration('importStatements.script').get('javascriptImportStyle');
-      configValue = configList.javascript.find((config: ConfigItem<number>) => config.description === configValue).value;
+      configValue = importStyle.javascript.find((config: ImportStyle<number>) => config.description === configValue).value;
 
   switch (configValue as number) {
     case 0:  return new vscode.SnippetString(`import $1 from '${relativePath}';`);
@@ -36,7 +36,7 @@ export function getJavascriptImport(relativePath: string): vscode.SnippetString 
 export function getTypescriptImport(relativePath: string): vscode.SnippetString {
 
   let configValue = vscode.workspace.getConfiguration('importStatements.script').get('typescriptImportStyle');
-      configValue = configList.typescript.find((config: ConfigItem<number>) => config.description === configValue).value;
+      configValue = importStyle.typescript.find((config: ImportStyle<number>) => config.description === configValue).value;
 
   switch (configValue as number) {
     case 0:  return new vscode.SnippetString(`import $1 from '${relativePath}';`);

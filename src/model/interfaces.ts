@@ -1,7 +1,7 @@
 /* 
   Import style interface
   */
-export interface ConfigItem<T> {
+export interface ImportStyle<T> {
   value: T;
   description: string;
 };
