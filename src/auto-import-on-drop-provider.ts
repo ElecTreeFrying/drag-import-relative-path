@@ -34,7 +34,7 @@ export class AutoImportOnDropProvider implements vscode.DocumentDropEditProvider
 
     /* 
       Prevents different file extension DnD
-      Except (.html) and (.md) file extensions
+      Except ['.html','.md','.css','.scss'] file extensions
       */
     if (
       (getFileExt(dragFilePath) !== getFileExt(dropFilePath)) 
