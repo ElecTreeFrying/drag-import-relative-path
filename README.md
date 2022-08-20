@@ -15,7 +15,11 @@ Drag and drop import relative path [extension] for [VS Code]. Drag and drop impo
 ![typescript-demo](https://res.cloudinary.com/october7/image/upload/github/drag-import-relative-path/typescript-demo.gif "Drag and drop import relative path typescript demo")
 ![html-demo](https://res.cloudinary.com/october7/image/upload/github/drag-import-relative-path/html-demo.gif "Drag and drop import relative path html demo")
 ![markdown-demo](https://res.cloudinary.com/october7/image/upload/github/drag-import-relative-path/markdown-demo.gif "Drag and drop import relative path markdown demo")
-### [Click here for more usage examples]
+
+**[Click here for more usage examples]**
+
+[Click here for more usage examples]: https://github.com/ElecTreeFrying/drag-import-relative-path/blob/main/DEMO.md
+
 ## Supported file extensions
 
 |                      | File extension               |
@@ -25,8 +29,6 @@ Drag and drop import relative path [extension] for [VS Code]. Drag and drop impo
 | Stylesheet           | `.css`, `.scss`              |
 
 ## Usage
-
-[Click here for more usage examples]: ./DEMO.md
 
 1. **Drag** supported files from tree view.
 2. Hold `shift`.
@@ -39,6 +41,12 @@ Drag and drop import relative path [extension] for [VS Code]. Drag and drop impo
 |   `.js`, `.jsx`, `.ts`, `.tsx`    | self                                                    |
 |              `.css`               | self, `.gif`, `.jpeg`, `.jpg`, `.png`, .`webp`          |
 |              `.scss`              | self,  `.css`, `.gif`, `.jpeg`, `.jpg`, `.png`, .`webp` |
+
+## More usage examples
+
+* **[Click here]**
+
+[Click here]: https://github.com/ElecTreeFrying/drag-import-relative-path/blob/main/DEMO.md
 
 ## Extension Settings
 
@@ -121,7 +129,7 @@ Drag and drop import relative path [extension] for [VS Code]. Drag and drop impo
 
 See [CHANGELOG] for more information.
 
-[CHANGELOG]: https://github.com/ElecTreeFrying/drag-import-relative-path/blob/main/CHANGELOG.md
+[CHANGELOG]: https://marketplace.visualstudio.com/items/ElecTreeFrying.drag-import-relative-path/changelog
 
 ## Contributing
 

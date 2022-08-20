@@ -32,9 +32,12 @@ Drag and drop import relative path [extension] for [VS Code]. Drag and drop impo
 
 * Typescript/Javascript/TSX/JSX drag import
 
-| Active text editor <br> Drop (to) | Supported file extensions <br> Drag (from)              |
-| :-------------------------------: | :------------------------------------------------------ |
-|   `.js`, `.jsx`, `.ts`, `.tsx`    | self                                                    |
+| Active text editor <br> Drop (to) | Supported file extensions <br> Drag (from) |
+| :-------------------------------: | :----------------------------------------- |
+|               `.js`               | self                                       |
+|              `.jsx`               | self                                       |
+|               `.ts`               | self                                       |
+|              `.tsx`               | self                                       |
 
 ![typescript-demo](https://res.cloudinary.com/october7/image/upload/github/drag-import-relative-path/typescript-demo.gif "Drag and drop import relative path typescript demo")
 
@@ -67,8 +70,8 @@ Drag and drop import relative path [extension] for [VS Code]. Drag and drop impo
 * Markdown drag import
 * Images drag import
 
-| Active text editor <br> Drop (to) | Supported file extensions <br> Drag (from)              |
-| :-------------------------------: | :------------------------------------------------------ |
-|               `.md`               | self, `.gif`, `.jpeg`, `.jpg`, `.png`, .`webp`          |
+| Active text editor <br> Drop (to) | Supported file extensions <br> Drag (from)     |
+| :-------------------------------: | :--------------------------------------------- |
+|               `.md`               | self, `.gif`, `.jpeg`, `.jpg`, `.png`, .`webp` |
 
 ![markdown-demo](https://res.cloudinary.com/october7/image/upload/github/drag-import-relative-path/markdown-demo.gif "Drag and drop import relative path markdown demo")

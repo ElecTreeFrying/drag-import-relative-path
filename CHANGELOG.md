@@ -1,11 +1,22 @@
 # Changelog
 
+## v0.1.14 (2022-8-21)
+
+### Updates
+
+- Resolved compatibility issues with [Auto Import Relative Path] extension.
+- Minor code changes.
+
+[Auto Import Relative Path]: https://marketplace.visualstudio.com/items?itemName=ElecTreeFrying.auto-import
+
 ## v0.1.13 (2022-8-19)
 
 ### Added
 
 - Badges
-- DEMO.md
+- [DEMO.md]
+
+[DEMO.md]: https://github.com/ElecTreeFrying/drag-import-relative-path/blob/main/DEMO.md
 
 ### Changes
 
