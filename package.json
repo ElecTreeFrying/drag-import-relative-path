@@ -74,9 +74,9 @@
       {
         "title": "Auto Import Relative Path",
         "properties": {
-          "general.disableNotifications": {
-            "title": "Disable all notifications",
-            "description": "Disable all notifications on file drop to active pane.",
+          "general.disableAllDropNotifications": {
+            "title": "Disable all drag and drop notifications",
+            "description": "Disable all drag and drop notifications on file drop to active pane.",
             "type": "boolean",
             "default": false
           },

@@ -1,11 +1,11 @@
 import * as vscode from 'vscode';
 
 /* 
-  General > Disable all notifications
+  General > Disable all drag and drop notifications
   */
-export const disableNotifications = vscode
+export const disableAllDropNotifications = vscode
   .workspace.getConfiguration('general')
-  .get<boolean>('disableNotifications');
+  .get<boolean>('disableAllDropNotifications');
 
 /* 
   Import Statements > Script > Preserve script file extension

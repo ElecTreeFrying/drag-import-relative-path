@@ -1,6 +1,6 @@
 import * as vscode from 'vscode';
 
-import { disableNotifications } from '../providers';
+import { disableAllDropNotifications } from '../providers';
 import { NotifyType } from "../model";
 
 /**
@@ -15,21 +15,21 @@ export function notify(type: NotifyType): vscode.DocumentDropEdit {
       /* 
         Emit same file path, window notification (warning)
       */
-      disableNotifications || vscode.window.showWarningMessage(`Same file path.`);
+      disableAllDropNotifications || vscode.window.showWarningMessage(`Same file path.`);
   		return { insertText: undefined };
     }
     case NotifyType.NotSupported: {
       /* 
         Emit not supported, window notification (warning)
       */
-      disableNotifications || vscode.window.showWarningMessage(`Not supported.`);
+      disableAllDropNotifications || vscode.window.showWarningMessage(`Not supported.`);
   		return { insertText: undefined };
     }
     case NotifyType.DifferentFileExtension: {
       /* 
         Emit different file extension, window notification (error)
       */
-      disableNotifications || vscode.window.showErrorMessage(`Different file extension.`);
+      disableAllDropNotifications || vscode.window.showErrorMessage(`Different file extension.`);
   		return { insertText: undefined };
     }
   }
