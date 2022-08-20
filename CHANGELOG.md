@@ -1,5 +1,15 @@
 # Changelog
 
+## v0.1.16 (2022-8-22)
+
+### Updates
+
+* Defined activation events for performance improvement.
+
+### Bug fixes
+
+* Checkbox toggle in settings breaks the extension. (Requires users to select an editor)
+
 ## v0.1.14 (2022-8-21)
 
 ### Updates
@@ -18,7 +28,7 @@
 
 [DEMO.md]: https://github.com/ElecTreeFrying/drag-import-relative-path/blob/main/DEMO.md
 
-### Changes
+### Updates
 
 - Updated README
 
