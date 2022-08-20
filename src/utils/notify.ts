@@ -1,6 +1,5 @@
 import * as vscode from 'vscode';
 
-import { disableAllDropNotifications } from '../providers';
 import { NotifyType } from "../model";
 
 /**
@@ -9,6 +8,8 @@ import { NotifyType } from "../model";
  * @returns {vscode.DocumentDropEdit} undefined text in active text editor.
  */
 export function notify(type: NotifyType): vscode.DocumentDropEdit {
+
+  const disableAllDropNotifications = vscode.workspace.getConfiguration('general').get<boolean>('disableAllDropNotifications');
 
   switch (type) {
     case NotifyType.SameFilePath: {

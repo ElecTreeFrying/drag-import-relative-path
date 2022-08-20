@@ -11,19 +11,13 @@ export class AutoImportOnDropProvider implements vscode.DocumentDropEditProvider
   async provideDocumentDropEdits(_document: vscode.TextDocument): Promise<vscode.DocumentDropEdit> {
 
     let importTextOption: ImportTextOptions = null;
-    const editor = vscode.window.activeTextEditor;
-
-    /* 
-      Prevents DnD in non-editor
-      */
-    if (!editor) return { insertText: undefined };
 
     /* 
       Get editor file path and dragged file path 
       */
     await vscode.commands.executeCommand('copyFilePath');
     const dragFilePath = await vscode.env.clipboard.readText();
-    const dropFilePath = editor.document.uri.fsPath;
+    const dropFilePath = _document.uri.fsPath;
 
     /* 
       Prevents same file DnD
@@ -112,6 +106,7 @@ export class AutoImportOnDropProvider implements vscode.DocumentDropEditProvider
     const importText = getImportText(
       getRelativePath(dropFilePath, dragFilePath),
       dragFilePath,
+      dropFilePath,
       importTextOption
     );
 
