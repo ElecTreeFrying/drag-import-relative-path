@@ -1,5 +1,4 @@
 import * as path from 'path';
-import * as relative from 'relative';
 
 /**
  * Get calculated import style to append in editor.
@@ -11,6 +10,19 @@ export function getRelativePath(from: string, to: string): string {
   const startChars = isSameDir(from, to) ? './' : '';
   const relativePath = toWindowsPath(relative(from, to));
   return startChars + removeFileExt(relativePath);
+}
+
+/**
+ * Calculates file path between from and to.
+ * @param {string} from Dragged file path.
+ * @param {string} to Active text editor file path.
+ * @returns relative file path of dragged and active text editor.
+ */
+function relative(from: string, to: string): string {
+  return path.relative(
+    path.dirname(from),
+    to
+  );
 }
 
 /**

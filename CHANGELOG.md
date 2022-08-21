@@ -1,5 +1,12 @@
 # Changelog
 
+## v0.1.18 (2022-8-22)
+
+### Updates
+
+* Removed unused and redundant dependencies.
+* Minor code changes.
+
 ## v0.1.16 (2022-8-22)
 
 ### Updates
@@ -30,7 +37,7 @@
 
 ### Updates
 
-* Updated README
+* Updated [README.md]
 
 ## v0.1.12 (2022-8-18)
 
@@ -53,9 +60,13 @@
 * Codebase Comments
 * Extension configurations
 * Extension pre-publish configurations
-* LICENSE.md
-* CHANGELOG.md
-* README.md
+* [LICENSE.md]
+* [CHANGELOG.md]
+* [README.md]
+
+[LICENSE.md]: https://github.com/ElecTreeFrying/drag-import-relative-path/blob/main/LICENSE.md
+[CHANGELOG.md]: https://github.com/ElecTreeFrying/drag-import-relative-path/blob/main/CHANGELOG.md
+[README.md]: https://github.com/ElecTreeFrying/drag-import-relative-path/blob/main/README.md
 
 ### To do
 

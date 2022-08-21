@@ -18,7 +18,7 @@ export const markdownSupported: SupportedFileExtensions[] = [ '.md', ...supporte
 /* 
   Supported import file extensions to CSS 
   */
-export const cssSupported: SupportedFileExtensions[] = [ '.css', ...supportedImages ]
+export const cssSupported: SupportedFileExtensions[] = [ '.css', ...supportedImages ];
 
 /* 
   Supported import file extensions to SCSS 
