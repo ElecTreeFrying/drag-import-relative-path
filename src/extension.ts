@@ -9,13 +9,11 @@ import { selectors } from './providers';
  * @param {vscode.ExtensionContext} context An extension context is a collection of utilities private to an extension.
  * @returns void
  */
-export function activate(context: vscode.ExtensionContext): vscode.ExtensionContext {
+export function activate(context: vscode.ExtensionContext) {
   /* 
     Register Drag and drop handler on activation
    */
 	context.subscriptions.push(
     vscode.languages.registerDocumentDropEditProvider(selectors, new AutoImportOnDropProvider())
   );
-
-  return context;
 }
