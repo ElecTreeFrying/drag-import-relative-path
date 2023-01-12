@@ -26,13 +26,6 @@ export function notify(type: NotifyType): vscode.DocumentDropEdit {
       disableAllDropNotifications || vscode.window.showWarningMessage(`Not supported.`);
   		return { insertText: undefined };
     }
-    case NotifyType.DifferentFileExtension: {
-      /* 
-        Emit different file extension, window notification (error)
-      */
-      disableAllDropNotifications || vscode.window.showErrorMessage(`Different file extension.`);
-  		return { insertText: undefined };
-    }
   }
 
 }

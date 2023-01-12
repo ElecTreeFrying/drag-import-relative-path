@@ -1,5 +1,16 @@
 # Changelog
 
+## v0.2.0 (2023-1-12)
+
+### Updates
+
+* `.tsx` now supports `.scss` file extension. (see table below.)
+* Minor code changes.
+
+| Active text editor <br> Drop (to) | Supported file extensions <br> Drag (from)              |
+| :-------------------------------: | :------------------------------------------------------ |
+|              `.tsx`               | self, `.scss`                                           |
+
 ## v0.1.18 (2022-8-22)
 
 ### Updates

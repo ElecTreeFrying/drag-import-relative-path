@@ -4,8 +4,8 @@ import { AutoImportOnDropProvider } from './auto-import-on-drop-provider';
 import { selectors } from './providers';
 
 /**
- * This method is called when the extension is activated.
- * Drag Import Relative Path Extension is activated the very first time the command is executed.
+ * Called when the extension is activated.
+ * Extension is activated the first time the command is executed.
  * @param {vscode.ExtensionContext} context An extension context is a collection of utilities private to an extension.
  * @returns void
  */

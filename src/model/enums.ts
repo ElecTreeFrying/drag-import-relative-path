@@ -3,6 +3,5 @@
   */
 export enum NotifyType {
   SameFilePath,
-  NotSupported,
-  DifferentFileExtension
+  NotSupported
 }

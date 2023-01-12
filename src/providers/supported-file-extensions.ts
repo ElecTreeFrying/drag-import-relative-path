@@ -1,26 +1,31 @@
-import { ImageFileExtensions, SupportedFileExtensions } from "../model";
+import { ImageFileExtension, SupportedFileExtension } from "../model";
 
 /* 
   Supported image files extensions 
   */
-const supportedImages: ImageFileExtensions[] = [ '.gif', '.jpeg', '.jpg', '.png', '.webp' ];
+const supportedImages: ImageFileExtension[] = [ '.gif', '.jpeg', '.jpg', '.png', '.webp' ];
 
 /* 
   Supported import file extensions to HTML 
   */
-export const htmlSupported: SupportedFileExtensions[] = [ '.js', '.css', ...supportedImages ];
+export const htmlSupported: SupportedFileExtension[] = [ '.js', '.css', ...supportedImages ];
 
 /* 
   Supported import file extensions to Markdown 
   */
-export const markdownSupported: SupportedFileExtensions[] = [ '.md', ...supportedImages ];
+export const markdownSupported: SupportedFileExtension[] = [ '.md', ...supportedImages ];
 
 /* 
   Supported import file extensions to CSS 
   */
-export const cssSupported: SupportedFileExtensions[] = [ '.css', ...supportedImages ];
+export const cssSupported: SupportedFileExtension[] = [ '.css', ...supportedImages ];
 
 /* 
   Supported import file extensions to SCSS 
   */
-export const scssSupported: SupportedFileExtensions[] = [ '.scss', '.css', ...supportedImages ];
+ export const scssSupported: SupportedFileExtension[] = [ '.scss', '.css', ...supportedImages ];
+ 
+ /* 
+   Supported import SCSS file extensions to TSX
+   */
+export const tsxStylesSupported: SupportedFileExtension[] = [ '.scss' ];

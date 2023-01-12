@@ -1,6 +1,3 @@
-/* 
-  Providers barrel files
-  */
 export * from './selector';
-export * from './import-configuration';
 export * from './supported-file-extensions';
+export * as importStyle from './import-configuration';

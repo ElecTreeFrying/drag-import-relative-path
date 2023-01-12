@@ -1,7 +1,7 @@
 {
   "name": "drag-import-relative-path",
   "displayName": "Drag And Drop Import Relative Path",
-  "description": "Drag and drop import relative path extension",
+  "description": "This extension improves developer productivity by allowing drag-and-drop file imports.",
   "publisher": "ElecTreeFrying",
   "version": "0.1.18",
   "author": {

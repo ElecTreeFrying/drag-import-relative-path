@@ -7,9 +7,8 @@
 [downloads-badge]: https://vsmarketplacebadges.dev/downloads-short/ElecTreeFrying.drag-import-relative-path.png
 [badge-redirect]: https://marketplace.visualstudio.com/items?itemName=ElecTreeFrying.drag-import-relative-path
 
-Drag and drop import relative path [extension] for [VS Code]. Drag and drop import relative path without typing long and tedious import statements and file paths.
+This [extension] helps developers to quickly and easily import files by dragging them from the tree view to their active text editor. The extension simplifies the workflow, allowing developers to save time and improve their productivity by eliminating the need to type long and tedious import statements and file paths.
 
-[VS Code]: https://code.visualstudio.com/
 [extension]: https://marketplace.visualstudio.com/VSCode
 
 ![typescript-demo](https://res.cloudinary.com/october7/image/upload/github/drag-import-relative-path/typescript-demo.gif "Drag and drop import relative path typescript demo")
@@ -30,15 +29,16 @@ Drag and drop import relative path [extension] for [VS Code]. Drag and drop impo
 
 ## Usage
 
-1. **Drag** supported files from tree view.
-2. Hold `shift`.
-3. **Drop** to any of your active editors.
+1. **Drag** supported files from the tree view.
+1. Hold `shift` 
+1. **Drop** them into any of your active editors.
 
 | Active text editor <br> Drop (to) | Supported file extensions <br> Drag (from)              |
 | :-------------------------------: | :------------------------------------------------------ |
 |              `.html`              | `.js`, `.css`, `.gif`, `.jpeg`, `.jpg`, `.png`, .`webp` |
 |               `.md`               | self, `.gif`, `.jpeg`, `.jpg`, `.png`, .`webp`          |
-|   `.js`, `.jsx`, `.ts`, `.tsx`    | self                                                    |
+|       `.js`, `.jsx`, `.ts`        | self                                                    |
+|              `.tsx`               | self, `.scss`                                           |
 |              `.css`               | self, `.gif`, `.jpeg`, `.jpg`, `.png`, .`webp`          |
 |              `.scss`              | self,  `.css`, `.gif`, `.jpeg`, `.jpg`, `.png`, .`webp` |
 
@@ -132,8 +132,7 @@ See [CHANGELOG] for more information.
 [CHANGELOG]: https://marketplace.visualstudio.com/items/ElecTreeFrying.drag-import-relative-path/changelog
 
 ## Contributing
-
-* File bugs, or any feature requests in [GitHub Issues].
+* You can submit bug reports and feature requests in [GitHub Issues].
 * Leave a review on [Visual Studio Marketplace].
 
 [Github Issues]: https://github.com/ElecTreeFrying/drag-import-relative-path/issues

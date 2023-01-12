@@ -1,4 +1,5 @@
 import * as path from 'path';
+import { getFileExt } from './file-extension';
 
 /**
  * Get calculated import style to append in editor.
@@ -40,7 +41,7 @@ function toWindowsPath(relativePath: string): string {
  * @returns Relative path without file extension.
  */
 function removeFileExt(relativePath: string): string {
-  const ext = path.parse(relativePath).ext;
+  const ext = getFileExt(relativePath);
   return relativePath.slice(0, -(ext.length));
 }
 

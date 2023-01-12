@@ -1,12 +1,12 @@
 import * as vscode from 'vscode';
 
-import * as importStyle from '../providers/import-configuration';
+import { importStyle } from '../providers';
 import { ImportStyle } from '../model';
 
 /**
- * Returns CSS SnippetString import style.
- * @param {string} relativePath Calculated relative path from dragged file and text editor.
- * @returns CSS SnippetString SnippetString import style.
+ * Returns the Import statement string
+ * @param {string} relativePath Relative path of dragged file and active text editor.
+ * @returns Import statement string
  */
 export function getCSSImport(relativePath: string): vscode.SnippetString {
 
@@ -22,9 +22,9 @@ export function getCSSImport(relativePath: string): vscode.SnippetString {
 }
 
 /**
- * Returns CSS image SnippetString import style.
- * @param {string} relativePath Calculated relative path from dragged file and text editor.
- * @returns CSS SnippetString SnippetString import style.
+ * Returns the Import statement string
+ * @param {string} relativePath Relative path of dragged file and active text editor.
+ * @returns Import statement string
  */
  export function getCSSImageImport(relativePath: string): vscode.SnippetString {
 
@@ -39,9 +39,9 @@ export function getCSSImport(relativePath: string): vscode.SnippetString {
 }
 
 /**
- * Returns SCSS SnippetString import style.
- * @param {string} relativePath Calculated relative path from dragged file and text editor.
- * @returns SCSS SnippetString SnippetString import style.
+ * Returns the Import statement string
+ * @param {string} relativePath Relative path of dragged file and active text editor.
+ * @returns Import statement string
  */
 export function getSCSSImport(relativePath: string): vscode.SnippetString {
 
@@ -59,9 +59,9 @@ export function getSCSSImport(relativePath: string): vscode.SnippetString {
 }
 
 /**
- * Returns SCSS image SnippetString import style.
- * @param {string} relativePath Calculated relative path from dragged file and text editor.
- * @returns SCSS SnippetString SnippetString import style.
+ * Returns the Import statement string
+ * @param {string} relativePath Relative path of dragged file and active text editor.
+ * @returns Import statement string
  */
 export function getSCSSImageImport(relativePath: string): vscode.SnippetString {
 

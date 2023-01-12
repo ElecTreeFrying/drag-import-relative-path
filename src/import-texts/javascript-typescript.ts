@@ -1,12 +1,12 @@
 import * as vscode from 'vscode';
 
-import * as importStyle from '../providers/import-configuration';
+import { importStyle } from '../providers';
 import { ImportStyle } from '../model';
 
 /**
- * Returns Javascript/Javascript React SnippetString import style.
- * @param {string} relativePath Calculated relative path from dragged file and text editor.
- * @returns Javascript/Javascript React SnippetString import style.
+ * Returns the Import statement string
+ * @param {string} relativePath Relative path of dragged file and active text editor.
+ * @returns Import statement string
  */
 export function getJavascriptImport(relativePath: string): vscode.SnippetString {
 
@@ -29,9 +29,9 @@ export function getJavascriptImport(relativePath: string): vscode.SnippetString 
 }
 
 /**
- * Returns Typescript/Typescript React SnippetString import style.
- * @param {string} relativePath Calculated relative path from dragged file and text editor.
- * @returns Typescript/Typescript React SnippetString import style.
+ * Returns the Import statement string
+ * @param {string} relativePath Relative path of dragged file and active text editor.
+ * @returns Import statement string
  */
 export function getTypescriptImport(relativePath: string): vscode.SnippetString {
 

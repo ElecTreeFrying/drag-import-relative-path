@@ -1,12 +1,12 @@
 import * as vscode from 'vscode';
 
-import * as importStyle from '../providers/import-configuration';
+import { importStyle } from '../providers';
 import { ImportStyle } from '../model';
 
 /**
- * Returns HTML script SnippetString import style.
- * @param {string} relativePath Calculated relative path from dragged file and text editor.
- * @returns HTML script SnippetString import style.
+ * Returns the Import statement string
+ * @param {string} relativePath Relative path of dragged file and active text editor.
+ * @returns Import statement string
  */
 export function getHTMLScriptImport(relativePath: string): string {
 
@@ -21,9 +21,9 @@ export function getHTMLScriptImport(relativePath: string): string {
 }
 
 /**
- * Returns HTML image SnippetString import style.
- * @param {string} relativePath Calculated relative path from dragged file and text editor.
- * @returns HTML image SnippetString import style.
+ * Returns the Import statement string
+ * @param {string} relativePath Relative path of dragged file and active text editor.
+ * @returns Import statement string
  */
  export function getHTMLImageImport(relativePath: string): string {
 
@@ -38,9 +38,9 @@ export function getHTMLScriptImport(relativePath: string): string {
 }
 
 /**
- * Returns HTML stylesheet SnippetString import style.
- * @param {string} relativePath Calculated relative path from dragged file and text editor.
- * @returns HTML stylesheet SnippetString import style.
+ * Returns the Import statement string
+ * @param {string} relativePath Relative path of dragged file and active text editor.
+ * @returns Import statement string
  */
 export function getHTMLStylesheetImport(relativePath: string): string {
 
@@ -55,9 +55,9 @@ export function getHTMLStylesheetImport(relativePath: string): string {
 }
 
 /**
- * Returns Markdown SnippetString import style.
- * @param {string} relativePath Calculated relative path from dragged file and text editor.
- * @returns Markdown SnippetString import style.
+ * Returns the Import statement string
+ * @param {string} relativePath Relative path of dragged file and active text editor.
+ * @returns Import statement string
  */
 export function getMarkdownImport(relativePath: string): string {
 
@@ -72,9 +72,9 @@ export function getMarkdownImport(relativePath: string): string {
 }
 
 /**
- * Returns Markdown image SnippetString import style.
- * @param {string} relativePath Calculated relative path from dragged file and text editor.
- * @returns Markdown image SnippetString import style.
+ * Returns the Import statement string
+ * @param {string} relativePath Relative path of dragged file and active text editor.
+ * @returns Import statement string
  */
 export function getMarkdownImageImport(relativePath: string): string {
 
