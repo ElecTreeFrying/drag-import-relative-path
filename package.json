@@ -79,7 +79,7 @@
   "contributes": {
     "configuration": [
       {
-        "title": "Auto Import Relative Path",
+        "title": "Drag And Drop Import Relative Path",
         "properties": {
           "general.disableAllDropNotifications": {
             "title": "Disable all drag and drop notifications",
