@@ -1,15 +1,29 @@
 # Changelog
 
-## v0.2.0 (2023-1-12)
+## v0.2.1 (2023-1-13)
+
+### Features
+
+* Angular import compatibility for this import style → `import { name } from '_relativePath_';`.
 
 ### Updates
 
+* Wrong extension title in settings.
+* Broken version badge url in project details.
+
+## v0.2.0 (2023-1-12)
+
+### Features
+
 * `.tsx` now supports `.scss` file extension. (see table below.)
-* Minor code changes.
 
 | Active text editor <br> Drop (to) | Supported file extensions <br> Drag (from)              |
 | :-------------------------------: | :------------------------------------------------------ |
 |              `.tsx`               | self, `.scss`                                           |
+
+### Updates
+
+* Minor code changes.
 
 ## v0.1.18 (2022-8-22)
 
@@ -39,7 +53,7 @@
 
 ## v0.1.13 (2022-8-19)
 
-### Added
+### Features
 
 * Badges
 * [DEMO.md]
@@ -58,10 +72,9 @@
 
 ## v0.1.11 (2022-8-18)
 
+### Features
+
 * Published extension in marketplace
-
-### Added
-
 * Javascript support
 * React Javascript support
 * Typescript support
