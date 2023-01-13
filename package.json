@@ -82,14 +82,14 @@
         "title": "Drag And Drop Import Relative Path",
         "properties": {
           "general.disableAllDropNotifications": {
-            "title": "Disable all drag and drop notifications",
-            "description": "Disable all drag and drop notifications on file drop to active pane.",
+            "title": "Disable all drag-and-drop notifications",
+            "description": "Disable all drag-and-drop notifications when a file is dropped on the active pane.",
             "type": "boolean",
             "default": false
           },
           "importStatements.script.preserveScriptFileExtension": {
             "title": "Preserve file extension",
-            "description": "Preserve file extension in relative path.",
+            "description": "Preserve the file extension in the relative path.",
             "type": "boolean",
             "default": false
           },
@@ -125,7 +125,7 @@
           },
           "importStatements.styleSheet.preserveStylesheetFileExtension": {
             "title": "Preserve file extension",
-            "description": "Preserve file extension in relative path.",
+            "description": "Preserve the file extension in the relative path.",
             "type": "boolean",
             "default": false
           },
