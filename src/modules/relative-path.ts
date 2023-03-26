@@ -52,5 +52,7 @@ function removeFileExt(relativePath: string): string {
  * @returns Boolean
  */
 function isSameDir(from: string, to: string): boolean {
-  return path.parse(from).dir.toLowerCase() === path.parse(to).dir.toLowerCase();
+  from = path.parse(from).dir.toLowerCase().trim();
+  to = path.parse(from).dir.toLowerCase().trim();
+  return from === to || from.includes(to);
 }

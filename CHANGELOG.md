@@ -1,5 +1,11 @@
 # Changelog
 
+## v0.2.2 (2023-3-26)
+
+### Bug fixes
+
+* Fixed a bug related to importing relative paths from the same parent directory.
+
 ## v0.2.1 (2023-1-13)
 
 ### Features
