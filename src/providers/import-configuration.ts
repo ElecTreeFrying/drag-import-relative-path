@@ -3,7 +3,7 @@ import { ImportStyle } from "../model";
 /* 
   Javascript/Javascript React/Typescript/Typescript React Import styles
   */
-export const javascript: ImportStyle<number>[] = [
+export const javascript: ImportStyle[] = [
   { value: 0, description: "import name from '_relativePath_';" },
   { value: 1, description: "import { name } from '_relativePath_';" },
   { value: 2, description: "import { default as name } from '_relativePath_';" },
@@ -18,7 +18,7 @@ export const javascript: ImportStyle<number>[] = [
 /* 
   Javascript/Javascript React/Typescript/Typescript React Import styles
   */
-export const typescript: ImportStyle<number>[] = [
+export const typescript: ImportStyle[] = [
   { value: 0, description: "import name from '_relativePath_';" },
   { value: 1, description: "import { name } from '_relativePath_';" },
   { value: 2, description: "import { default as name } from '_relativePath_';" },
@@ -29,7 +29,7 @@ export const typescript: ImportStyle<number>[] = [
 /* 
   CSS Import styles
   */
-export const css: ImportStyle<number>[] = [
+export const css: ImportStyle[] = [
   { value: 0, description: "@import '_relativePath_';" },
   { value: 1, description: "@import url('_relativePath_');" }
 ];
@@ -37,14 +37,14 @@ export const css: ImportStyle<number>[] = [
 /* 
   CSS Import styles
   */
-export const cssImage: ImportStyle<number>[] = [
+export const cssImage: ImportStyle[] = [
   { value: 0, description: "url('_relativePath_')" }
 ];
 
 /* 
   CSS preprocessor, SCSS Import styles
   */
-export const scss: ImportStyle<number>[] = [
+export const scss: ImportStyle[] = [
   { value: 0, description: "@import '_relativePath_';" },
   { value: 1, description: "@import url('_relativePath_');" },
   { value: 2, description: "@use '_relativePath_';" },
@@ -54,42 +54,42 @@ export const scss: ImportStyle<number>[] = [
 /* 
   CSS preprocessor, SCSS Import styles
   */
-export const scssImage: ImportStyle<number>[] = [
+export const scssImage: ImportStyle[] = [
   { value: 0, description: "url('_relativePath_')" }
 ];
 
 /* 
   HTML scripts Import styles
   */
-export const HTMLScript: ImportStyle<number>[] = [
+export const HTMLScript: ImportStyle[] = [
   { value: 0, description: "<script type=\"text/javascript\" src=\"_relativePath_\"></script>" }
 ];
 
 /* 
   HTML image Import styles
   */
-export const HTMLImage: ImportStyle<number>[] = [
+export const HTMLImage: ImportStyle[] = [
   { value: 0, description: "<img src=\"_relativePath_\" alt=\"sample\">" }
 ];
 
 /* 
   HTML stylesheets Import styles
   */
-export const HTMLStylesheet: ImportStyle<number>[] = [
+export const HTMLStylesheet: ImportStyle[] = [
   { value: 0, description: "<link href=\"_relativePath_\" rel=\"stylesheet\">" }
 ];
 
 /* 
   Markdown Import styles
   */
-export const markdown: ImportStyle<number>[] = [
+export const markdown: ImportStyle[] = [
   { value: 0, description: "![text](_relativePath_)" }
 ];
 
 /* 
   Markdown (image) Import styles
   */
-export const markdownImage: ImportStyle<number>[] = [
+export const markdownImage: ImportStyle[] = [
   { value: 0, description: "![alt-text](_relativePath_ \"Hover text\")" },
   { value: 1, description: "![alt-text][image] / [image]: _relativePath_ \"Hover text\"" }
 ];

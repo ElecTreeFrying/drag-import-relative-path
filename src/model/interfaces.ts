@@ -1,7 +1,7 @@
 /* 
   Import style interface
   */
-export interface ImportStyle<T> {
-  value: T;
+export interface ImportStyle {
+  value: number;
   description: string;
 };

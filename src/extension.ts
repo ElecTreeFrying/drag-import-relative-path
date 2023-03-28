@@ -1,6 +1,6 @@
 import * as vscode from 'vscode';
 
-import { AutoImportOnDropProvider } from './auto-import-on-drop-provider';
+import { AutoImportOnDropProvider } from './subscriptions';
 import { selectors } from './providers';
 
 /**

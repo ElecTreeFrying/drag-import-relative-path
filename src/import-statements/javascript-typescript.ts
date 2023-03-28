@@ -9,10 +9,10 @@ import { ImportStyle } from '../model';
  * @param {string} relativePath Relative path of dragged file and active text editor.
  * @returns Import statement string
  */
-export function getJavascriptImport(relativePath: string): vscode.SnippetString {
+export function javascriptImportStatement(relativePath: string): vscode.SnippetString {
 
-  let configValue = vscode.workspace.getConfiguration('importStatements.script').get('javascriptImportStyle');
-      configValue = importStyle.javascript.find((config: ImportStyle<number>) => config.description === configValue).value;
+  let configValue = vscode.workspace.getConfiguration('auto-import.importStatement.script').get('javascriptImportStyle');
+      configValue = importStyle.javascript.find((config: ImportStyle) => config.description === configValue).value;
 
   switch (configValue as number) {
     case 0:  return new vscode.SnippetString(`import $1 from '${relativePath}';`);
@@ -34,10 +34,10 @@ export function getJavascriptImport(relativePath: string): vscode.SnippetString 
  * @param {string} relativePath Relative path of dragged file and active text editor.
  * @returns Import statement string
  */
-export function getTypescriptImport(relativePath: string): vscode.SnippetString {
+export function typescriptImportStatement(relativePath: string): vscode.SnippetString {
 
-  let configValue = vscode.workspace.getConfiguration('importStatements.script').get('typescriptImportStyle');
-      configValue = importStyle.typescript.find((config: ImportStyle<number>) => config.description === configValue).value;
+  let configValue = vscode.workspace.getConfiguration('auto-import.importStatement.script').get('typescriptImportStyle');
+      configValue = importStyle.typescript.find((config: ImportStyle) => config.description === configValue).value;
 
   switch (configValue as number) {
     case 0:  return new vscode.SnippetString(`import $1 from '${relativePath}';`);
@@ -56,7 +56,11 @@ export function getTypescriptImport(relativePath: string): vscode.SnippetString 
  * @returns Import name
  */
 function importName(relativePath: string): string {
-  if (relativePath.includes('.component')) {
+  if (
+    relativePath.includes('.component')
+    || relativePath.includes('.directive')
+    || relativePath.includes('.pipe')
+  ) {
     const snackCase = path.basename(relativePath).replace(/\./g, '-');
     return snackCase.split('-').map(e => e[0].toUpperCase() + e.slice(1)).join('');  
   } else {

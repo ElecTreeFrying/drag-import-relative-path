@@ -1,5 +1,11 @@
 # Changelog
 
+## v0.2.3 (2023-3-28)
+
+- SCSS partial file import bug fix.
+- We have added a new feature. If it is not supported, the relative path is inserter by drag and drop.
+- Removed notification preference
+
 ## v0.2.2 (2023-3-26)
 
 ### Bug fixes

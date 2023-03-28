@@ -1,8 +1,8 @@
 import * as vscode from 'vscode';
 
-import { getImportText, getRelativePath, getFileExt, notify } from './modules';
-import { NotifyType } from './model';
-import { htmlSupported, markdownSupported, cssSupported, scssSupported } from './providers';
+import { importStatementSnippet, getRelativePath, getFileExt, notify } from '../utilities';
+import { NotifyType } from '../model';
+import { htmlSupported, markdownSupported, cssSupported, scssSupported, permittedExts } from '../providers';
 
 /* 
   Drag and drop handler
@@ -14,8 +14,8 @@ export class AutoImportOnDropProvider implements vscode.DocumentDropEditProvider
       Get the active text editor file path and dragged file path from tree view
       */
     await vscode.commands.executeCommand('copyFilePath');
-    const dragFilePath = await vscode.env.clipboard.readText();
     const dropFilePath = _document.uri.fsPath;
+    const dragFilePath = await vscode.env.clipboard.readText();
 
     /* 
       Prevents same file drag and drop
@@ -29,8 +29,7 @@ export class AutoImportOnDropProvider implements vscode.DocumentDropEditProvider
       */
     if (
       // Checks unsupported drag and drop files
-      (((getFileExt(dragFilePath) !== getFileExt(dropFilePath)) 
-      && ![ '.html', '.md', '.css', '.scss', '.tsx' ].includes(getFileExt(dropFilePath))))
+      (!permittedExts.includes(getFileExt(dropFilePath)) && (getFileExt(dragFilePath) !== getFileExt(dropFilePath)) )
       // Checks HTML to HTML drag and drop
       || (getFileExt(dragFilePath) === '.html' && getFileExt(dropFilePath) === '.html')
       // Checks unsupported HTML drag import file extensions
@@ -42,18 +41,29 @@ export class AutoImportOnDropProvider implements vscode.DocumentDropEditProvider
       // Checks unsupported SCSS drag import file extensions
       || (!scssSupported.includes(getFileExt(dragFilePath)) && getFileExt(dropFilePath) === '.scss')
     ) {
-      return notify(NotifyType.NotSupported);
+      notify(NotifyType.NotSupported);
+      return { insertText: relativePath(dropFilePath, dragFilePath) };
     }
-    
+
+    const snippet = importStatementSnippet(
+      getRelativePath(dropFilePath, dragFilePath),
+      dragFilePath,
+      dropFilePath
+    );
+
+    if (snippet.value === '\n') {
+      notify(NotifyType.NotSupported);
+      return { insertText: relativePath(dropFilePath, dragFilePath) };
+    }
+
     /* 
       Insert text
       */
-    return {
-      insertText: getImportText(
-        getRelativePath(dropFilePath, dragFilePath),
-        dragFilePath,
-        dropFilePath
-      )
-    };
+    return { insertText: snippet };
   }
+}
+
+function relativePath(toFilepath: string, fromFilepath: string): vscode.SnippetString {
+  const snippet = new vscode.SnippetString(`${getRelativePath(toFilepath, fromFilepath) + getFileExt(fromFilepath)}`);
+  return snippet.appendText('\n');
 }
