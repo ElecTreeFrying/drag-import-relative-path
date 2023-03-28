@@ -1,5 +1,9 @@
 # Changelog
 
+## v0.2.4 (2023-3-28)
+
+- Updated [README.md] and [DEMO.md].
+
 ## v0.2.3 (2023-3-28)
 
 - SCSS partial file import bug fix.

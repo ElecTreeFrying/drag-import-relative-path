@@ -33,14 +33,15 @@ This [extension] helps developers to quickly and easily import files by dragging
 1. Hold `shift` 
 1. **Drop** them into any of your active editors.
 
-| Active text editor <br> Drop (to) | Supported file extensions <br> Drag (from)              |
-| :-------------------------------: | :------------------------------------------------------ |
-|              `.html`              | `.js`, `.css`, `.gif`, `.jpeg`, `.jpg`, `.png`, .`webp` |
-|               `.md`               | self, `.gif`, `.jpeg`, `.jpg`, `.png`, .`webp`          |
-|       `.js`, `.jsx`, `.ts`        | self                                                    |
-|              `.tsx`               | self, `.scss`                                           |
-|              `.css`               | self, `.gif`, `.jpeg`, `.jpg`, `.png`, .`webp`          |
-|              `.scss`              | self,  `.css`, `.gif`, `.jpeg`, `.jpg`, `.png`, .`webp` |
+| Active text editor <br> Drop (to) | Supported file extensions <br> Drag (from)                                                                                                                                |
+| :-------------------------------: | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+|              `.html`              | `.js`, `.css`, `.gif`, `.jpeg`, `.jpg`, `.png`, .`webp`                                                                                                                   |
+|               `.md`               | self, `.gif`, `.jpeg`, `.jpg`, `.png`, .`webp`                                                                                                                            |
+|           `.js`, `.ts`            | self                                                                                                                                                                      |
+|              `.jsx`               | self, `.js`, `.json`<br>`.css`,`.sass` `.scss`<br>`.png`, `.jpg`, `.gif`, `.svg`, `.webp`<br>`.woff`, `.woff2`, `.ttf`, `.eot`<br>`.md`, `.yml`, `.yaml`, `.html`         |
+|              `.tsx`               | self, `.ts`, `.js`, `.json`<br>`.css`, `.sass` `.scss`<br>`.png`, `.jpg`, `.gif`, `.svg`, `.webp`<br>`.woff`, `.woff2`, `.ttf`, `.eot`<br>`.md`, `.yml`, `.yaml`, `.html` |
+|              `.css`               | self, `.gif`, `.jpeg`, `.jpg`, `.png`, .`webp`                                                                                                                            |
+|              `.scss`              | self,  `.css`, `.gif`, `.jpeg`, `.jpg`, `.png`, .`webp`                                                                                                                   |
 
 ## More usage examples
 
@@ -50,15 +51,11 @@ This [extension] helps developers to quickly and easily import files by dragging
 
 ## Extension Settings
 
-### General settings
-
-* `general.disableNotifications`: Disable all notifications.
-
 ### Import statements
 
 **Scripts:** Javascript, React Javascript, Typescript, React Typescript
 
-* `importStatements.script.preserveFileExtension`: _(Boolean)_
+* `importStatements.script.preserveFileExtension`: _(Boolean)_ **default → false**
   
 * `importStatements.script.javascriptImportStyle`
   * `import $1 from '_relativePath_';` **→ default**
@@ -80,7 +77,7 @@ This [extension] helps developers to quickly and easily import files by dragging
 
 **Stylesheets:** CSS, SCSS
 
-* `importStatements.styleSheet.preserveFileExtension`: _(Boolean)_
+* `importStatements.styleSheet.preserveFileExtension`: _(Boolean)_ **default → false**
 
 * `importStatements.styleSheet.cssImportStyle`
   * `@import '_relativePath_';` **→ default**
