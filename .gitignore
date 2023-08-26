@@ -7,3 +7,5 @@ node_modules
 local/*
 *.vsix
 ISSUES.md
+.DS_Store
+test-directories

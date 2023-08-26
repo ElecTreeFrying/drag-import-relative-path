@@ -1,5 +1,12 @@
 # Changelog
 
+## v0.2.5 (2023-8-27)
+
+- Closes [#4]
+
+[#4]: https://github.com/ElecTreeFrying/drag-import-relative-path/issues/4
+
+
 ## v0.2.4 (2023-3-28)
 
 - Updated [README.md] and [DEMO.md].

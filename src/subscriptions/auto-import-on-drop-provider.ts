@@ -8,14 +8,19 @@ import { htmlSupported, markdownSupported, cssSupported, scssSupported, permitte
   Drag and drop handler
  */
 export class AutoImportOnDropProvider implements vscode.DocumentDropEditProvider {
-  async provideDocumentDropEdits(_document: vscode.TextDocument): Promise<vscode.DocumentDropEdit> {
+  async provideDocumentDropEdits(
+		_document: vscode.TextDocument,
+		position: vscode.Position,
+		dataTransfer: vscode.DataTransfer,
+		token: vscode.CancellationToken
+	): Promise<vscode.DocumentDropEdit> {
 
     /* 
       Get the active text editor file path and dragged file path from tree view
       */
-    await vscode.commands.executeCommand('copyFilePath');
+    const dataTransferItem = dataTransfer.get('text/plain');
     const dropFilePath = _document.uri.fsPath;
-    const dragFilePath = await vscode.env.clipboard.readText();
+    const dragFilePath = dataTransferItem.value;
 
     /* 
       Prevents same file drag and drop
