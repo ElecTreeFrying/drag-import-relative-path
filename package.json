@@ -12,7 +12,7 @@
   "engines": {
     "vscode": "^1.70.0"
   },
-  "homepage": "https://github.com/ElecTreeFrying/drag-import-relative-path/blob/master/README.md",
+  "homepage": "https://github.com/ElecTreeFrying/drag-import-relative-path/blob/main/README.md",
   "repository": {
     "type": "git",
     "url": "https://github.com/ElecTreeFrying/drag-import-relative-path.git"
@@ -32,9 +32,6 @@
       "description": "Downloads badge",
       "href": "https://marketplace.visualstudio.com/items?itemName=ElecTreeFrying.drag-import-relative-path"
     }
-  ],
-  "extensionPack": [
-    "ElecTreeFrying.auto-import"
   ],
   "galleryBanner": {
     "color": "#494949",

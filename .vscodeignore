@@ -8,3 +8,12 @@ vsc-extension-quickstart.md
 **/.eslintrc.json
 **/*.map
 **/*.ts
+**/.DS_Store
+.env
+**/.env
+local/**
+dist/**
+.claude/**
+DEMO.md
+out/test/**
+out/test-directories/**
