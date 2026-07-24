@@ -1,0 +1,8 @@
+# Enforce LF for all text files — prevents the CRLF spurious-diff problem
+* text=auto eol=lf
+
+# Binary assets
+*.png binary
+*.gif binary
+*.vsix binary
+*.mov binary

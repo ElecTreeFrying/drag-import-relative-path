@@ -13,20 +13,24 @@
 				"--extensionDevelopmentPath=${workspaceFolder}"
 			],
 			"outFiles": [
-				"${workspaceFolder}/out/**/*.js"
+				"${workspaceFolder}/dist/**/*.js"
 			],
 			"preLaunchTask": "${defaultBuildTask}"
 		},
 		{
-			"name": "Extension Tests",
+			// Same as "Run Extension" but in a throwaway profile, so `globalState` starts empty every
+			// launch. Needed for anything that fires once per profile and then silences itself — the
+			// review prompt writes its "never again" sentinel before showing, so the default config
+			// (which shares your real profile) can only ever show it to you once.
+			"name": "Run Extension (clean profile)",
 			"type": "extensionHost",
 			"request": "launch",
 			"args": [
 				"--extensionDevelopmentPath=${workspaceFolder}",
-				"--extensionTestsPath=${workspaceFolder}/out/test/suite/index"
+				"--profile-temp"
 			],
 			"outFiles": [
-				"${workspaceFolder}/out/test/**/*.js"
+				"${workspaceFolder}/dist/**/*.js"
 			],
 			"preLaunchTask": "${defaultBuildTask}"
 		}

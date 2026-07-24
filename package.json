@@ -1,7 +1,7 @@
 {
   "name": "drag-import-relative-path",
   "displayName": "Drag And Drop Import Relative Path",
-  "description": "This extension improves developer productivity by allowing drag-and-drop file imports.",
+  "description": "Never type an import path again. Drag a file into the editor to generate a relative-path import for JavaScript, TypeScript, React, Next.js, Angular, Vue, Svelte, Astro, MDX, CSS, SCSS, HTML, Markdown & LaTeX. 45 import styles, framework-aware placement, image/video/audio tags, LaTeX figures. Works with any bundler or runtime — Vite, webpack, Rollup, esbuild, Node.js, Deno, Bun.",
   "publisher": "ElecTreeFrying",
   "version": "0.2.5",
   "author": {
@@ -10,20 +10,25 @@
   },
   "icon": "assets/extension-icon.png",
   "engines": {
-    "vscode": "^1.70.0"
+    "vscode": "^1.97.0"
   },
-  "homepage": "https://github.com/ElecTreeFrying/drag-import-relative-path/blob/master/README.md",
+  "homepage": "https://github.com/ElecTreeFrying/drag-import-relative-path/blob/main/README.md",
   "repository": {
     "type": "git",
     "url": "https://github.com/ElecTreeFrying/drag-import-relative-path.git"
   },
   "bugs": {
-    "email": "jam@fisendo.com",
+    "email": "electreefrying.git@gmail.com",
     "url": "https://github.com/ElecTreeFrying/drag-import-relative-path/issues"
+  },
+  "qna": "https://github.com/ElecTreeFrying/drag-import-relative-path/issues",
+  "pricing": "Free",
+  "sponsor": {
+    "url": "https://github.com/ElecTreeFrying/drag-import-relative-path#support"
   },
   "badges": [
     {
-      "url": "https://vsmarketplacebadges.dev/version/ElecTreeFrying.drag-import-relative-path.png",
+      "url": "https://vsmarketplacebadges.dev/version-short/ElecTreeFrying.drag-import-relative-path.png",
       "description": "Version badge",
       "href": "https://marketplace.visualstudio.com/items?itemName=ElecTreeFrying.drag-import-relative-path"
     },
@@ -31,39 +36,58 @@
       "url": "https://vsmarketplacebadges.dev/downloads-short/ElecTreeFrying.drag-import-relative-path.png",
       "description": "Downloads badge",
       "href": "https://marketplace.visualstudio.com/items?itemName=ElecTreeFrying.drag-import-relative-path"
+    },
+    {
+      "url": "https://vsmarketplacebadges.dev/installs-short/ElecTreeFrying.drag-import-relative-path.png",
+      "description": "Installs badge",
+      "href": "https://marketplace.visualstudio.com/items?itemName=ElecTreeFrying.drag-import-relative-path"
+    },
+    {
+      "url": "https://vsmarketplacebadges.dev/rating-short/ElecTreeFrying.drag-import-relative-path.png",
+      "description": "Rating badge",
+      "href": "https://marketplace.visualstudio.com/items?itemName=ElecTreeFrying.drag-import-relative-path"
     }
   ],
-  "extensionPack": [
-    "ElecTreeFrying.auto-import"
-  ],
   "galleryBanner": {
-    "color": "#494949",
+    "color": "#e82828",
     "theme": "dark"
   },
   "license": "MIT",
   "categories": [
-    "Other",
+    "Programming Languages",
     "Snippets"
   ],
   "keywords": [
+    "drag and drop",
     "drag import",
     "drag and drop import",
     "relative import",
-    "auto import",
     "relative path",
-    "drag",
-    "import",
-    "path",
-    "relative",
-    "angular",
+    "auto import",
     "react",
+    "nextjs",
     "vue",
-    "javascript",
+    "angular",
+    "svelte",
+    "astro",
+    "nuxt",
+    "sveltekit",
+    "remix",
     "typescript",
-    "css",
+    "javascript",
+    "jsx",
+    "tsx",
+    "sass",
     "scss",
-    "html",
-    "markdown"
+    "css modules",
+    "mdx",
+    "markdown",
+    "latex",
+    "nodejs",
+    "deno",
+    "bun",
+    "vite",
+    "monorepo"
   ],
   "activationEvents": [
     "onLanguage:javascript",
@@ -73,140 +97,344 @@
     "onLanguage:css",
     "onLanguage:scss",
     "onLanguage:html",
-    "onLanguage:markdown"
+    "onLanguage:markdown",
+    "onLanguage:vue",
+    "onLanguage:svelte",
+    "onLanguage:astro",
+    "onLanguage:mdx",
+    "onLanguage:latex",
+    "workspaceContains:**/*.mdx",
+    "workspaceContains:**/*.tex"
   ],
-  "main": "./out/extension.js",
+  "main": "./dist/extension.js",
+  "extensionKind": [
+    "workspace"
+  ],
+  "capabilities": {
+    "untrustedWorkspaces": {
+      "supported": true
+    },
+    "virtualWorkspaces": true
+  },
   "contributes": {
+    "commands": [
+      {
+        "command": "drag-import.setDefaultImportStyle",
+        "title": "Drag Import: Set Default Import Style"
+      },
+      {
+        "command": "drag-import.setImportPlacement",
+        "title": "Drag Import: Set Import Placement"
+      },
+      {
+        "command": "drag-import.togglePreserveScriptExtension",
+        "title": "Drag Import: Toggle Preserve Script File Extension"
+      },
+      {
+        "command": "drag-import.resetImportStyles",
+        "title": "Drag Import: Reset All Import Styles to Defaults"
+      }
+    ],
     "configuration": [
       {
         "title": "Drag And Drop Import Relative Path",
         "properties": {
-          "importStatements.script.preserveScriptFileExtension": {
-            "title": "Preserve file extension",
-            "description": "Preserve the file extension in the relative path.",
+          "drag-import.preferences.importStatementPlacement": {
+            "title": "Import statement placement",
+            "description": "Where to insert generated import statements in the destination file. Forced to 'Cursor' for HTML, Markdown, LaTeX, and when importing a non-stylesheet into a stylesheet. For .astro files, placement is constrained to the frontmatter block; for .vue and .svelte files, to the script block. Default: Bottom.",
+            "type": "string",
+            "default": "Bottom",
+            "enum": [
+              "Top",
+              "Bottom",
+              "Cursor"
+            ],
+            "enumDescriptions": [
+              "Insert before the first line of the file.",
+              "Append after the last recognised import / require / @import / @use line. Falls back to line 0 if no import is found.",
+              "Insert at the current cursor position."
+            ]
+          },
+          "drag-import.preferences.requestReview": {
+            "title": "Ask for a Marketplace review",
+            "description": "Show a one-time notification asking for a Marketplace review after you have generated a number of imports. Never repeats once answered or dismissed. Turn this off to suppress it entirely.",
+            "type": "boolean",
+            "default": true
+          },
+          "drag-import.importStatement.script.preserveScriptFileExtension": {
+            "title": "Preserve script file extension in imports",
+            "description": "Keep the source .js / .ts / .jsx / .tsx extension on the generated import path. Most module systems (Node, bundlers, TypeScript) omit it by convention, which is why this is off by default.",
             "type": "boolean",
             "default": false
           },
-          "importStatements.script.javascriptImportStyle": {
-            "title": "Javascript (.ts)/React Javascript(.tsx) import styles",
-            "description": "Supported Javascript (.ts)/React Javascript(.tsx) import styles",
+          "drag-import.importStatement.script.javascriptImportStyle": {
+            "title": "JavaScript / JSX import style",
+            "description": "Template used for .js destinations, and for .js / .jsx sources imported into .jsx, .tsx, or .mdx files. '_relativePath_' is replaced with the computed relative path; 'name' becomes a snippet placeholder so your cursor lands on it after insertion.",
             "type": "string",
             "default": "import name from '_relativePath_';",
             "enum": [
               "import name from '_relativePath_';",
               "import { name } from '_relativePath_';",
-              "import { default as name } from '_relativePath_';",
+              "import name, { other } from '_relativePath_';",
               "import * as name from '_relativePath_';",
               "import '_relativePath_';",
-              "var name = require('_relativePath_');",
               "const name = require('_relativePath_');",
-              "var name = import('_relativePath_');",
-              "const name = import('_relativePath_');"
+              "const name = await import('_relativePath_');"
+            ],
+            "enumDescriptions": [
+              "ES module: default import",
+              "ES module: named import (destructured)",
+              "ES module: default + named import (mixed)",
+              "ES module: namespace import (every export bound under one name)",
+              "ES module: side-effect import (no binding)",
+              "CommonJS: const require()",
+              "Dynamic import: lazy-load / code-splitting"
             ]
           },
-          "importStatements.script.typescriptImportStyle": {
-            "title": "Typescript (.ts)/React Typescript(.tsx) import styles",
-            "description": "Supported Typescript (.ts)/React Typescript(.tsx) import styles",
+          "drag-import.importStatement.script.typescriptImportStyle": {
+            "title": "TypeScript / TSX import style",
+            "description": "Template used for .ts destinations, for .ts / .tsx sources imported into .tsx or .mdx files, and for all script sources imported into .vue, .svelte, or .astro files. '_relativePath_' is replaced with the computed relative path; 'name' becomes a snippet placeholder. With the 'import { name }' shape, Angular file conventions (.component, .directive, .pipe, .service, .module) auto-fill 'name' with a PascalCase identifier derived from the basename — for example, app-root.component.ts becomes { AppRootComponent }.",
             "type": "string",
             "default": "import { name } from '_relativePath_';",
             "enum": [
-              "import name from '_relativePath_';",
               "import { name } from '_relativePath_';",
-              "import { default as name } from '_relativePath_';",
+              "import name from '_relativePath_';",
               "import * as name from '_relativePath_';",
-              "import '_relativePath_';"
+              "import '_relativePath_';",
+              "import type { name } from '_relativePath_';",
+              "import { name, type Type } from '_relativePath_';",
+              "const name = await import('_relativePath_');"
+            ],
+            "enumDescriptions": [
+              "ES module: named import — legacy Angular files (.component / .directive / .pipe / .service / .module) auto-fill PascalCase identifiers (back-compat)",
+              "ES module: default import",
+              "ES module: namespace import (every export bound under one name)",
+              "ES module: side-effect import (no binding)",
+              "TypeScript: type-only import (TS 3.8+ — zero runtime, erased at compile time)",
+              "TypeScript: mixed value + type import (TS 4.5+ inline modifier)",
+              "Dynamic import: lazy-load / code-splitting"
             ]
           },
-          "importStatements.styleSheet.preserveStylesheetFileExtension": {
-            "title": "Preserve file extension",
-            "description": "Preserve the file extension in the relative path.",
+          "drag-import.importStatement.styleSheet.preserveStylesheetFileExtension": {
+            "title": "Preserve stylesheet file extension in imports",
+            "description": "Keep the source .css / .scss extension on the generated import path. Applies to .scss-into-.scss imports and to a .scss source imported inside a Vue / Svelte / Astro <style> block. Exception: .css extensions are always preserved inside .scss imports — Sass requires the extension to recognise a foreign-language import, and this setting has no effect there.",
             "type": "boolean",
             "default": false
           },
-          "importStatements.styleSheet.cssImportStyle": {
-            "title": "CSS import styles",
-            "description": "Supported CSS import styles",
+          "drag-import.importStatement.styleSheet.cssImportStyle": {
+            "title": "CSS @import style",
+            "description": "Template used when a .css source is imported into a .css destination, or into a Vue / Svelte / Astro <style> block. '_relativePath_' is replaced with the computed relative path.",
             "type": "string",
             "default": "@import '_relativePath_';",
             "enum": [
               "@import '_relativePath_';",
               "@import url('_relativePath_');"
+            ],
+            "enumDescriptions": [
+              "@import with quoted path",
+              "@import with url() function"
             ]
           },
-          "importStatements.styleSheet.cssImageImportStyle": {
-            "title": "CSS import styles",
-            "description": "Supported CSS import styles",
+          "drag-import.importStatement.styleSheet.cssImageImportStyle": {
+            "title": "CSS image reference style",
+            "description": "Snippet used when an image source is imported into a .css destination — typically for background-image, content, mask-image, and similar properties. '_relativePath_' is replaced with the computed relative path.",
             "type": "string",
             "default": "url('_relativePath_')",
             "enum": [
               "url('_relativePath_')"
+            ],
+            "enumDescriptions": [
+              "Standard url() function"
             ]
           },
-          "importStatements.styleSheet.scssImportStyle": {
-            "title": "SCSS import styles",
-            "description": "Supported SCSS import styles",
+          "drag-import.importStatement.styleSheet.scssImportStyle": {
+            "title": "SCSS @import / @use style",
+            "description": "Template used when a .scss or .css source is imported into a .scss destination, or into a Vue / Svelte / Astro <style> block. Modern Sass uses @use for a true module system; legacy Sass uses @import. Leading underscores on partial filenames (e.g. _variables.scss) are stripped automatically to match Sass's partial-resolution convention.",
             "type": "string",
-            "default": "@import '_relativePath_';",
+            "default": "@use '_relativePath_';",
             "enum": [
-              "@import '_relativePath_';",
-              "@import url('_relativePath_');",
               "@use '_relativePath_';",
-              "@use '_relativePath_' as *;"
+              "@use '_relativePath_' as *;",
+              "@use '_relativePath_' as name;",
+              "@forward '_relativePath_';",
+              "@import '_relativePath_';"
+            ],
+            "enumDescriptions": [
+              "Modern @use — Sass module system (recommended)",
+              "Modern @use with wildcard alias — no namespace prefix required",
+              "Modern @use with named alias",
+              "Sass module re-export — barrel pattern",
+              "Legacy @import — Sass-deprecated"
             ]
           },
-          "importStatements.styleSheet.scssImageImportStyle": {
-            "title": "SCSS import styles",
-            "description": "Supported SCSS import styles",
+          "drag-import.importStatement.styleSheet.scssImageImportStyle": {
+            "title": "SCSS image reference style",
+            "description": "Snippet used when an image source is imported into a .scss destination. Reuses the CSS image template — the url() syntax is identical between the two languages.",
             "type": "string",
             "default": "url('_relativePath_')",
             "enum": [
               "url('_relativePath_')"
+            ],
+            "enumDescriptions": [
+              "Standard url() function (shared with CSS)"
             ]
           },
-          "importStatements.markup.htmlScriptImportStyle": {
-            "title": "HTML import styles for script",
-            "description": "Supported HTML import styles for script",
+          "drag-import.importStatement.markup.htmlScriptImportStyle": {
+            "title": "HTML <script> tag style",
+            "description": "Tag inserted at the cursor when a .js source is imported into a .html destination. '_relativePath_' is replaced with the computed relative path.",
             "type": "string",
-            "default": "<script type=\"text/javascript\" src=\"_relativePath_\"></script>",
+            "default": "<script src=\"_relativePath_\"></script>",
             "enum": [
+              "<script src=\"_relativePath_\"></script>",
+              "<script src=\"_relativePath_\" defer></script>",
+              "<script type=\"module\" src=\"_relativePath_\"></script>",
+              "<script src=\"_relativePath_\" async></script>",
               "<script type=\"text/javascript\" src=\"_relativePath_\"></script>"
+            ],
+            "enumDescriptions": [
+              "Modern minimal — type is the HTML5 default",
+              "Deferred execution — runs after parsing, preserves order",
+              "ES module — native ESM in HTML",
+              "Async execution — order-independent, runs when downloaded",
+              "Legacy — includes redundant type=\"text/javascript\""
             ]
           },
-          "importStatements.markup.htmlImageImportStyle": {
-            "title": "HTML image import styles for script",
-            "description": "Supported HTML image import styles for script",
+          "drag-import.importStatement.markup.htmlImageImportStyle": {
+            "title": "HTML <img> tag style",
+            "description": "Tag inserted at the cursor when an image source is imported into a .html destination. Choose between a basic tag, a lazy-loading variant, or an HTML embed with explicit dimensions. '_relativePath_' is replaced with the computed relative path.",
             "type": "string",
             "default": "<img src=\"_relativePath_\" alt=\"sample\">",
             "enum": [
-              "<img src=\"_relativePath_\" alt=\"sample\">"
+              "<img src=\"_relativePath_\" alt=\"sample\">",
+              "<img src=\"_relativePath_\" alt=\"\" loading=\"lazy\">",
+              "<img src=\"_relativePath_\" alt=\"\" width=\"\" height=\"\">"
+            ],
+            "enumDescriptions": [
+              "Standard <img> tag with placeholder alt text",
+              "Lazy loading — opt-in for below-fold images",
+              "Explicit dimensions — Core Web Vitals CLS prevention"
             ]
           },
-          "importStatements.markup.htmlStyleSheetImportStyle": {
-            "title": "HTML import styles from stylesheet",
-            "description": "Supported HTML import styles from stylesheet",
+          "drag-import.importStatement.markup.htmlVideoImportStyle": {
+            "title": "HTML <video> tag style",
+            "description": "Tag inserted at the cursor when a video source (.mp4, .webm, .mov) is imported into a .html destination. '_relativePath_' is replaced with the computed relative path.",
+            "type": "string",
+            "default": "<video src=\"_relativePath_\" controls></video>",
+            "enum": [
+              "<video src=\"_relativePath_\" controls></video>",
+              "<video src=\"_relativePath_\" autoplay muted loop playsinline></video>",
+              "<video src=\"_relativePath_\" controls poster=\"\"></video>",
+              "<video src=\"_relativePath_\" controls preload=\"metadata\"></video>"
+            ],
+            "enumDescriptions": [
+              "Accessible default — keyboard-navigable controls",
+              "Silent autoplay — background video (hero sections)",
+              "Controls + poster — custom thumbnail before playback",
+              "Long-form video — preload metadata only (Core Web Vitals)"
+            ]
+          },
+          "drag-import.importStatement.markup.htmlAudioImportStyle": {
+            "title": "HTML <audio> tag style",
+            "description": "Tag inserted at the cursor when an audio source (.mp3, .ogg, .wav, .m4a) is imported into a .html destination. '_relativePath_' is replaced with the computed relative path.",
+            "type": "string",
+            "default": "<audio src=\"_relativePath_\" controls></audio>",
+            "enum": [
+              "<audio src=\"_relativePath_\" controls></audio>",
+              "<audio src=\"_relativePath_\" controls preload=\"metadata\"></audio>"
+            ],
+            "enumDescriptions": [
+              "Accessible default — keyboard-navigable controls",
+              "Network-friendly — preload metadata only"
+            ]
+          },
+          "drag-import.importStatement.markup.htmlStyleSheetImportStyle": {
+            "title": "HTML <link> stylesheet style",
+            "description": "Tag inserted at the cursor when a .css source is imported into a .html destination. '_relativePath_' is replaced with the computed relative path.",
             "type": "string",
             "default": "<link href=\"_relativePath_\" rel=\"stylesheet\">",
             "enum": [
               "<link href=\"_relativePath_\" rel=\"stylesheet\">"
+            ],
+            "enumDescriptions": [
+              "Standard <link href=\"...\" rel=\"stylesheet\"> tag"
             ]
           },
-          "importStatements.markup.markdownImportStyle": {
-            "title": "Markdown import styles",
-            "description": "Supported markdown import styles",
+          "drag-import.importStatement.markup.markdownImportStyle": {
+            "title": "Markdown link style",
+            "description": "Snippet inserted at the cursor when a .md source is imported into a .md destination. '_relativePath_' is replaced with the computed relative path; 'text' becomes a snippet placeholder for the link's display text.",
             "type": "string",
-            "default": "![text](_relativePath_)",
+            "default": "[text](_relativePath_)",
             "enum": [
-              "![text](_relativePath_)"
+              "[text](_relativePath_)"
+            ],
+            "enumDescriptions": [
+              "Inline link with display-text placeholder"
             ]
           },
-          "importStatements.markup.markdownImageImportStyle": {
-            "title": "Markdown image import styles",
-            "description": "Supported markdown image import styles",
+          "drag-import.importStatement.markup.markdownImageImportStyle": {
+            "title": "Markdown image style",
+            "description": "Snippet inserted at the cursor when an image source is imported into a .md destination. Choose between bare inline, inline with title, or an HTML <img> embed. '_relativePath_' is replaced with the computed relative path.",
             "type": "string",
-            "default": "![alt-text](_relativePath_ \"Hover text\")",
+            "default": "![alt-text](_relativePath_)",
             "enum": [
+              "![alt-text](_relativePath_)",
               "![alt-text](_relativePath_ \"Hover text\")",
-              "![alt-text][image] / [image]: _relativePath_ \"Hover text\""
+              "<img src=\"_relativePath_\" alt=\"\" width=\"\" height=\"\">"
+            ],
+            "enumDescriptions": [
+              "Bare inline image — most common Markdown image form",
+              "Inline image syntax with hover-text title",
+              "HTML embed for sizing — Core Web Vitals CLS prevention"
+            ]
+          },
+          "drag-import.importStatement.latex.preserveGraphicsFileExtension": {
+            "title": "Preserve graphics file extension in LaTeX imports",
+            "description": "Keep the source .pdf / .png / .jpg / .jpeg / .eps extension on the generated \\includegraphics path. LaTeX can resolve an extensionless path against its configured graphics formats, but keeping the extension is unambiguous and matches the dropped file, so this is on by default.",
+            "type": "boolean",
+            "default": true
+          },
+          "drag-import.importStatement.latex.graphicsImportStyle": {
+            "title": "LaTeX graphics (figure) style",
+            "description": "Snippet inserted at the cursor when a graphic (.pdf, .png, .jpg, .jpeg, .eps) is imported into a .tex destination. '_relativePath_' is replaced with the computed relative path. The default figure float places \\caption before \\label so \\ref resolves to the figure number.",
+            "type": "string",
+            "default": "\\begin{figure}[htbp] \\centering \\includegraphics[width=0.5\\textwidth]{_relativePath_} \\caption{} \\label{fig:} \\end{figure}",
+            "enum": [
+              "\\begin{figure}[htbp] \\centering \\includegraphics[width=0.5\\textwidth]{_relativePath_} \\caption{} \\label{fig:} \\end{figure}",
+              "\\includegraphics[width=0.5\\textwidth]{_relativePath_}",
+              "\\includegraphics{_relativePath_}"
+            ],
+            "enumDescriptions": [
+              "Figure float — centered, sized, with caption and label",
+              "Sized graphic — width as a fraction of \\textwidth, no float",
+              "Bare graphic — natural size, no float"
+            ]
+          },
+          "drag-import.importStatement.latex.inputImportStyle": {
+            "title": "LaTeX \\input / \\include style",
+            "description": "Snippet inserted at the cursor when a .tex source is imported into a .tex destination. The .tex extension is omitted (LaTeX convention; \\include requires it). '_relativePath_' is replaced with the computed relative path.",
+            "type": "string",
+            "default": "\\input{_relativePath_}",
+            "enum": [
+              "\\input{_relativePath_}",
+              "\\include{_relativePath_}"
+            ],
+            "enumDescriptions": [
+              "Inline include — \\input (no page break)",
+              "Chapter include — \\include (page break, \\includeonly-able)"
+            ]
+          },
+          "drag-import.importStatement.latex.bibliographyImportStyle": {
+            "title": "LaTeX bibliography style",
+            "description": "Snippet inserted at the cursor when a .bib source is imported into a .tex destination. \\addbibresource (biblatex) keeps the .bib extension; \\bibliography (BibTeX) drops it. '_relativePath_' is replaced with the computed relative path.",
+            "type": "string",
+            "default": "\\addbibresource{_relativePath_}",
+            "enum": [
+              "\\addbibresource{_relativePath_}",
+              "\\bibliography{_relativePath_}"
+            ],
+            "enumDescriptions": [
+              "Modern biblatex — \\addbibresource (keeps .bib)",
+              "Legacy BibTeX — \\bibliography (drops .bib)"
             ]
           }
         }
@@ -214,20 +442,22 @@
     ]
   },
   "scripts": {
-    "vscode:prepublish": "npm run compile",
-    "compile": "tsc -p ./",
-    "watch": "tsc -watch -p ./",
-    "lint": "eslint src --ext ts"
+    "vscode:prepublish": "npm run package",
+    "compile": "npm run check-types && npm run lint && node esbuild.js",
+    "watch": "npm-run-all -p watch:*",
+    "watch:esbuild": "node esbuild.js --watch",
+    "watch:tsc": "tsc --noEmit --watch --project tsconfig.json",
+    "package": "npm run check-types && npm run lint && node esbuild.js --production",
+    "check-types": "tsc --noEmit",
+    "lint": "eslint src"
   },
   "devDependencies": {
-    "@types/glob": "^7.2.0",
-    "@types/lodash": "^4.14.182",
-    "@types/node": "16.x",
-    "@types/vscode": "^1.70.0",
-    "@typescript-eslint/eslint-plugin": "^5.31.0",
-    "@typescript-eslint/parser": "^5.31.0",
-    "eslint": "^8.20.0",
-    "glob": "^8.0.3",
-    "typescript": "^4.7.4"
+    "@types/vscode": "1.97.0",
+    "@types/node": "^22.19.18",
+    "esbuild": "^0.28.0",
+    "eslint": "^9.39.3",
+    "npm-run-all": "^4.1.5",
+    "typescript": "^5.9.3",
+    "typescript-eslint": "^8.59.2"
   }
 }
