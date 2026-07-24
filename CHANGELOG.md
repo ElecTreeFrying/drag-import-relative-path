@@ -2,7 +2,7 @@
 
 All notable changes to **Drag And Drop Import Relative Path** are documented here.
 
-## v1.0.0 (YYYY-MM-DD)
+## v1.0.0 (2026-07-24)
 
 A ground-up rebuild of the drag-and-drop import workflow: drop a file into the editor and get a correct relative-path import, with a configurable style catalogue per language.
 
