@@ -14,9 +14,16 @@ vsc-extension-quickstart.md
 local/**
 .claude/**
 assets/demo-drag.gif
-SUPPORT.md
 out/**
 coverage/**
 esbuild.js
 eslint.config.mjs
 .gitattributes
+# Local memory / tooling dir (mirrors auto-import's package exclusions)
+.remember/**
+# Private root-level working docs: exclude every root .md, then re-include only the
+# three that ship. Keeps working scaffolding out of the VSIX without naming it here.
+*.md
+!README.md
+!CHANGELOG.md
+!LICENSE.md
