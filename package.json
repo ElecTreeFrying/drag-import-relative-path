@@ -1,7 +1,7 @@
 {
   "name": "drag-import-relative-path",
   "displayName": "Drag And Drop Import Relative Path",
-  "description": "This extension improves developer productivity by allowing drag-and-drop file imports.",
+  "description": "Drag a file into the editor to generate a relative-path import — JavaScript, TypeScript, React, Angular, Vue, Svelte, Astro, MDX, CSS, SCSS, HTML, Markdown & LaTeX. 45 import styles, framework-aware placement, image/video/audio tags, LaTeX figures.",
   "publisher": "ElecTreeFrying",
   "version": "0.2.5",
   "author": {
@@ -21,15 +21,27 @@
     "email": "electreefrying.git@gmail.com",
     "url": "https://github.com/ElecTreeFrying/drag-import-relative-path/issues"
   },
+  "qna": "https://github.com/ElecTreeFrying/drag-import-relative-path/issues",
+  "pricing": "Free",
   "badges": [
     {
-      "url": "https://vsmarketplacebadges.dev/version/ElecTreeFrying.drag-import-relative-path.png",
+      "url": "https://vsmarketplacebadges.dev/version-short/ElecTreeFrying.drag-import-relative-path.png",
       "description": "Version badge",
       "href": "https://marketplace.visualstudio.com/items?itemName=ElecTreeFrying.drag-import-relative-path"
     },
     {
       "url": "https://vsmarketplacebadges.dev/downloads-short/ElecTreeFrying.drag-import-relative-path.png",
       "description": "Downloads badge",
+      "href": "https://marketplace.visualstudio.com/items?itemName=ElecTreeFrying.drag-import-relative-path"
+    },
+    {
+      "url": "https://vsmarketplacebadges.dev/installs-short/ElecTreeFrying.drag-import-relative-path.png",
+      "description": "Installs badge",
+      "href": "https://marketplace.visualstudio.com/items?itemName=ElecTreeFrying.drag-import-relative-path"
+    },
+    {
+      "url": "https://vsmarketplacebadges.dev/rating-short/ElecTreeFrying.drag-import-relative-path.png",
+      "description": "Rating badge",
       "href": "https://marketplace.visualstudio.com/items?itemName=ElecTreeFrying.drag-import-relative-path"
     }
   ],
@@ -39,7 +51,7 @@
   },
   "license": "MIT",
   "categories": [
-    "Other",
+    "Programming Languages",
     "Snippets"
   ],
   "keywords": [
@@ -55,12 +67,24 @@
     "angular",
     "react",
     "vue",
+    "svelte",
+    "astro",
     "javascript",
     "typescript",
+    "jsx",
+    "tsx",
     "css",
     "scss",
     "html",
-    "markdown"
+    "markdown",
+    "nextjs",
+    "sveltekit",
+    "sass",
+    "nodejs",
+    "vite",
+    "esm",
+    "css modules",
+    "monorepo"
   ],
   "activationEvents": [
     "onLanguage:javascript",
@@ -70,10 +94,44 @@
     "onLanguage:css",
     "onLanguage:scss",
     "onLanguage:html",
-    "onLanguage:markdown"
+    "onLanguage:markdown",
+    "onLanguage:vue",
+    "onLanguage:svelte",
+    "onLanguage:astro",
+    "onLanguage:mdx",
+    "onLanguage:latex",
+    "workspaceContains:**/*.mdx",
+    "workspaceContains:**/*.tex"
   ],
   "main": "./dist/extension.js",
+  "extensionKind": [
+    "workspace"
+  ],
+  "capabilities": {
+    "untrustedWorkspaces": {
+      "supported": true
+    },
+    "virtualWorkspaces": true
+  },
   "contributes": {
+    "commands": [
+      {
+        "command": "drag-import.setDefaultImportStyle",
+        "title": "Drag Import: Set Default Import Style"
+      },
+      {
+        "command": "drag-import.setImportPlacement",
+        "title": "Drag Import: Set Import Placement"
+      },
+      {
+        "command": "drag-import.togglePreserveScriptExtension",
+        "title": "Drag Import: Toggle Preserve Script File Extension"
+      },
+      {
+        "command": "drag-import.resetImportStyles",
+        "title": "Drag Import: Reset All Import Styles to Defaults"
+      }
+    ],
     "configuration": [
       {
         "title": "Drag And Drop Import Relative Path",
