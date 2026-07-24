@@ -3,7 +3,7 @@
   "displayName": "Drag And Drop Import Relative Path",
   "description": "Never type an import path again. Drag a file into the editor to generate a relative-path import for JavaScript, TypeScript, React, Next.js, Angular, Vue, Svelte, Astro, MDX, CSS, SCSS, HTML, Markdown & LaTeX. 45 import styles, framework-aware placement, image/video/audio tags, LaTeX figures. Works with any bundler or runtime — Vite, webpack, Rollup, esbuild, Node.js, Deno, Bun.",
   "publisher": "ElecTreeFrying",
-  "version": "0.2.5",
+  "version": "1.0.0",
   "author": {
     "name": "John James Ermitaño",
     "email": "jjgermitano@gmail.com"
