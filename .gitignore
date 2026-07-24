@@ -9,6 +9,7 @@ node_modules
 local/*
 *.vsix
 ISSUES.md
+CLAUDE.md
 .DS_Store
 Thumbs.db
 test-directories
