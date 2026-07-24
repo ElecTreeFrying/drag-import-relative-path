@@ -155,6 +155,12 @@
               "Insert at the current cursor position."
             ]
           },
+          "drag-import.preferences.requestReview": {
+            "title": "Ask for a Marketplace review",
+            "description": "Show a one-time notification asking for a Marketplace review after you have generated a number of imports. Never repeats once answered or dismissed. Turn this off to suppress it entirely.",
+            "type": "boolean",
+            "default": true
+          },
           "drag-import.importStatement.script.preserveScriptFileExtension": {
             "title": "Preserve script file extension in imports",
             "description": "Keep the source .js / .ts / .jsx / .tsx extension on the generated import path. Most module systems (Node, bundlers, TypeScript) omit it by convention, which is why this is off by default.",

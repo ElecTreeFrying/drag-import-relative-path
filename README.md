@@ -151,8 +151,11 @@ All settings live under the `drag-import` namespace. Open VS Code Settings (<kbd
 | Setting | Type | Default |
 |---|---|---|
 | `drag-import.preferences.importStatementPlacement` | string | `Bottom` |
+| `drag-import.preferences.requestReview` | boolean | `true` |
 
 Values for `importStatementPlacement`: `Top`, `Bottom`, `Cursor`. See [Placement](#placement).
+
+`requestReview` shows a single notification asking for a Marketplace review once you have generated a number of imports. It never repeats — answering or dismissing it retires the prompt permanently. Set it to `false` to suppress it entirely.
 
 <details>
 <summary><strong>Import-style defaults — Script · Stylesheet · Markup · LaTeX</strong></summary>

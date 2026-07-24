@@ -4,6 +4,7 @@ import * as path from 'path';
 import { FilePathInfo, getFilePathInfoFromPaths } from '../editor/file-path-info';
 import { showNotification } from '../editor/notification';
 import { ComputedPlacement, computeImportPlacement, isStyleBlockContext } from '../editor/placement';
+import { recordSuccessfulImport } from '../editor/review-prompt';
 import { extractFileExtension } from '../path/extension';
 import { isPairSupported } from '../gating';
 import { buildImportSnippet } from '../snippets/dispatch';
@@ -117,7 +118,9 @@ export class AutoImportOnDropProvider implements vscode.DocumentDropEditProvider
     }
 
     // At least one source survived gating and produced a non-empty snippet, so every path below
-    // returns a real edit.
+    // returns a real edit. Recorded once per drag — the fan-out above stacks a multi-file drop into
+    // one block, matching the command flow's per-gesture count.
+    recordSuccessfulImport();
 
     // Inline `url()` snippets (a non-stylesheet source into a stylesheet destination) are CSS
     // values, not standalone statements — stacking them is invalid CSS. When every candidate is

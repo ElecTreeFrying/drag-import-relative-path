@@ -14,6 +14,7 @@ A ground-up rebuild of the drag-and-drop import workflow: drop a file into the e
 - Configurable import placement (Top, Bottom, or Cursor), with frontmatter/script-block handling for `.astro`, `.vue`, and `.svelte`, and indentation matching.
 - Image, video, and audio tag generation when dropping media into HTML and Markdown; LaTeX `\includegraphics` figures.
 - Four settings commands: **Set Default Import Style**, **Set Import Placement**, **Toggle Preserve Script File Extension**, and **Reset All Import Styles to Defaults**.
+- A review prompt: after you have generated a number of imports, a single notification asks for a Marketplace review, offering **Rate It**, **Not Now**, and **Never Ask Again**. It counts gestures rather than files, never repeats once answered or dismissed, and is governed by the new `drag-import.preferences.requestReview` setting (default `true`) for anyone who would rather never see it.
 
 ### Changed
 

@@ -1,6 +1,6 @@
 # Drag And Drop Import Relative Path — Functionality Specification
 
-A VS Code extension that generates relative-path import statements for JS, TS, JSX, TSX, MDX, CSS, SCSS, HTML, Markdown, Vue, Svelte, Astro, and LaTeX files. One input gesture: **drag-and-drop** — drag a file from VS Code's Explorer into an open editor, and the extension computes the relative path and inserts the correctly-shaped import statement for that language pair. Four settings commands, one drop provider, twenty configuration settings.
+A VS Code extension that generates relative-path import statements for JS, TS, JSX, TSX, MDX, CSS, SCSS, HTML, Markdown, Vue, Svelte, Astro, and LaTeX files. One input gesture: **drag-and-drop** — drag a file from VS Code's Explorer into an open editor, and the extension computes the relative path and inserts the correctly-shaped import statement for that language pair. Four settings commands, one drop provider, twenty-one configuration settings.
 
 ---
 
@@ -545,6 +545,7 @@ Indentation matches the block, mirroring the frontmatter / script-block rules. T
 | Setting | Type | Default | Values |
 |---|---|---|---|
 | `drag-import.preferences.importStatementPlacement` | string | `"Bottom"` | `"Top"`, `"Bottom"`, `"Cursor"` |
+| `drag-import.preferences.requestReview` | boolean | `true` | `true`, `false` |
 
 ### Script
 

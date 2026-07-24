@@ -5,6 +5,7 @@ import { getAutoImportSetting } from '../config/settings';
 import { SCRIPT_FILE_EXTENSIONS, STYLESHEET_FILE_EXTENSIONS } from '../constants/extensions';
 import { FileExtension } from '../types/file-extension';
 import { FilePathInfo } from './file-path-info';
+import { recordSuccessfulImport } from './review-prompt';
 import {
   adjustForCommentBlock,
   detectBlockIndentation,
@@ -26,6 +27,11 @@ export function insertImportSnippet(
   insideStyleBlock = false,
 ): void {
   const { sourceFileExt, destinationFileExt } = info;
+
+  // Every command path reaches here only after gating passed and the snippet came back non-empty, so
+  // this is the command flow's single "an import actually happened" point. Multi-file gestures join
+  // into one block upstream, so this counts gestures rather than files.
+  recordSuccessfulImport();
 
   if (isInlineSnippet(sourceFileExt, destinationFileExt)) {
     return insertSnippetInline(snippet);
