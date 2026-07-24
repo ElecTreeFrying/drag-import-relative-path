@@ -2,6 +2,25 @@
 
 All notable changes to **Drag And Drop Import Relative Path** are documented here.
 
+## v1.0.0 (YYYY-MM-DD)
+
+A ground-up rebuild of the drag-and-drop import workflow: drop a file into the editor and get a correct relative-path import, with a configurable style catalogue per language.
+
+### Added
+
+- Drag-and-drop imports for many more languages: Vue (`.vue`), Svelte (`.svelte`), Astro (`.astro`), MDX (`.mdx`), and LaTeX (`.tex`) — alongside the existing JavaScript, TypeScript, React, CSS, SCSS, HTML, and Markdown.
+- A full per-language catalogue of import styles (ES module default / named / namespace / side-effect, CommonJS `require`, dynamic `import`, TypeScript type-only and mixed, SCSS `@use` / `@forward` / `@import`, HTML `<script>` / `<img>` / `<video>` / `<audio>` / `<link>`, Markdown link / image, LaTeX figure / `\input` / bibliography).
+- Framework-aware import naming for Angular files (`.component`, `.directive`, `.pipe`, `.service`, `.module` derive a PascalCase identifier).
+- Configurable import placement (Top, Bottom, or Cursor), with frontmatter/script-block handling for `.astro`, `.vue`, and `.svelte`, and indentation matching.
+- Image, video, and audio tag generation when dropping media into HTML and Markdown; LaTeX `\includegraphics` figures.
+- Four settings commands: **Set Default Import Style**, **Set Import Placement**, **Toggle Preserve Script File Extension**, and **Reset All Import Styles to Defaults**.
+
+### Changed
+
+- Settings now live under the `drag-import.*` namespace (e.g. `drag-import.importStatement.script.javascriptImportStyle`). The previous `importStatements.*` keys are no longer used; earlier customisations do not carry over — re-select them via the settings commands.
+- Minimum supported VS Code raised to 1.97 (required by the drag-and-drop API this release is built on). Older editors keep receiving the last 0.2.x build automatically.
+- Rebuilt and bundled with esbuild; packaging trimmed.
+
 ## v0.2.5 (2023-8-27)
 
 ### Changed

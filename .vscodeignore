@@ -13,7 +13,8 @@ vsc-extension-quickstart.md
 **/.env
 local/**
 .claude/**
-DEMO.md
+assets/demo-drag.gif
+SUPPORT.md
 out/**
 coverage/**
 esbuild.js
