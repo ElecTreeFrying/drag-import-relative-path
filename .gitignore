@@ -1,5 +1,7 @@
 out
 dist
+coverage
+*.tsbuildinfo
 node_modules
 .env
 .vscode/*
@@ -8,4 +10,12 @@ local/*
 *.vsix
 ISSUES.md
 .DS_Store
+Thumbs.db
 test-directories
+
+# Logs
+*.log
+npm-debug.log*
+
+# Playwright MCP screenshot/console output (tooling artifact)
+.playwright-mcp/

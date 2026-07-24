@@ -12,8 +12,10 @@ vsc-extension-quickstart.md
 .env
 **/.env
 local/**
-dist/**
 .claude/**
 DEMO.md
-out/test/**
-out/test-directories/**
+out/**
+coverage/**
+esbuild.js
+eslint.config.mjs
+.gitattributes
