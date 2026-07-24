@@ -1,29 +1,22 @@
 .vscode/**
 .vscode-test/**
+out/**
+node_modules/**
 src/**
 .gitignore
-.yarnrc
-vsc-extension-quickstart.md
+.gitattributes
+esbuild.js
 **/tsconfig.json
-**/.eslintrc.json
+**/eslint.config.mjs
 **/*.map
 **/*.ts
-**/.DS_Store
-.env
-**/.env
-local/**
-.claude/**
-assets/demo-drag.gif
-out/**
 coverage/**
-esbuild.js
-eslint.config.mjs
-.gitattributes
-# Local memory / tooling dir (mirrors auto-import's package exclusions)
+CLAUDE.md
+SPEC.md
+SUPPORT.md
+PLAN.md
+package-lock.json
+.claude/**
 .remember/**
-# Private root-level working docs: exclude every root .md, then re-include only the
-# three that ship. Keeps working scaffolding out of the VSIX without naming it here.
-*.md
-!README.md
-!CHANGELOG.md
-!LICENSE.md
+assets/*.gif
+**/.DS_Store

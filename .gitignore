@@ -1,22 +1,29 @@
+# Build output
 out
 dist
 coverage
 *.tsbuildinfo
+
+# Dependencies
 node_modules
-.env
-.vscode/*
+
+# VS Code extension testing & packaging
 .vscode-test/
-local/*
 *.vsix
-ISSUES.md
-CLAUDE.md
-.DS_Store
-Thumbs.db
-test-directories
 
 # Logs
 *.log
 npm-debug.log*
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Project-private assets & notes
+CLAUDE.md
+
+# Claude Code
+.claude/
 
 # Playwright MCP screenshot/console output (tooling artifact)
 .playwright-mcp/
