@@ -21,7 +21,7 @@
 
 Drag a file from the Explorer into your editor — the right import lands where you drop it. Path, syntax, and placement handled automatically.
 
-![Drag And Drop Import Relative Path demo](https://raw.githubusercontent.com/ElecTreeFrying/drag-import-relative-path/main/assets/demo-drag.gif)
+![Drag And Drop Import Relative Path demo](assets/demo-drag.gif)
 
 ---
 
