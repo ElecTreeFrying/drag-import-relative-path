@@ -1,17 +1,6 @@
 import typescriptEslint from "typescript-eslint";
 
 export default [{
-    ignores: [
-        // legacy tree, deleted in B4
-        "src/import-snippets/**",
-        "src/import-statements/**",
-        "src/model/**",
-        "src/providers/**",
-        "src/subscriptions/**",
-        "src/utilities/**",
-        "src/test/fixtures/**",
-    ],
-}, {
     files: ["**/*.ts"],
 }, {
     plugins: {
