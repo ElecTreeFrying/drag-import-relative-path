@@ -2,6 +2,18 @@
 
 All notable changes to **Drag And Drop Import Relative Path** are documented here.
 
+## v1.0.2 (2026-07-25)
+
+### Fixed
+
+- **Documentation links now work from the Marketplace listing.** The README's support-guide and changelog links resolved only when read on GitHub — on the extension's Marketplace page they led nowhere, and the demo animation didn't load. Both now resolve from either surface.
+
+### Changed
+
+- **Repo housekeeping.** Image assets moved from `assets/` to `images/`, and the extension icon is now `images/icon.png`. The Marketplace gallery banner was retuned to match the icon, and `homepage` now points at the repository root. Packaging and metadata only — no functional, API, or settings changes.
+- **README polish.** The full specification is now linked from the top of the page, and Troubleshooting points at the SPEC's notification reference for every warning the extension can show.
+- New GitHub **issue forms** (bug report / feature request) with contact links, replacing free-form issues.
+
 ## v1.0.1 (2026-07-24)
 
 Softened the Marketplace banner color from a bright red to a deep burnt orange (`#7c2d12`) so it complements the icon instead of competing with it. No functional changes.
