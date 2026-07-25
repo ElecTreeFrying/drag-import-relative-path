@@ -26,7 +26,7 @@ A ground-up rebuild of the drag-and-drop import workflow: drop a file into the e
 - Minimum supported VS Code raised to 1.97 (required by the drag-and-drop API this release is built on). Older editors keep receiving the last 0.2.x build automatically.
 - Rebuilt and bundled with esbuild; packaging trimmed.
 
-## v0.2.5 (2023-8-27)
+## v0.2.5 (2023-08-27)
 
 ### Changed
 
@@ -39,7 +39,7 @@ A ground-up rebuild of the drag-and-drop import workflow: drop a file into the e
 
 - Closes [#4](https://github.com/ElecTreeFrying/drag-import-relative-path/issues/4): because the dragged path is now read from the drop event's `DataTransfer` rather than the clipboard, drop imports no longer depend on (or overwrite) the system clipboard contents.
 
-## v0.2.4 (2023-3-28)
+## v0.2.4 (2023-03-28)
 
 ### Changed
 
@@ -49,7 +49,7 @@ A ground-up rebuild of the drag-and-drop import workflow: drop a file into the e
 - Removed the stale `### General settings` / `general.disableNotifications` documentation line from README.md.
 - Added the v0.2.4 entry to CHANGELOG.md.
 
-## v0.2.3 (2023-3-28)
+## v0.2.3 (2023-03-28)
 
 ### Added
 
@@ -72,7 +72,7 @@ A ground-up rebuild of the drag-and-drop import workflow: drop a file into the e
 - Internal restructure of the source tree with no change to the emitted import text for existing targets: the import-generation modules were renamed and regrouped (`import-paths` -> `import-snippets`, `import-texts` -> `import-statements`, `modules` -> `utilities`), the per-language entry points were renamed from `relativeImport`/`getImportText` to `snippet`/`importStatementSnippet`, the statement functions were renamed (e.g. `getCSSImport` -> `cssImportStatement`, `getJavascriptImport` -> `javascriptImportStatement`), and the drop provider was moved into a `subscriptions/` module. The HTML/Markdown statement helpers now return a `vscode.SnippetString` rather than a raw `string` (same literal output). The `ImportStyle<T>` generic was simplified to a non-generic `ImportStyle` with a numeric `value`.
 - Configuration is now read from the `auto-import.importStatement.*` settings namespace (e.g. `auto-import.importStatement.script.javascriptImportStyle`, `auto-import.importStatement.styleSheet.*`, `auto-import.importStatement.markup.*`) instead of the previous `importStatements.*` keys.
 
-## v0.2.2 (2023-3-26)
+## v0.2.2 (2023-03-26)
 
 ### Fixed
 
@@ -82,7 +82,7 @@ A ground-up rebuild of the drag-and-drop import workflow: drop a file into the e
 
 - Bumped the extension version from 0.2.1 to 0.2.2 in `package.json` (and the corresponding `package-lock.json` entry).
 
-## v0.2.1 (2023-1-13)
+## v0.2.1 (2023-01-13)
 
 ### Added
 
@@ -97,7 +97,7 @@ A ground-up rebuild of the drag-and-drop import workflow: drop a file into the e
 
 - Polished setting titles and descriptions for clarity: "drag and drop" -> "drag-and-drop" in the disable-notifications setting, fuller wording such as "Disable all drag-and-drop notifications when a file is dropped on the active pane.", and "Preserve the file extension in the relative path." (applied to both the script and stylesheet preserve-extension settings).
 
-## v0.2.0 (2023-1-12)
+## v0.2.0 (2023-01-12)
 
 ### Added
 
@@ -120,7 +120,7 @@ A ground-up rebuild of the drag-and-drop import workflow: drop a file into the e
 
 - Removed the `DifferentFileExtension` notification type (from `NotifyType`) and its dedicated "Different file extension." error message. Drops that aren't supported (including mismatched extensions) now consistently surface a single "Not supported." warning instead.
 
-## v0.1.18 (2022-8-21)
+## v0.1.18 (2022-08-21)
 
 ### Changed
 
@@ -131,19 +131,19 @@ A ground-up rebuild of the drag-and-drop import workflow: drop a file into the e
 - Deleted the Mocha integration-test suite: `src/test/runTest.ts`, `src/test/suite/index.ts`, and `src/test/suite/extension.test.ts`.
 - Removed the `pretest` and `test` npm scripts from package.json (the `lint` and `compile`/`watch` scripts are retained).
 
-## v0.1.17 (2022-8-21)
+## v0.1.17 (2022-08-21)
 
 ### Changed
 
 - Maintenance release: internal test scaffolding and linting/lockfile cleanup only, with no changes to drag-and-drop import behavior. The sample unit test now activates the extension, activate() returns its ExtensionContext to support that, and an invalid ESLint naming-convention rule value was corrected.
 
-## v0.1.16 (2022-8-21)
+## v0.1.16 (2022-08-21)
 
 ### Changed
 
 - Version bumped to 0.1.16 (package.json and package-lock.json); no source code changes in this release.
 
-## v0.1.15 (2022-8-21)
+## v0.1.15 (2022-08-21)
 
 ### Fixed
 
@@ -160,7 +160,7 @@ A ground-up rebuild of the drag-and-drop import workflow: drop a file into the e
 - Removed the `src/providers/settings-config.ts` module (and its re-export from `src/providers/index.ts`), which held configuration values read once at activation time and caused the stale-settings behavior.
 - Removed the early `if (!editor) return { insertText: undefined };` guard in the drop provider that bailed out when there was no active text editor; the handler now relies on the `_document` argument provided to `provideDocumentDropEdits` instead of `vscode.window.activeTextEditor`.
 
-## v0.1.14 (2022-8-21)
+## v0.1.14 (2022-08-21)
 
 ### Changed
 
@@ -169,11 +169,11 @@ A ground-up rebuild of the drag-and-drop import workflow: drop a file into the e
 - Internal refactor of the import-style configuration module: renamed `src/providers/config-list.ts` to `src/providers/import-configuration.ts` and the `ConfigItem<T>` interface (in `src/model/interfaces.ts`) to `ImportStyle<T>`. Updated the import-text generators (`javascript-typescript.ts`, `css-scss.ts`, `html-markdown.ts`) to import the module as `importStyle` and use the `ImportStyle` type, and updated the providers barrel (`src/providers/index.ts`) to re-export from the renamed file. No import styles, languages, or behavior changed.
 - Documentation: pointed the README changelog link at the VS Code Marketplace changelog page (was the GitHub `CHANGELOG.md` link), and reworked the README/DEMO usage-example links and tables (reference-style "more usage examples" links, a new "More usage examples" section in the README, and the DEMO TypeScript/JavaScript table split into one row per extension). Formatting and links only; no change to supported extensions or import styles.
 
-## v0.1.13 (2022-8-19)
+## v0.1.13 (2022-08-19)
 
 ### Added
 
-- New [DEMO.md](./DEMO.md) usage guide with a supported-file-extensions table, step-by-step drag/drop instructions, and per-language sections (Typescript/Javascript/TSX/JSX, HTML, CSS/SCSS, Markdown) each with its own demo GIF.
+- New [DEMO.md](https://github.com/ElecTreeFrying/drag-import-relative-path/blob/v0.1.13/DEMO.md) usage guide with a supported-file-extensions table, step-by-step drag/drop instructions, and per-language sections (Typescript/Javascript/TSX/JSX, HTML, CSS/SCSS, Markdown) each with its own demo GIF.
 - Marketplace Version and Downloads badges to the top of the README (rendered via reference-style links to vsmarketplacebadges.dev) and a corresponding `badges` array in package.json (version badge from vsmarketplacebadge.apphb.com, downloads badge from vsmarketplacebadges.dev).
 - A new markdown-demo GIF and a "Click here for more usage examples" link to DEMO.md in the README.
 
@@ -188,7 +188,7 @@ A ground-up rebuild of the drag-and-drop import workflow: drop a file into the e
 - Added `local/*` and `ISSUES.md` to .gitignore.
 - Bumped the version to 0.1.13 (package.json and package-lock.json).
 
-## v0.1.12 (2022-8-18)
+## v0.1.12 (2022-08-18)
 
 ### Fixed
 
@@ -199,13 +199,13 @@ A ground-up rebuild of the drag-and-drop import workflow: drop a file into the e
 
 - Updated the README demo GIF, swapping the generic `demo.gif` for `html-demo.gif` to showcase the corrected HTML drop behavior.
 
-## v0.1.11 (2022-8-18)
+## v0.1.11 (2022-08-18)
 
 ### Changed
 
 - Maintenance release: version bump 0.1.10 to 0.1.11 (package.json and package-lock.json), with one wording cleanup to the `importStatements.markup.htmlImageImportStyle` setting's `description` field — "Supported image HTML import styles for script" reworded to "Supported HTML image import styles for script", aligning its word order with the setting's already-correct `title` ("HTML image import styles for script"). No change to the setting's options/enum, default, or any runtime behavior.
 
-## v0.1.10 (2022-8-18)
+## v0.1.10 (2022-08-18)
 
 ### Changed
 
@@ -213,7 +213,7 @@ A ground-up rebuild of the drag-and-drop import workflow: drop a file into the e
 - Corrected the htmlImageImportStyle option's title, which mistakenly read "HTML import styles for script" and now reads "HTML image import styles for script". The htmlScriptImportStyle title was left unchanged.
 - Settings metadata only: no source/behavior changes, no new configuration keys, languages, default values, or enum import styles were introduced (only the displayName-adjacent description/title strings were edited).
 
-## v0.1.9 (2022-8-18)
+## v0.1.9 (2022-08-18)
 
 ### Added
 
@@ -237,7 +237,7 @@ A ground-up rebuild of the drag-and-drop import workflow: drop a file into the e
 
 - Corrected the JSDoc summary lines for the CSS and SCSS image-import helpers in src/import-texts/css-scss.ts, which previously described the image-import functions as plain "CSS"/"SCSS" import styles instead of "CSS image"/"SCSS image" import styles.
 
-## v0.1.8 (2022-8-18)
+## v0.1.8 (2022-08-18)
 
 ### Fixed
 
@@ -245,7 +245,7 @@ A ground-up rebuild of the drag-and-drop import workflow: drop a file into the e
 - Dropping a `.css` stylesheet (or any file with a different extension) into a CSS document is no longer blocked by the "different file extension" warning. `.css` was missing from the same-extension bypass list that already covered `.html`, `.md`, and `.scss`, so legitimate drops into CSS files were rejected.
 - Stylesheets dragged into CSS/SCSS files are now treated as stylesheet `@import` rules instead of image imports. A fall-through `switch` (missing `break`/`return` statements) let the `.css`/`.scss` cases fall into the `default`, overwriting the intended `null` import option with `'image'` for every drop, so dragging one stylesheet into another produced an image-style import; the option is now selected with a ternary that yields `null` for `.css`/`.scss` sources and `'image'` only for non-stylesheet files.
 
-## v0.1.7 (2022-8-18)
+## v0.1.7 (2022-08-18)
 
 ### Added
 
@@ -269,7 +269,7 @@ A ground-up rebuild of the drag-and-drop import workflow: drop a file into the e
 - Dropped the `RelativePathOptions` interface and the now-unused `options` / `preserveFileExt` parameter from `getRelativePath()`; relative paths are always returned with the file extension stripped, and the call site no longer passes `{ preserveFileExt: true }`.
 - Removed the unused `FileExtensions` import in `src/providers/supported-file-extensions.ts`, which is now typed entirely with `SupportedFileExtensions`.
 
-## v0.1.6 (2022-8-18)
+## v0.1.6 (2022-08-18)
 
 ### Added
 
@@ -286,7 +286,7 @@ A ground-up rebuild of the drag-and-drop import workflow: drop a file into the e
 - The drop handler now calls `getRelativePath(..., { preserveFileExt: true })` instead of `false`, so the computed relative path retains the dragged file's extension. Note that the per-language branches in `getImportText` still append the extension on top (e.g. `relativePath + getFileExt(dragFilePath)`), so on the CSS, HTML, Markdown, and CSS-into-SCSS paths this results in the extension appearing twice (e.g. `foo.css.css`).
 - Introduced `ImageFileExtensions` and `SupportedFileExtensions` type aliases in `model/types.ts` and applied them to the provider lists: `supportedImages` is now typed `ImageFileExtensions[]`, `htmlSupported` and `markdownSupported` are typed `SupportedFileExtensions[]`, and the new `scssSupported` is typed `FileExtensions[]`. No change to existing HTML/Markdown drop behavior.
 
-## v0.1.5 (2022-8-18)
+## v0.1.5 (2022-08-18)
 
 ### Removed
 
@@ -303,13 +303,13 @@ A ground-up rebuild of the drag-and-drop import workflow: drop a file into the e
 
 - Removed leftover debug `console.log` calls (logging the preserve-extension flag and the dragged file extension) that ran on every script-file drop in `src/utils/import-text.ts`.
 
-## v0.1.4 (2022-8-18)
+## v0.1.4 (2022-08-18)
 
 ### Changed
 
 - Added explicit `enum: [true, false]` constraints to the three boolean settings `general.disableNotifications`, `importStatements.script.preserveScriptFileExtension`, and `importStatements.styleSheet.preserveStylesheetFileExtension`, so each now presents an explicit true/false dropdown in the VS Code Settings UI instead of an unbounded boolean field. No behavior or defaults changed (all three still default to `false`).
 
-## v0.1.3 (2022-8-18)
+## v0.1.3 (2022-08-18)
 
 ### Added
 
@@ -324,19 +324,19 @@ A ground-up rebuild of the drag-and-drop import workflow: drop a file into the e
 
 - Updated `settings-config.ts` to read the renamed `preserveScriptFileExtension` and `preserveStylesheetFileExtension` keys, so the "Preserve file extension" options are correctly applied when building import text after the config rename.
 
-## v0.1.2 (2022-8-18)
+## v0.1.2 (2022-08-18)
 
 ### Changed
 
 - Switched the extension's `activationEvents` from the wildcard `"*"` to [`"onStartupFinished"`](https://code.visualstudio.com/api/references/activation-events#onStartupFinished), so it no longer activates eagerly during VS Code's launch. The extension now loads only after the editor has finished starting up, reducing its impact on startup performance (commit "updated activation events").
 
-## v0.1.1 (2022-8-18)
+## v0.1.1 (2022-08-18)
 
 ### Changed
 
 - Maintenance release: version bump to 0.1.1 (package.json and package-lock.json) with no source-code changes. The only content edit switches the four Visual Studio Marketplace README badges (version, downloads, installs, rating) on vsmarketplacebadges.dev from `.svg` to `.png` image URLs.
 
-## v0.1.0 (2022-8-18)
+## v0.1.0 (2022-08-18)
 
 ### Added
 
