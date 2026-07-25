@@ -21,7 +21,7 @@
 
 Drag a file from the Explorer into your editor — the right import lands where you drop it. Path, syntax, and placement handled automatically.
 
-![Drag And Drop Import Relative Path demo](https://raw.githubusercontent.com/ElecTreeFrying/drag-import-relative-path/main/assets/demo-drag.gif)
+![Drag And Drop Import Relative Path demo](https://raw.githubusercontent.com/ElecTreeFrying/drag-import-relative-path/main/images/demo-drag.gif)
 
 ---
 
@@ -258,7 +258,7 @@ Relative paths are computed from the destination's directory to the source, alwa
 
 If a drop does nothing, an import looks wrong, or you see an unexpected warning — see [SUPPORT.md][SUPPORT] for symptom → cause → fix.
 
-[SUPPORT]: SUPPORT.md
+[SUPPORT]: https://github.com/ElecTreeFrying/drag-import-relative-path/blob/main/SUPPORT.md
 
 ---
 
@@ -266,7 +266,7 @@ If a drop does nothing, an import looks wrong, or you see an unexpected warning 
 
 See [CHANGELOG.md][CHANGELOG] for full release notes.
 
-[CHANGELOG]: CHANGELOG.md
+[CHANGELOG]: https://marketplace.visualstudio.com/items/ElecTreeFrying.drag-import-relative-path/changelog
 
 ---
 
@@ -274,7 +274,7 @@ See [CHANGELOG.md][CHANGELOG] for full release notes.
 
 Contributions, bug reports, and feature requests are welcome. See [SUPPORT.md][SUPPORT-CONTRIB] for build commands and the architecture overview.
 
-[SUPPORT-CONTRIB]: SUPPORT.md#contributing
+[SUPPORT-CONTRIB]: https://github.com/ElecTreeFrying/drag-import-relative-path/blob/main/SUPPORT.md#contributing
 
 ---
 
