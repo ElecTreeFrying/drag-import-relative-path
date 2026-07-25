@@ -14,6 +14,7 @@
 [license-badge]: https://img.shields.io/github/license/ElecTreeFrying/drag-import-relative-path
 [vscode-badge]: https://img.shields.io/badge/vscode-%3E%3D1.97.0-blue
 [package]: https://marketplace.visualstudio.com/items?itemName=ElecTreeFrying.drag-import-relative-path
+[repo]: https://github.com/ElecTreeFrying/drag-import-relative-path
 
 > **Never type an import path again.**
 
@@ -33,6 +34,10 @@ Drag a file from the Explorer into your editor — the right import lands where 
 4. Your cursor is on the identifier — name it and <kbd>Tab</kbd> out.
 
 > **Several files at once:** drag an Explorer multi-selection — the imports land as one stacked block, one per file, each with its own independent placeholder.
+
+[**See the full specification**][SPEC]
+
+[SPEC]: https://github.com/ElecTreeFrying/drag-import-relative-path/blob/main/SPEC.md
 
 ---
 
@@ -237,7 +242,7 @@ Relative paths are computed from the destination's directory to the source, alwa
 - **Marketplace:** Extensions view (<kbd>Cmd</kbd>/<kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>X</kbd>) → search **Drag And Drop Import Relative Path** by *ElecTreeFrying* → **Install**.
 - **CLI:** `code --install-extension ElecTreeFrying.drag-import-relative-path`
 - **Direct:** [VS Code Marketplace listing][package]
-- **Cursor / Windsurf / VSCodium / Gitpod:** search **Drag And Drop Import Relative Path** in the Extensions panel — served via [Open VSX][open-vsx].
+- **Cursor / Windsurf / VSCodium / Gitpod:** Search **Drag And Drop Import Relative Path** in the Extensions panel — served via [Open VSX][open-vsx].
 
 [open-vsx]: https://open-vsx.org/extension/ElecTreeFrying/drag-import-relative-path
 
@@ -245,11 +250,11 @@ Relative paths are computed from the destination's directory to the source, alwa
 
 ## Compatibility
 
-- **VS Code** 1.97.0 or later.
+- **VS Code:** 1.97.0 or later.
 - **Registries:** Available on both the [VS Code Marketplace][package] and [Open VSX][open-vsx].
 - **Compatible hosts:** Cursor, Windsurf, VSCodium, Gitpod, Code Server, and other forks that implement the VS Code API at the same engine version — installable directly from their Extensions panel via Open VSX.
 - **Platforms:** macOS, Windows, Linux. Paths are normalized to forward slashes on all platforms.
-- **Bundle:** ~12 KB gzipped (~44 KB minified). Zero runtime dependencies.
+- **Footprint:** ~12 KB gzipped (~44 KB minified). Zero runtime dependencies.
 - **Telemetry:** None. Everything runs locally.
 
 ---
@@ -258,7 +263,12 @@ Relative paths are computed from the destination's directory to the source, alwa
 
 If a drop does nothing, an import looks wrong, or you see an unexpected warning — see [SUPPORT.md][SUPPORT] for symptom → cause → fix.
 
+See [SPEC — §Notification Reference][SPEC-notifications] for a complete list of all warning and info messages.
+
+Still stuck? Please open an issue on [GitHub Issues][issues].
+
 [SUPPORT]: https://github.com/ElecTreeFrying/drag-import-relative-path/blob/main/SUPPORT.md
+[SPEC-notifications]: https://github.com/ElecTreeFrying/drag-import-relative-path/blob/main/SPEC.md#notification-reference
 
 ---
 
@@ -272,8 +282,11 @@ See [CHANGELOG.md][CHANGELOG] for full release notes.
 
 ## Contributing
 
-Contributions, bug reports, and feature requests are welcome. See [SUPPORT.md][SUPPORT-CONTRIB] for build commands and the architecture overview.
+Contributions, bug reports, and feature requests are welcome in [GitHub Issues][issues]. See [SUPPORT.md][SUPPORT-CONTRIB] for build commands and the architecture overview.
 
+See [SPEC.md][SPEC] for the full behavior contract — behavior changes belong there too.
+
+[issues]: https://github.com/ElecTreeFrying/drag-import-relative-path/issues
 [SUPPORT-CONTRIB]: https://github.com/ElecTreeFrying/drag-import-relative-path/blob/main/SUPPORT.md#contributing
 
 ---
@@ -286,7 +299,6 @@ Contributions, bug reports, and feature requests are welcome. See [SUPPORT.md][S
 - Leave a review on the [VS Code Marketplace][reviews]
 - Send a donation to any address below
 
-[repo]: https://github.com/ElecTreeFrying/drag-import-relative-path
 [reviews]: https://marketplace.visualstudio.com/items?itemName=ElecTreeFrying.drag-import-relative-path&ssr=false#review-details
 
 | Network | Address |
