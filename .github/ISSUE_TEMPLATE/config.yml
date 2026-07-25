@@ -1,0 +1,11 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Troubleshooting guide
+    url: https://github.com/ElecTreeFrying/drag-import-relative-path/blob/main/SUPPORT.md
+    about: Symptom → cause → fix for the most common problems. Please check here first.
+  - name: Full specification
+    url: https://github.com/ElecTreeFrying/drag-import-relative-path/blob/main/SPEC.md
+    about: Every setting, rejection rule, and supported file pair, documented in detail.
+  - name: Marketplace Q&A
+    url: https://marketplace.visualstudio.com/items?itemName=ElecTreeFrying.drag-import-relative-path&ssr=false#qna
+    about: Ask a question or leave feedback on the Marketplace listing.

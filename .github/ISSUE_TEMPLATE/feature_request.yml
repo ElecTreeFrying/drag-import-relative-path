@@ -1,0 +1,49 @@
+name: Feature request
+description: A new import shape, language pair, or capability you're missing
+labels: [ "enhancement" ]
+body:
+  - type: checkboxes
+    id: prior
+    attributes:
+      label: Before filing
+      options:
+        - label: I searched [existing issues](https://github.com/ElecTreeFrying/drag-import-relative-path/issues?q=is%3Aissue) and this isn't already requested
+          required: true
+        - label: I checked [SPEC.md — Supported File Extensions](https://github.com/ElecTreeFrying/drag-import-relative-path/blob/main/SPEC.md#supported-file-extensions) and it isn't already supported
+  - type: textarea
+    id: what
+    attributes:
+      label: What do you want to drop, and where?
+      description: The source file type and the destination file type.
+      placeholder: 'e.g. a .json file into .ts · a .glsl shader into .tsx · a .styl file into .vue'
+    validations:
+      required: true
+  - type: textarea
+    id: example
+    attributes:
+      label: The exact statement you'd expect
+      description: Paste the line as you'd want it inserted.
+      placeholder: |
+        import data from './fixtures/users.json' with { type: 'json' };
+    validations:
+      required: true
+  - type: textarea
+    id: frequency
+    attributes:
+      label: How common is this shape?
+      description: >
+        New shapes are judged mainly on how often the *import form* is actually written — not on whether it
+        works somewhere. Links to framework docs listing it as the common pattern, or to popular repos using
+        it, carry the most weight.
+      placeholder: 'e.g. it is the documented pattern in the Vite and Next.js docs; used in most Remix apps I have seen'
+  - type: textarea
+    id: toolchains
+    attributes:
+      label: Which toolchains support it?
+      description: The other main gate is portability across toolchains — a shape that only works in one bundler usually doesn't ship.
+      placeholder: 'e.g. Node 22+, Deno, Bun, Vite 5+, webpack 5 — but not tsc yet'
+  - type: textarea
+    id: workaround
+    attributes:
+      label: How do you handle it today?
+      description: By hand, a different extension, a snippet… (helps us judge urgency, and sometimes there's already a way — happy to point it out)

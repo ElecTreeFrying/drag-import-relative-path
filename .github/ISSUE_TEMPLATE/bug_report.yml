@@ -1,0 +1,76 @@
+name: Bug report
+description: A drop produced the wrong import, errored, or didn't behave as documented
+labels: [ "bug" ]
+body:
+  - type: checkboxes
+    id: prior
+    attributes:
+      label: Before filing
+      options:
+        - label: I searched [existing issues](https://github.com/ElecTreeFrying/drag-import-relative-path/issues?q=is%3Aissue) and this isn't a duplicate
+          required: true
+        - label: I checked [SUPPORT.md](https://github.com/ElecTreeFrying/drag-import-relative-path/blob/main/SUPPORT.md) for a known cause and fix
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: Summary
+      description: One or two sentences — what went wrong, and how much it affects your work.
+      placeholder: 'e.g. dropping any .scss file into a .vue <style> block inserts a script-side import instead of @use — every SCSS-into-Vue drop is affected'
+    validations:
+      required: true
+  - type: input
+    id: pair
+    attributes:
+      label: Source file → destination file
+      description: The two file types involved. Multi-selections — list them all.
+      placeholder: 'e.g. logo.svg → App.tsx · styles.scss → main.scss · figure.pdf → paper.tex'
+    validations:
+      required: true
+  - type: textarea
+    id: statement
+    attributes:
+      label: Statement inserted vs. expected
+      description: Paste both lines exactly as they appeared.
+      placeholder: |
+        Inserted:  import './styles.css';
+        Expected:  @use './styles' as styles;
+    validations:
+      required: true
+  - type: textarea
+    id: repro
+    attributes:
+      label: Steps to reproduce
+      description: Numbered steps, starting from a fresh editor.
+      placeholder: |
+        1. Open a .vue file, put the cursor inside the <style> block
+        2. Drag theme.scss from the Explorer onto that line
+        3. Observe the inserted statement
+    validations:
+      required: true
+  - type: textarea
+    id: settings
+    attributes:
+      label: Relevant settings
+      description: 'Cmd/Ctrl+Shift+P → **Preferences: Open User Settings (JSON)** — paste any non-default `drag-import.*` lines (import styles, placement, preserve-extension toggles).'
+      placeholder: |
+        drag-import.importStatement.styleSheet.scssImportStyle: 2
+        drag-import.preferences.importStatementPlacement: Cursor
+        drag-import.importStatement.script.preserveScriptFileExtension: true
+  - type: dropdown
+    id: environment
+    attributes:
+      label: Where does it happen?
+      options:
+        - VS Code desktop
+        - VSCodium / Cursor / Windsurf (VS Code-compatible build)
+        - Remote — SSH, WSL, Dev Container, or Codespaces
+    validations:
+      required: true
+  - type: input
+    id: versions
+    attributes:
+      label: VS Code version · extension version · OS
+      description: 'VS Code → **Help / Code → About**. Extension version is on its entry in the Extensions pane. OS matters here — relative paths are built differently per platform.'
+      placeholder: 'e.g. 1.102.0 · 1.0.1 · macOS 15.5'
+    validations:
+      required: true
