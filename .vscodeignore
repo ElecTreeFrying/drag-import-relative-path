@@ -1,22 +1,42 @@
+# Editor & CI config
 .vscode/**
 .vscode-test/**
-out/**
+.github/**
+
+# Dependencies & build output — the .vsix ships dist/, never its inputs
 node_modules/**
+out/**
+coverage/**
+
+# Source & build tooling
 src/**
-.gitignore
-.gitattributes
 esbuild.js
 **/tsconfig.json
 **/eslint.config.mjs
-**/*.map
 **/*.ts
-coverage/**
+**/*.map
+
+# Repo config with no runtime role
+.gitignore
+.gitattributes
+package-lock.json
+
+# Maintainer docs — written for contributors, never shipped to users
 CLAUDE.md
 SPEC.md
 SUPPORT.md
 PLAN.md
-package-lock.json
+
+# Local-only working trees — agent state, private notes, design libraries.
+# Self-ignored from git, so they never appear in `git status` — but vsce packages
+# from disk, not from git, and would otherwise ship them. Must stay named here.
 .claude/**
 .remember/**
-assets/*.gif
+
+# Demo media — the README loads these from GitHub, so the package stays lean.
+# images/icon.png is the Marketplace icon and must NOT be excluded.
+images/*.gif
+images/social-preview.png
+
+# OS cruft
 **/.DS_Store

@@ -19,11 +19,16 @@ npm-debug.log*
 .DS_Store
 Thumbs.db
 
-# Project-private assets & notes
+# Local-only working trees — kept on disk, never committed.
+# CLAUDE.md is local-only in this repo (unlike the other three, which track it).
 CLAUDE.md
-
-# Claude Code
+# Agent session state. Self-ignored by .remember/.gitignore too; named here so the tree stays
+# ignored even if that file is ever lost.
+.remember/
 .claude/
 
-# Playwright MCP screenshot/console output (tooling artifact)
+# Local media — masters and cards that never enter the tree
+images/social-preview.png
+
+# Tooling artifacts
 .playwright-mcp/
