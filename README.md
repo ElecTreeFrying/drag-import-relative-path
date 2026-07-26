@@ -295,10 +295,12 @@ See [SPEC.md][SPEC] for the full behavior contract — behavior changes belong t
 
 **This extension is free and always will be.** If it's become part of your workflow, here are a few ways to give back:
 
+- **Sponsor** on [GitHub Sponsors][sponsors] — one-time or monthly
 - Star the repo on [GitHub][repo]
 - Leave a review on the [VS Code Marketplace][reviews]
 - Send a donation to any address below
 
+[sponsors]: https://github.com/sponsors/ElecTreeFrying
 [reviews]: https://marketplace.visualstudio.com/items?itemName=ElecTreeFrying.drag-import-relative-path&ssr=false#review-details
 
 | Network | Address |
