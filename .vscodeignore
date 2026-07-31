@@ -31,7 +31,6 @@ PLAN.md
 # Self-ignored from git, so they never appear in `git status` — but vsce packages
 # from disk, not from git, and would otherwise ship them. Must stay named here.
 .claude/**
-.remember/**
 
 # Demo media — the README loads these from GitHub, so the package stays lean.
 # images/icon.png is the Marketplace icon and must NOT be excluded.
