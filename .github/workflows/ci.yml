@@ -1,0 +1,40 @@
+name: CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      # This repo carries no test suite by design, so `npm run compile`
+      # — check-types + lint + esbuild — IS the definition of green.
+      - name: Compile
+        run: npm run compile
+
+      # Exactly what `vscode:prepublish` runs before every publish.
+      - name: Production bundle
+        run: npm run package
