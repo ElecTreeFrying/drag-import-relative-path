@@ -2,6 +2,20 @@
 
 All notable changes to **Drag And Drop Import Relative Path** are documented here.
 
+## v1.0.3 (2026-08-08)
+
+### Added
+
+- **Runs in the browser.** A web build now ships alongside the desktop one, so the extension loads on [vscode.dev](https://vscode.dev) and [github.dev](https://github.dev) — drag a file from the explorer into an editor there and you get the same relative-path import. The web build uses POSIX-only path handling, matching what those hosts expose; the desktop build is untouched and keeps its platform-correct Windows behavior.
+- **Commands and settings now follow VS Code's display language.** All four command titles, the extension's name and description, and every setting's title, description, and dropdown descriptions render in Simplified Chinese, Spanish, French, Brazilian Portuguese, Russian, German, Japanese, or Turkish. English is the fallback for every other display language. The **Drag Import** prefix stays verbatim in every language, so a single palette search still surfaces all four commands.
+
+### Changed
+
+- **What stays English, on purpose.** Setting *values* — the import styles and the `Top` / `Bottom` / `Cursor` placements — are matched at runtime, so only their descriptions are translated. Toasts and Quick Picks shown while the extension is running are English too.
+- **Open VSX is now linked directly from the README** — a version badge, an **Open VSX listing** line under Installation, and a link to the publisher's other extensions on the registry. Compatibility notes that the listing is published by **WinterNova5**, a verified Open VSX publisher, and now records that the extension runs on the web.
+- **The publisher reads as WinterNova5** throughout the README. Install commands, URLs, and the extension id are unchanged.
+- **GitHub Sponsors** now sits alongside the existing donation options.
+
 ## v1.0.2 (2026-07-25)
 
 ### Fixed
