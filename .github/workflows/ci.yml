@@ -7,6 +7,8 @@ on:
     branches: [ main ]
   workflow_dispatch:
 
+# Least privilege by default. No job here writes to the repo; a job that ever needs
+# to should raise its own `permissions:` block rather than widening this one.
 permissions:
   contents: read
 
@@ -16,15 +18,23 @@ concurrency:
 
 jobs:
   build:
-    name: Build
+    name: Build (node ${{ matrix.node }})
     runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    strategy:
+      fail-fast: false
+      matrix:
+        # 20 is what the extension host ships today; 22 is the forward check, so a
+        # toolchain break on a newer Node surfaces here rather than on a dev machine.
+        node: [ 20, 22 ]
 
     steps:
       - uses: actions/checkout@v4
 
       - uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: ${{ matrix.node }}
           cache: npm
 
       - name: Install dependencies
@@ -38,3 +48,85 @@ jobs:
       # Exactly what `vscode:prepublish` runs before every publish.
       - name: Production bundle
         run: npm run package
+
+      # Both bundles must land. The browser target is the web-cleanliness gate —
+      # esbuild hard-fails it on any Node built-in — so asserting the file exists
+      # is asserting the extension is still vscode.dev-safe.
+      - name: Assert both bundles exist
+        run: test -f dist/extension.js && test -f dist/web/extension.js
+
+  localization:
+    name: Localization bundles
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      # No `npm ci` — the gate is dependency-free on purpose, so a broken lockfile
+      # can never mask a broken translation. It decides everything from the files
+      # on disk: unresolved %key% placeholders, keys missing from a locale, keys
+      # localized in runtime-matched positions (enum values, defaults, command ids).
+      - name: Verify package.nls bundles
+        run: node .github/scripts/check-nls.js
+
+  package:
+    name: VSIX packages
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    needs: [ build, localization ]
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      # The release gate CI was missing. `npm run compile` can pass while the VSIX
+      # still fails to build — a bad .vscodeignore, an invalid `contributes` block,
+      # or a missing icon only surface here. Pinned to the v3 line so a future
+      # major release of vsce cannot silently change what this gate means.
+      - name: Build the VSIX
+        run: npx --yes @vscode/vsce@^3 package --out extension.vsix
+
+      # Authoritative shipping check: inspect the archive itself rather than
+      # reasoning about .vscodeignore globs.
+      - name: Assert the VSIX contents are correct
+        run: |
+          unzip -l extension.vsix > listing.txt
+          fail=0
+
+          for loc in "" .zh-cn .es .fr .pt-br .ru .de .ja .tr; do
+            if ! grep -q "package.nls${loc}.json" listing.txt; then
+              echo "MISSING from VSIX: package.nls${loc}.json"
+              fail=1
+            fi
+          done
+
+          # Maintainer-only trees must never ship. Each is excluded deliberately
+          # in .vscodeignore; this is what proves the exclusion still holds.
+          for leak in "extension/src/" "CLAUDE.md" "extension/.github/" "SPEC.md" "PLAN.md"; do
+            if grep -q "$leak" listing.txt; then
+              echo "LEAKED into VSIX: $leak"
+              fail=1
+            fi
+          done
+
+          echo "--- VSIX contents ---"
+          cat listing.txt
+          exit $fail
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: vsix
+          path: extension.vsix
+          retention-days: 14
