@@ -260,6 +260,7 @@ Relative paths are computed from the destination's directory to the source, alwa
 - **Registries:** Available on both the [VS Code Marketplace][package] and [Open VSX][open-vsx] — published by **WinterNova5**, a verified Open VSX publisher.
 - **Compatible hosts:** Cursor, Windsurf, VSCodium, Gitpod, Code Server, and other forks that implement the VS Code API at the same engine version — installable directly from their Extensions panel via Open VSX.
 - **Web:** Runs on [vscode.dev](https://vscode.dev) and [github.dev](https://github.dev) — a browser build ships in the extension.
+- **Display language:** Command titles and every setting follow VS Code's display language — Simplified Chinese, Spanish, French, Brazilian Portuguese, Russian, German, Japanese, and Turkish, with English as the fallback. The **Drag Import** prefix stays verbatim in every language, so one palette search still finds all four commands.
 - **Platforms:** macOS, Windows, Linux. Paths are normalized to forward slashes on all platforms.
 - **Footprint:** ~12 KB gzipped (~44 KB minified). Zero runtime dependencies.
 - **Telemetry:** None. Everything runs locally.

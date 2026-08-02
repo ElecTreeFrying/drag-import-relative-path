@@ -12,7 +12,7 @@ All notable changes to **Drag And Drop Import Relative Path** are documented her
 ### Changed
 
 - **What stays English, on purpose.** Setting *values* — the import styles and the `Top` / `Bottom` / `Cursor` placements — are matched at runtime, so only their descriptions are translated. Toasts and Quick Picks shown while the extension is running are English too.
-- **Open VSX is now linked directly from the README** — a version badge, an **Open VSX listing** line under Installation, and a link to the publisher's other extensions on the registry. Compatibility notes that the listing is published by **WinterNova5**, a verified Open VSX publisher, and now records that the extension runs on the web.
+- **Open VSX is now linked directly from the README** — a version badge, an **Open VSX listing** line under Installation, and a link to the publisher's other extensions on the registry. Compatibility notes that the listing is published by **WinterNova5**, a verified Open VSX publisher, and now records both that the extension runs on the web and which display languages it ships in.
 - **The publisher reads as WinterNova5** throughout the README. Install commands, URLs, and the extension id are unchanged.
 - **GitHub Sponsors** now sits alongside the existing donation options.
 
