@@ -93,10 +93,15 @@ jobs:
 
       # The release gate CI was missing. `npm run compile` can pass while the VSIX
       # still fails to build — a bad .vscodeignore, an invalid `contributes` block,
-      # or a missing icon only surface here. Pinned to the v3 line so a future
-      # major release of vsce cannot silently change what this gate means.
+      # or a missing icon only surface here.
+      #
+      # Invoked by explicit path, NOT `npx vsce` or `npm exec -- vsce`. Both of those
+      # fall back to the registry when the binary is absent, and the unscoped `vsce`
+      # package there is DEPRECATED and frozen at 2.15.0 — an error that reads like a
+      # manifest bug and is not one. This path resolves only to the `@vscode/vsce`
+      # version in package-lock.json, so CI and a local publish run use the same tool.
       - name: Build the VSIX
-        run: npx --yes @vscode/vsce@^3 package --out extension.vsix
+        run: ./node_modules/.bin/vsce package --out extension.vsix
 
       # Authoritative shipping check: inspect the archive itself rather than
       # reasoning about .vscodeignore globs.
