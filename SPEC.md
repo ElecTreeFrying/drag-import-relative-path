@@ -701,3 +701,13 @@ The manifest declares how the extension loads across VS Code's workspace-trust, 
 | `extensionKind` | `["workspace"]` | Runs on the workspace host in remote setups (Remote-SSH, WSL, Dev Containers, Codespaces), so relative paths are computed next to the files they reference rather than on the local UI host. |
 
 The drop provider is registered with a `scheme: 'file'` selector (see Drag-and-Drop → Supported destination languages), so it activates only for on-disk, file-backed documents — independent of these host declarations.
+
+---
+
+## Localization
+
+The manifest is localized into eight display languages. `displayName`, `description`, the four command titles, and every setting's title, description, and enum descriptions render in VS Code's display language when it is Simplified Chinese (`zh-cn`), Spanish (`es`), French (`fr`), Brazilian Portuguese (`pt-br`), Russian (`ru`), German (`de`), Japanese (`ja`), or Turkish (`tr`); English is the base (`package.nls.json`) and the per-key fallback for every other display language. All nine `package.nls*.json` files ship in the VSIX; the Marketplace listing shows the English base.
+
+Titles keep the **Drag Import** prefix verbatim in every language — only the action text is translated (`Drag Import: Set Import Placement` → de `Drag Import: Importplatzierung festlegen`, fr `Drag Import : Définir l'emplacement de l'importation`, zh-cn `Drag Import: 设置导入插入位置`) — so typing "Drag Import" in the Command Palette surfaces all four commands under any display language.
+
+Deliberately not localized: configuration **values** — the import-style enum strings, the placement values `Top` / `Bottom` / `Cursor`, and every default in the [Configuration Reference](#configuration-reference) — are runtime-matched settings values and stay English in every display language; only their descriptions are translated. Runtime UI — toasts, Quick Picks, and their action buttons — is English.

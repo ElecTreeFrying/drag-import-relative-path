@@ -1,0 +1,33 @@
+version: 2
+
+updates:
+  # Extension dependencies. Dev dependencies are grouped into a single PR;
+  # anything that ships to users gets its own PR so it can be reviewed alone.
+  - package-ecosystem: npm
+    directory: /
+    schedule:
+      interval: weekly
+      day: monday
+    open-pull-requests-limit: 5
+    commit-message:
+      prefix: chore
+      include: scope
+    # Wait a week before proposing a freshly published version. Malicious or
+    # broken npm releases are typically caught and yanked inside that window.
+    cooldown:
+      default-days: 7
+    groups:
+      dev-dependencies:
+        dependency-type: development
+
+  # The actions pinned in .github/workflows/
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: weekly
+      day: monday
+    open-pull-requests-limit: 3
+    commit-message:
+      prefix: chore
+    cooldown:
+      default-days: 7

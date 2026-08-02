@@ -22,9 +22,7 @@ Thumbs.db
 # Local-only working trees — kept on disk, never committed.
 # CLAUDE.md is local-only in this repo (unlike the other three, which track it).
 CLAUDE.md
-# Agent session state. Self-ignored by .remember/.gitignore too; named here so the tree stays
-# ignored even if that file is ever lost.
-.remember/
+# Agent session state.
 .claude/
 
 # Local media — masters and cards that never enter the tree

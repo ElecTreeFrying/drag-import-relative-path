@@ -4,15 +4,20 @@
 [![installs][installs-badge]][package]
 [![downloads][downloads-badge]][package]
 [![rating][rating-badge]][package]
-[![license][license-badge]][repo]
+[![open vsx][ovsx-badge]][open-vsx]
 [![vscode][vscode-badge]][package]
+[![license][license-badge]][repo]
+
+[![sponsor][sponsor-badge]][sponsors]
 
 [version-badge]: https://vsmarketplacebadges.dev/version-short/ElecTreeFrying.drag-import-relative-path.png
 [installs-badge]: https://vsmarketplacebadges.dev/installs-short/ElecTreeFrying.drag-import-relative-path.png
 [downloads-badge]: https://vsmarketplacebadges.dev/downloads-short/ElecTreeFrying.drag-import-relative-path.png
 [rating-badge]: https://vsmarketplacebadges.dev/rating-short/ElecTreeFrying.drag-import-relative-path.png
-[license-badge]: https://img.shields.io/github/license/ElecTreeFrying/drag-import-relative-path
+[ovsx-badge]: https://img.shields.io/open-vsx/v/ElecTreeFrying/drag-import-relative-path
 [vscode-badge]: https://img.shields.io/badge/vscode-%3E%3D1.97.0-blue
+[license-badge]: https://img.shields.io/github/license/ElecTreeFrying/drag-import-relative-path
+[sponsor-badge]: https://img.shields.io/badge/GitHub_Sponsors-ea4aaa?logo=githubsponsors&logoColor=white
 [package]: https://marketplace.visualstudio.com/items?itemName=ElecTreeFrying.drag-import-relative-path
 [repo]: https://github.com/ElecTreeFrying/drag-import-relative-path
 
@@ -242,6 +247,7 @@ Relative paths are computed from the destination's directory to the source, alwa
 - **Marketplace:** Extensions view (<kbd>Cmd</kbd>/<kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>X</kbd>) → search **Drag And Drop Import Relative Path** by *WinterNova5* → **Install**.
 - **CLI:** `code --install-extension ElecTreeFrying.drag-import-relative-path`
 - **Direct:** [VS Code Marketplace listing][package]
+- **Direct (Open VSX):** [Open VSX listing][open-vsx]
 - **Cursor / Windsurf / VSCodium / Gitpod:** Search **Drag And Drop Import Relative Path** in the Extensions panel — served via [Open VSX][open-vsx].
 
 [open-vsx]: https://open-vsx.org/extension/ElecTreeFrying/drag-import-relative-path
@@ -251,8 +257,10 @@ Relative paths are computed from the destination's directory to the source, alwa
 ## Compatibility
 
 - **VS Code:** 1.97.0 or later.
-- **Registries:** Available on both the [VS Code Marketplace][package] and [Open VSX][open-vsx].
+- **Registries:** Available on both the [VS Code Marketplace][package] and [Open VSX][open-vsx] — published by **WinterNova5**, a verified Open VSX publisher.
 - **Compatible hosts:** Cursor, Windsurf, VSCodium, Gitpod, Code Server, and other forks that implement the VS Code API at the same engine version — installable directly from their Extensions panel via Open VSX.
+- **Web:** Runs on [vscode.dev](https://vscode.dev) and [github.dev](https://github.dev) — a browser build ships in the extension.
+- **Display language:** Command titles and every setting follow VS Code's display language — Simplified Chinese, Spanish, French, Brazilian Portuguese, Russian, German, Japanese, and Turkish, with English as the fallback. The **Drag Import** prefix stays verbatim in every language, so one palette search still finds all four commands.
 - **Platforms:** macOS, Windows, Linux. Paths are normalized to forward slashes on all platforms.
 - **Footprint:** ~12 KB gzipped (~44 KB minified). Zero runtime dependencies.
 - **Telemetry:** None. Everything runs locally.
@@ -314,9 +322,10 @@ See [SPEC.md][SPEC] for the full behavior contract — behavior changes belong t
 
 ## Related
 
-- **[All extensions by WinterNova5][all]** on the VS Code Marketplace.
+- **[All extensions by WinterNova5][all]** on the VS Code Marketplace — and on [Open VSX][all-ovsx].
 
 [all]: https://marketplace.visualstudio.com/publishers/ElecTreeFrying
+[all-ovsx]: https://open-vsx.org/namespace/ElecTreeFrying
 
 ---
 

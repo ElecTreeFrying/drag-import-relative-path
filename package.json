@@ -1,7 +1,7 @@
 {
   "name": "drag-import-relative-path",
-  "displayName": "Drag And Drop Import Relative Path",
-  "description": "Never type an import path again. Drag a file into the editor to generate a relative-path import for JavaScript, TypeScript, React, Next.js, Angular, Vue, Svelte, Astro, MDX, CSS, SCSS, HTML, Markdown & LaTeX. 45 import styles, framework-aware placement, image/video/audio tags, LaTeX figures. Works with any bundler or runtime — Vite, webpack, Rollup, esbuild, Node.js, Deno, Bun.",
+  "displayName": "%displayName%",
+  "description": "%description%",
   "publisher": "ElecTreeFrying",
   "version": "1.0.2",
   "author": {
@@ -107,6 +107,7 @@
     "workspaceContains:**/*.tex"
   ],
   "main": "./dist/extension.js",
+  "browser": "./dist/web/extension.js",
   "extensionKind": [
     "workspace"
   ],
@@ -120,28 +121,28 @@
     "commands": [
       {
         "command": "drag-import.setDefaultImportStyle",
-        "title": "Drag Import: Set Default Import Style"
+        "title": "%command.setDefaultImportStyle.title%"
       },
       {
         "command": "drag-import.setImportPlacement",
-        "title": "Drag Import: Set Import Placement"
+        "title": "%command.setImportPlacement.title%"
       },
       {
         "command": "drag-import.togglePreserveScriptExtension",
-        "title": "Drag Import: Toggle Preserve Script File Extension"
+        "title": "%command.togglePreserveScriptExtension.title%"
       },
       {
         "command": "drag-import.resetImportStyles",
-        "title": "Drag Import: Reset All Import Styles to Defaults"
+        "title": "%command.resetImportStyles.title%"
       }
     ],
     "configuration": [
       {
-        "title": "Drag And Drop Import Relative Path",
+        "title": "%configuration.title%",
         "properties": {
           "drag-import.preferences.importStatementPlacement": {
-            "title": "Import statement placement",
-            "description": "Where to insert generated import statements in the destination file. Forced to 'Cursor' for HTML, Markdown, LaTeX, and when importing a non-stylesheet into a stylesheet. For .astro files, placement is constrained to the frontmatter block; for .vue and .svelte files, to the script block. Default: Bottom.",
+            "title": "%config.preferences.importStatementPlacement.title%",
+            "description": "%config.preferences.importStatementPlacement.description%",
             "type": "string",
             "default": "Bottom",
             "enum": [
@@ -150,26 +151,26 @@
               "Cursor"
             ],
             "enumDescriptions": [
-              "Insert before the first line of the file.",
-              "Append after the last recognised import / require / @import / @use line. Falls back to line 0 if no import is found.",
-              "Insert at the current cursor position."
+              "%config.preferences.importStatementPlacement.enumDescriptions.0%",
+              "%config.preferences.importStatementPlacement.enumDescriptions.1%",
+              "%config.preferences.importStatementPlacement.enumDescriptions.2%"
             ]
           },
           "drag-import.preferences.requestReview": {
-            "title": "Ask for a Marketplace review",
-            "description": "Show a one-time notification asking for a Marketplace review after you have generated a number of imports. Never repeats once answered or dismissed. Turn this off to suppress it entirely.",
+            "title": "%config.preferences.requestReview.title%",
+            "description": "%config.preferences.requestReview.description%",
             "type": "boolean",
             "default": true
           },
           "drag-import.importStatement.script.preserveScriptFileExtension": {
-            "title": "Preserve script file extension in imports",
-            "description": "Keep the source .js / .ts / .jsx / .tsx extension on the generated import path. Most module systems (Node, bundlers, TypeScript) omit it by convention, which is why this is off by default.",
+            "title": "%config.importStatement.script.preserveScriptFileExtension.title%",
+            "description": "%config.importStatement.script.preserveScriptFileExtension.description%",
             "type": "boolean",
             "default": false
           },
           "drag-import.importStatement.script.javascriptImportStyle": {
-            "title": "JavaScript / JSX import style",
-            "description": "Template used for .js destinations, and for .js / .jsx sources imported into .jsx, .tsx, or .mdx files. '_relativePath_' is replaced with the computed relative path; 'name' becomes a snippet placeholder so your cursor lands on it after insertion.",
+            "title": "%config.importStatement.script.javascriptImportStyle.title%",
+            "description": "%config.importStatement.script.javascriptImportStyle.description%",
             "type": "string",
             "default": "import name from '_relativePath_';",
             "enum": [
@@ -182,18 +183,18 @@
               "const name = await import('_relativePath_');"
             ],
             "enumDescriptions": [
-              "ES module: default import",
-              "ES module: named import (destructured)",
-              "ES module: default + named import (mixed)",
-              "ES module: namespace import (every export bound under one name)",
-              "ES module: side-effect import (no binding)",
-              "CommonJS: const require()",
-              "Dynamic import: lazy-load / code-splitting"
+              "%config.importStatement.script.javascriptImportStyle.enumDescriptions.0%",
+              "%config.importStatement.script.javascriptImportStyle.enumDescriptions.1%",
+              "%config.importStatement.script.javascriptImportStyle.enumDescriptions.2%",
+              "%config.importStatement.script.javascriptImportStyle.enumDescriptions.3%",
+              "%config.importStatement.script.javascriptImportStyle.enumDescriptions.4%",
+              "%config.importStatement.script.javascriptImportStyle.enumDescriptions.5%",
+              "%config.importStatement.script.javascriptImportStyle.enumDescriptions.6%"
             ]
           },
           "drag-import.importStatement.script.typescriptImportStyle": {
-            "title": "TypeScript / TSX import style",
-            "description": "Template used for .ts destinations, for .ts / .tsx sources imported into .tsx or .mdx files, and for all script sources imported into .vue, .svelte, or .astro files. '_relativePath_' is replaced with the computed relative path; 'name' becomes a snippet placeholder. With the 'import { name }' shape, Angular file conventions (.component, .directive, .pipe, .service, .module) auto-fill 'name' with a PascalCase identifier derived from the basename — for example, app-root.component.ts becomes { AppRootComponent }.",
+            "title": "%config.importStatement.script.typescriptImportStyle.title%",
+            "description": "%config.importStatement.script.typescriptImportStyle.description%",
             "type": "string",
             "default": "import { name } from '_relativePath_';",
             "enum": [
@@ -206,24 +207,24 @@
               "const name = await import('_relativePath_');"
             ],
             "enumDescriptions": [
-              "ES module: named import — legacy Angular files (.component / .directive / .pipe / .service / .module) auto-fill PascalCase identifiers (back-compat)",
-              "ES module: default import",
-              "ES module: namespace import (every export bound under one name)",
-              "ES module: side-effect import (no binding)",
-              "TypeScript: type-only import (TS 3.8+ — zero runtime, erased at compile time)",
-              "TypeScript: mixed value + type import (TS 4.5+ inline modifier)",
-              "Dynamic import: lazy-load / code-splitting"
+              "%config.importStatement.script.typescriptImportStyle.enumDescriptions.0%",
+              "%config.importStatement.script.typescriptImportStyle.enumDescriptions.1%",
+              "%config.importStatement.script.typescriptImportStyle.enumDescriptions.2%",
+              "%config.importStatement.script.typescriptImportStyle.enumDescriptions.3%",
+              "%config.importStatement.script.typescriptImportStyle.enumDescriptions.4%",
+              "%config.importStatement.script.typescriptImportStyle.enumDescriptions.5%",
+              "%config.importStatement.script.typescriptImportStyle.enumDescriptions.6%"
             ]
           },
           "drag-import.importStatement.styleSheet.preserveStylesheetFileExtension": {
-            "title": "Preserve stylesheet file extension in imports",
-            "description": "Keep the source .css / .scss extension on the generated import path. Applies to .scss-into-.scss imports and to a .scss source imported inside a Vue / Svelte / Astro <style> block. Exception: .css extensions are always preserved inside .scss imports — Sass requires the extension to recognise a foreign-language import, and this setting has no effect there.",
+            "title": "%config.importStatement.styleSheet.preserveStylesheetFileExtension.title%",
+            "description": "%config.importStatement.styleSheet.preserveStylesheetFileExtension.description%",
             "type": "boolean",
             "default": false
           },
           "drag-import.importStatement.styleSheet.cssImportStyle": {
-            "title": "CSS @import style",
-            "description": "Template used when a .css source is imported into a .css destination, or into a Vue / Svelte / Astro <style> block. '_relativePath_' is replaced with the computed relative path.",
+            "title": "%config.importStatement.styleSheet.cssImportStyle.title%",
+            "description": "%config.importStatement.styleSheet.cssImportStyle.description%",
             "type": "string",
             "default": "@import '_relativePath_';",
             "enum": [
@@ -231,25 +232,25 @@
               "@import url('_relativePath_');"
             ],
             "enumDescriptions": [
-              "@import with quoted path",
-              "@import with url() function"
+              "%config.importStatement.styleSheet.cssImportStyle.enumDescriptions.0%",
+              "%config.importStatement.styleSheet.cssImportStyle.enumDescriptions.1%"
             ]
           },
           "drag-import.importStatement.styleSheet.cssImageImportStyle": {
-            "title": "CSS image reference style",
-            "description": "Snippet used when an image source is imported into a .css destination — typically for background-image, content, mask-image, and similar properties. '_relativePath_' is replaced with the computed relative path.",
+            "title": "%config.importStatement.styleSheet.cssImageImportStyle.title%",
+            "description": "%config.importStatement.styleSheet.cssImageImportStyle.description%",
             "type": "string",
             "default": "url('_relativePath_')",
             "enum": [
               "url('_relativePath_')"
             ],
             "enumDescriptions": [
-              "Standard url() function"
+              "%config.importStatement.styleSheet.cssImageImportStyle.enumDescriptions.0%"
             ]
           },
           "drag-import.importStatement.styleSheet.scssImportStyle": {
-            "title": "SCSS @import / @use style",
-            "description": "Template used when a .scss or .css source is imported into a .scss destination, or into a Vue / Svelte / Astro <style> block. Modern Sass uses @use for a true module system; legacy Sass uses @import. Leading underscores on partial filenames (e.g. _variables.scss) are stripped automatically to match Sass's partial-resolution convention.",
+            "title": "%config.importStatement.styleSheet.scssImportStyle.title%",
+            "description": "%config.importStatement.styleSheet.scssImportStyle.description%",
             "type": "string",
             "default": "@use '_relativePath_';",
             "enum": [
@@ -260,28 +261,28 @@
               "@import '_relativePath_';"
             ],
             "enumDescriptions": [
-              "Modern @use — Sass module system (recommended)",
-              "Modern @use with wildcard alias — no namespace prefix required",
-              "Modern @use with named alias",
-              "Sass module re-export — barrel pattern",
-              "Legacy @import — Sass-deprecated"
+              "%config.importStatement.styleSheet.scssImportStyle.enumDescriptions.0%",
+              "%config.importStatement.styleSheet.scssImportStyle.enumDescriptions.1%",
+              "%config.importStatement.styleSheet.scssImportStyle.enumDescriptions.2%",
+              "%config.importStatement.styleSheet.scssImportStyle.enumDescriptions.3%",
+              "%config.importStatement.styleSheet.scssImportStyle.enumDescriptions.4%"
             ]
           },
           "drag-import.importStatement.styleSheet.scssImageImportStyle": {
-            "title": "SCSS image reference style",
-            "description": "Snippet used when an image source is imported into a .scss destination. Reuses the CSS image template — the url() syntax is identical between the two languages.",
+            "title": "%config.importStatement.styleSheet.scssImageImportStyle.title%",
+            "description": "%config.importStatement.styleSheet.scssImageImportStyle.description%",
             "type": "string",
             "default": "url('_relativePath_')",
             "enum": [
               "url('_relativePath_')"
             ],
             "enumDescriptions": [
-              "Standard url() function (shared with CSS)"
+              "%config.importStatement.styleSheet.scssImageImportStyle.enumDescriptions.0%"
             ]
           },
           "drag-import.importStatement.markup.htmlScriptImportStyle": {
-            "title": "HTML <script> tag style",
-            "description": "Tag inserted at the cursor when a .js source is imported into a .html destination. '_relativePath_' is replaced with the computed relative path.",
+            "title": "%config.importStatement.markup.htmlScriptImportStyle.title%",
+            "description": "%config.importStatement.markup.htmlScriptImportStyle.description%",
             "type": "string",
             "default": "<script src=\"_relativePath_\"></script>",
             "enum": [
@@ -292,16 +293,16 @@
               "<script type=\"text/javascript\" src=\"_relativePath_\"></script>"
             ],
             "enumDescriptions": [
-              "Modern minimal — type is the HTML5 default",
-              "Deferred execution — runs after parsing, preserves order",
-              "ES module — native ESM in HTML",
-              "Async execution — order-independent, runs when downloaded",
-              "Legacy — includes redundant type=\"text/javascript\""
+              "%config.importStatement.markup.htmlScriptImportStyle.enumDescriptions.0%",
+              "%config.importStatement.markup.htmlScriptImportStyle.enumDescriptions.1%",
+              "%config.importStatement.markup.htmlScriptImportStyle.enumDescriptions.2%",
+              "%config.importStatement.markup.htmlScriptImportStyle.enumDescriptions.3%",
+              "%config.importStatement.markup.htmlScriptImportStyle.enumDescriptions.4%"
             ]
           },
           "drag-import.importStatement.markup.htmlImageImportStyle": {
-            "title": "HTML <img> tag style",
-            "description": "Tag inserted at the cursor when an image source is imported into a .html destination. Choose between a basic tag, a lazy-loading variant, or an HTML embed with explicit dimensions. '_relativePath_' is replaced with the computed relative path.",
+            "title": "%config.importStatement.markup.htmlImageImportStyle.title%",
+            "description": "%config.importStatement.markup.htmlImageImportStyle.description%",
             "type": "string",
             "default": "<img src=\"_relativePath_\" alt=\"sample\">",
             "enum": [
@@ -310,14 +311,14 @@
               "<img src=\"_relativePath_\" alt=\"\" width=\"\" height=\"\">"
             ],
             "enumDescriptions": [
-              "Standard <img> tag with placeholder alt text",
-              "Lazy loading — opt-in for below-fold images",
-              "Explicit dimensions — Core Web Vitals CLS prevention"
+              "%config.importStatement.markup.htmlImageImportStyle.enumDescriptions.0%",
+              "%config.importStatement.markup.htmlImageImportStyle.enumDescriptions.1%",
+              "%config.importStatement.markup.htmlImageImportStyle.enumDescriptions.2%"
             ]
           },
           "drag-import.importStatement.markup.htmlVideoImportStyle": {
-            "title": "HTML <video> tag style",
-            "description": "Tag inserted at the cursor when a video source (.mp4, .webm, .mov) is imported into a .html destination. '_relativePath_' is replaced with the computed relative path.",
+            "title": "%config.importStatement.markup.htmlVideoImportStyle.title%",
+            "description": "%config.importStatement.markup.htmlVideoImportStyle.description%",
             "type": "string",
             "default": "<video src=\"_relativePath_\" controls></video>",
             "enum": [
@@ -327,15 +328,15 @@
               "<video src=\"_relativePath_\" controls preload=\"metadata\"></video>"
             ],
             "enumDescriptions": [
-              "Accessible default — keyboard-navigable controls",
-              "Silent autoplay — background video (hero sections)",
-              "Controls + poster — custom thumbnail before playback",
-              "Long-form video — preload metadata only (Core Web Vitals)"
+              "%config.importStatement.markup.htmlVideoImportStyle.enumDescriptions.0%",
+              "%config.importStatement.markup.htmlVideoImportStyle.enumDescriptions.1%",
+              "%config.importStatement.markup.htmlVideoImportStyle.enumDescriptions.2%",
+              "%config.importStatement.markup.htmlVideoImportStyle.enumDescriptions.3%"
             ]
           },
           "drag-import.importStatement.markup.htmlAudioImportStyle": {
-            "title": "HTML <audio> tag style",
-            "description": "Tag inserted at the cursor when an audio source (.mp3, .ogg, .wav, .m4a) is imported into a .html destination. '_relativePath_' is replaced with the computed relative path.",
+            "title": "%config.importStatement.markup.htmlAudioImportStyle.title%",
+            "description": "%config.importStatement.markup.htmlAudioImportStyle.description%",
             "type": "string",
             "default": "<audio src=\"_relativePath_\" controls></audio>",
             "enum": [
@@ -343,37 +344,37 @@
               "<audio src=\"_relativePath_\" controls preload=\"metadata\"></audio>"
             ],
             "enumDescriptions": [
-              "Accessible default — keyboard-navigable controls",
-              "Network-friendly — preload metadata only"
+              "%config.importStatement.markup.htmlAudioImportStyle.enumDescriptions.0%",
+              "%config.importStatement.markup.htmlAudioImportStyle.enumDescriptions.1%"
             ]
           },
           "drag-import.importStatement.markup.htmlStyleSheetImportStyle": {
-            "title": "HTML <link> stylesheet style",
-            "description": "Tag inserted at the cursor when a .css source is imported into a .html destination. '_relativePath_' is replaced with the computed relative path.",
+            "title": "%config.importStatement.markup.htmlStyleSheetImportStyle.title%",
+            "description": "%config.importStatement.markup.htmlStyleSheetImportStyle.description%",
             "type": "string",
             "default": "<link href=\"_relativePath_\" rel=\"stylesheet\">",
             "enum": [
               "<link href=\"_relativePath_\" rel=\"stylesheet\">"
             ],
             "enumDescriptions": [
-              "Standard <link href=\"...\" rel=\"stylesheet\"> tag"
+              "%config.importStatement.markup.htmlStyleSheetImportStyle.enumDescriptions.0%"
             ]
           },
           "drag-import.importStatement.markup.markdownImportStyle": {
-            "title": "Markdown link style",
-            "description": "Snippet inserted at the cursor when a .md source is imported into a .md destination. '_relativePath_' is replaced with the computed relative path; 'text' becomes a snippet placeholder for the link's display text.",
+            "title": "%config.importStatement.markup.markdownImportStyle.title%",
+            "description": "%config.importStatement.markup.markdownImportStyle.description%",
             "type": "string",
             "default": "[text](_relativePath_)",
             "enum": [
               "[text](_relativePath_)"
             ],
             "enumDescriptions": [
-              "Inline link with display-text placeholder"
+              "%config.importStatement.markup.markdownImportStyle.enumDescriptions.0%"
             ]
           },
           "drag-import.importStatement.markup.markdownImageImportStyle": {
-            "title": "Markdown image style",
-            "description": "Snippet inserted at the cursor when an image source is imported into a .md destination. Choose between bare inline, inline with title, or an HTML <img> embed. '_relativePath_' is replaced with the computed relative path.",
+            "title": "%config.importStatement.markup.markdownImageImportStyle.title%",
+            "description": "%config.importStatement.markup.markdownImageImportStyle.description%",
             "type": "string",
             "default": "![alt-text](_relativePath_)",
             "enum": [
@@ -382,20 +383,20 @@
               "<img src=\"_relativePath_\" alt=\"\" width=\"\" height=\"\">"
             ],
             "enumDescriptions": [
-              "Bare inline image — most common Markdown image form",
-              "Inline image syntax with hover-text title",
-              "HTML embed for sizing — Core Web Vitals CLS prevention"
+              "%config.importStatement.markup.markdownImageImportStyle.enumDescriptions.0%",
+              "%config.importStatement.markup.markdownImageImportStyle.enumDescriptions.1%",
+              "%config.importStatement.markup.markdownImageImportStyle.enumDescriptions.2%"
             ]
           },
           "drag-import.importStatement.latex.preserveGraphicsFileExtension": {
-            "title": "Preserve graphics file extension in LaTeX imports",
-            "description": "Keep the source .pdf / .png / .jpg / .jpeg / .eps extension on the generated \\includegraphics path. LaTeX can resolve an extensionless path against its configured graphics formats, but keeping the extension is unambiguous and matches the dropped file, so this is on by default.",
+            "title": "%config.importStatement.latex.preserveGraphicsFileExtension.title%",
+            "description": "%config.importStatement.latex.preserveGraphicsFileExtension.description%",
             "type": "boolean",
             "default": true
           },
           "drag-import.importStatement.latex.graphicsImportStyle": {
-            "title": "LaTeX graphics (figure) style",
-            "description": "Snippet inserted at the cursor when a graphic (.pdf, .png, .jpg, .jpeg, .eps) is imported into a .tex destination. '_relativePath_' is replaced with the computed relative path. The default figure float places \\caption before \\label so \\ref resolves to the figure number.",
+            "title": "%config.importStatement.latex.graphicsImportStyle.title%",
+            "description": "%config.importStatement.latex.graphicsImportStyle.description%",
             "type": "string",
             "default": "\\begin{figure}[htbp] \\centering \\includegraphics[width=0.5\\textwidth]{_relativePath_} \\caption{} \\label{fig:} \\end{figure}",
             "enum": [
@@ -404,14 +405,14 @@
               "\\includegraphics{_relativePath_}"
             ],
             "enumDescriptions": [
-              "Figure float — centered, sized, with caption and label",
-              "Sized graphic — width as a fraction of \\textwidth, no float",
-              "Bare graphic — natural size, no float"
+              "%config.importStatement.latex.graphicsImportStyle.enumDescriptions.0%",
+              "%config.importStatement.latex.graphicsImportStyle.enumDescriptions.1%",
+              "%config.importStatement.latex.graphicsImportStyle.enumDescriptions.2%"
             ]
           },
           "drag-import.importStatement.latex.inputImportStyle": {
-            "title": "LaTeX \\input / \\include style",
-            "description": "Snippet inserted at the cursor when a .tex source is imported into a .tex destination. The .tex extension is omitted (LaTeX convention; \\include requires it). '_relativePath_' is replaced with the computed relative path.",
+            "title": "%config.importStatement.latex.inputImportStyle.title%",
+            "description": "%config.importStatement.latex.inputImportStyle.description%",
             "type": "string",
             "default": "\\input{_relativePath_}",
             "enum": [
@@ -419,13 +420,13 @@
               "\\include{_relativePath_}"
             ],
             "enumDescriptions": [
-              "Inline include — \\input (no page break)",
-              "Chapter include — \\include (page break, \\includeonly-able)"
+              "%config.importStatement.latex.inputImportStyle.enumDescriptions.0%",
+              "%config.importStatement.latex.inputImportStyle.enumDescriptions.1%"
             ]
           },
           "drag-import.importStatement.latex.bibliographyImportStyle": {
-            "title": "LaTeX bibliography style",
-            "description": "Snippet inserted at the cursor when a .bib source is imported into a .tex destination. \\addbibresource (biblatex) keeps the .bib extension; \\bibliography (BibTeX) drops it. '_relativePath_' is replaced with the computed relative path.",
+            "title": "%config.importStatement.latex.bibliographyImportStyle.title%",
+            "description": "%config.importStatement.latex.bibliographyImportStyle.description%",
             "type": "string",
             "default": "\\addbibresource{_relativePath_}",
             "enum": [
@@ -433,8 +434,8 @@
               "\\bibliography{_relativePath_}"
             ],
             "enumDescriptions": [
-              "Modern biblatex — \\addbibresource (keeps .bib)",
-              "Legacy BibTeX — \\bibliography (drops .bib)"
+              "%config.importStatement.latex.bibliographyImportStyle.enumDescriptions.0%",
+              "%config.importStatement.latex.bibliographyImportStyle.enumDescriptions.1%"
             ]
           }
         }
@@ -452,8 +453,9 @@
     "lint": "eslint src"
   },
   "devDependencies": {
-    "@types/vscode": "1.97.0",
     "@types/node": "^22.19.18",
+    "@types/vscode": "1.97.0",
+    "@vscode/vsce": "^3.9.2",
     "esbuild": "^0.28.0",
     "eslint": "^9.39.3",
     "npm-run-all": "^4.1.5",
