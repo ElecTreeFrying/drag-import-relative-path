@@ -20,6 +20,14 @@
  *
  * Verified against Node's own `path.posix` by differential test — see
  * `src/test/path/browser-shim.test.ts`.
+ *
+ * One deliberate deviation, on the single input `'/..'`: Node's `parse()` reports
+ * `ext: '.'` there while Node's own `extname()` reports `''` for the same string —
+ * the two disagree, and only for that one path (`'/x/..'` is self-consistent at
+ * `''`). This shim keeps `''` in both, matching `extname` and its own nested-path
+ * behaviour. Do not "fix" it to match `parse`: that would replicate a Node bug for
+ * a path that cannot occur, since it names a file literally called `..` at the
+ * filesystem root.
  */
 
 const SLASH = 47; /* '/' */
@@ -129,12 +137,17 @@ export function basename(filePath: string, ext?: string): string {
  * The extension of `filePath`, from the last `.` to the end, or `''` when there is
  * none. A leading dot on the basename is a hidden file, not an extension: `.gitignore`
  * yields `''`, matching Node.
+ *
+ * `.` and `..` are relative-path segments rather than names, so both yield `''`. The
+ * `index <= 0` test already covers `.`; `..` needs its own clause, because its last
+ * dot sits at index 1 and would otherwise slice out a bare `'.'`. Longer dot runs are
+ * NOT special — Node reports `'.'` for `...`, and the slice below does the same.
  */
 export function extname(filePath: string): string {
   const base = basename(filePath);
   const index = base.lastIndexOf('.');
 
-  if (index <= 0) {
+  if (index <= 0 || base === '..') {
     return '';
   }
   return base.slice(index);
